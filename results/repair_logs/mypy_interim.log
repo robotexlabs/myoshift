@@ -1,0 +1,6 @@
+Command: ['.venv/bin/mypy', 'src']
+src/myoshift/eval/benchmark.py:381: error: Incompatible types in assignment (expression has type "str", variable has type "DecoderName")  [assignment]
+Found 1 error in 1 file (checked 19 source files)
+
+Exit: 1
+Runtime seconds: 0.543957

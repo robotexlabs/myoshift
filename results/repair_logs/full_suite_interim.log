@@ -1,0 +1,72 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', '--cov=myoshift', '--cov-report=term-missing', '--cov-report=json:results/repair_logs/coverage_interim.json', '--cov-fail-under=90', '-q']
+.........F...F...........................F..
+ERROR: Coverage failure: total of 86 is less than fail-under=90
+                                                                         [100%]
+=================================== FAILURES ===================================
+_____________________________ test_verify_scorers ______________________________
+
+    def test_verify_scorers() -> None:
+        runner = CliRunner()
+        result = runner.invoke(main, ["verify-scorers"])
+>       assert result.exit_code == 0
+E       assert 1 == 0
+E        +  where 1 = <Result SystemExit(1)>.exit_code
+
+tests/test_cli.py:11: AssertionError
+_________________________ test_channel_shift_is_cyclic _________________________
+
+    def test_channel_shift_is_cyclic() -> None:
+>       emg = np.arange(24, dtype=np.float64).reshape(4, 12)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: cannot reshape array of size 24 into shape (4,12)
+
+tests/test_features.py:9: ValueError
+_____________________ test_subject_holdout_respects_budget _____________________
+
+    def test_subject_holdout_respects_budget() -> None:
+        samples = [_ws(44, 1), _ws(44, 1), _ws(45, 1), _ws(45, 1)]
+        bundle = subject_holdout_split(samples, {45}, calibration_budget=1)
+        assert len(bundle.calibration) == 1
+>       assert len(bundle.test) == 0  # unknown support excludes the calibration record
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert 1 == 0
+E        +  where 1 = len([WindowSample(features=array([0., 0., 0.]), label=1, participant_id=45, session_id=1, trial_key='p45', time_s=0.0, is_rest=False, start_sample=None, end_sample=None, decision_duration_s=None)])
+E        +    where [WindowSample(features=array([0., 0., 0.]), label=1, participant_id=45, session_id=1, trial_key='p45', time_s=0.0, is_rest=False, start_sample=None, end_sample=None, decision_duration_s=None)] = SplitBundle(train=[WindowSample(features=array([0., 0., 0.]), label=1, participant_id=44, session_id=1, trial_key='p44...None, end_sample=None, decision_duration_s=None)], shift_type=<ShiftType.PERSON: 'person'>, held_out='participants:45').test
+
+tests/test_splits.py:25: AssertionError
+================================ tests coverage ================================
+______________ coverage: platform darwin, python 3.11.15-final-0 _______________
+
+Name                                       Stmts   Miss Branch BrPart  Cover   Missing
+--------------------------------------------------------------------------------------
+src/myoshift/__init__.py                       2      0      0      0   100%
+src/myoshift/_external.py                     19      0      0      0   100%
+src/myoshift/_version.py                       1      0      0      0   100%
+src/myoshift/cli.py                           38      6      8      2    83%   44-47, 105, 109
+src/myoshift/data/__init__.py                  2      0      0      0   100%
+src/myoshift/data/grabmyo.py                  53      6     18      6    83%   31, 35, 56, 59, 72, 88
+src/myoshift/eval/__init__.py                  2      0      0      0   100%
+src/myoshift/eval/benchmark.py               170     11     58      9    91%   56-58, 69, 137, 173, 200, 217, 221, 265, 287
+src/myoshift/eval/dataset.py                  25      2      8      0    94%   62-63
+src/myoshift/eval/metrics.py                 132     30     38     15    68%   6-8, 11, 25, 41, 47->56, 50->53, 53->54, 56->57, 63-65, 74->76, 76->78, 81, 97, 111, 119, 128->130, 132, 142->145, 153->161, 155-157, 176-177, 186, 205->208, 209-214, 217-222, 223->226, 230
+src/myoshift/eval/splits.py                   51      3     18      3    91%   65, 67, 89
+src/myoshift/features/__init__.py              2      0      0      0   100%
+src/myoshift/features/extract.py              21      2      6      2    85%   35, 37
+src/myoshift/models/__init__.py                4      0      0      0   100%
+src/myoshift/models/base.py                   15      1      0      0    93%   31
+src/myoshift/models/hysteresis.py             41      0      8      0   100%
+src/myoshift/models/lda_baseline.py           25      0      2      0   100%
+src/myoshift/models/selective_decoder.py      41      4      8      4    84%   38, 40, 48, 50
+src/myoshift/types.py                         80      3      6      3    93%   41, 43, 65
+--------------------------------------------------------------------------------------
+TOTAL                                        724     68    178     44    86%
+Coverage JSON written to file results/repair_logs/coverage_interim.json
+FAIL Required test coverage of 90% not reached. Total coverage: 86.47%
+=========================== short test summary info ============================
+FAILED tests/test_cli.py::test_verify_scorers - assert 1 == 0
+FAILED tests/test_features.py::test_channel_shift_is_cyclic - ValueError: can...
+FAILED tests/test_splits.py::test_subject_holdout_respects_budget - Assertion...
+3 failed, 41 passed in 385.49s (0:06:25)
+
+Exit: 1
+Runtime seconds: 386.118949

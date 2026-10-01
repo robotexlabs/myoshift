@@ -1,0 +1,4 @@
+Command: ['.venv/bin/python', 'scripts/generate_repair_report.py']
+
+Exit: 0
+Runtime seconds: 0.106666

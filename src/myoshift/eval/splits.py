@@ -1,0 +1,101 @@
+"""Train/test split policies for shift evaluation."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from myoshift.types import ShiftType, TrialRecord, WindowSample
+
+
+@dataclass(frozen=True)
+class SplitBundle:
+    train: list[WindowSample]
+    calibration: list[WindowSample]
+    test: list[WindowSample]
+    shift_type: ShiftType
+    held_out: str
+
+
+def subject_holdout_split(
+    samples: list[WindowSample],
+    test_participants: set[int],
+    calibration_budget: int,
+) -> SplitBundle:
+    train = [s for s in samples if s.participant_id not in test_participants]
+    test_pool = [s for s in samples if s.participant_id in test_participants]
+    calib, test = calibration_and_test(test_pool, calibration_budget)
+    held = ",".join(str(p) for p in sorted(test_participants))
+    return SplitBundle(
+        train=train,
+        calibration=calib,
+        test=test,
+        shift_type=ShiftType.PERSON,
+        held_out=f"participants:{held}",
+    )
+
+
+def session_chrono_split(
+    samples: list[WindowSample],
+    test_session: int,
+    calibration_budget: int,
+) -> SplitBundle:
+    train = [s for s in samples if s.session_id < test_session]
+    test_pool = [s for s in samples if s.session_id == test_session]
+    calib, test = calibration_and_test(test_pool, calibration_budget)
+    return SplitBundle(
+        train=train,
+        calibration=calib,
+        test=test,
+        shift_type=ShiftType.SESSION,
+        held_out=f"session:{test_session}",
+    )
+
+
+def filter_trials(
+    trials: list[TrialRecord],
+    participants: set[int] | None = None,
+    sessions: set[int] | None = None,
+    gestures: set[int] | None = None,
+) -> list[TrialRecord]:
+    out: list[TrialRecord] = []
+    for trial in trials:
+        if participants is not None and trial.participant_id not in participants:
+            continue
+        if sessions is not None and trial.session_id not in sessions:
+            continue
+        if gestures is not None and trial.gesture_id not in gestures:
+            continue
+        out.append(trial)
+    return out
+
+
+def _windows_overlap(left: WindowSample, right: WindowSample) -> bool:
+    if (
+        left.start_sample is None
+        or left.end_sample is None
+        or right.start_sample is None
+        or right.end_sample is None
+    ):
+        return True  # unknown support excludes the calibration record
+    return left.start_sample < right.end_sample and right.start_sample < left.end_sample
+
+
+def calibration_and_test(
+    pool: list[WindowSample],
+    budget: int,
+) -> tuple[list[WindowSample], list[WindowSample]]:
+    """Take the fixed prefix budget and purge any shared raw sample support."""
+    if budget < 0:
+        raise ValueError("calibration budget must be non-negative")
+    calibration = pool[:budget]
+    by_record: dict[tuple[int, int, str], list[WindowSample]] = {}
+    for sample in calibration:
+        key = (sample.participant_id, sample.session_id, sample.trial_key)
+        by_record.setdefault(key, []).append(sample)
+    test: list[WindowSample] = []
+    for sample in pool[budget:]:
+        key = (sample.participant_id, sample.session_id, sample.trial_key)
+        overlapping = any(_windows_overlap(sample, other) for other in by_record.get(key, []))
+        if not overlapping:
+            test.append(sample)
+    return calibration, test

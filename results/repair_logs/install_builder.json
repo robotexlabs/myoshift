@@ -1,0 +1,20 @@
+{
+  "name": "install_builder",
+  "argv": [
+    ".venv/bin/python",
+    "-m",
+    "pip",
+    "install",
+    "build"
+  ],
+  "exit": 0,
+  "timeout_s": 120.0,
+  "timed_out": false,
+  "runtime_s": 1.1604527909985336,
+  "top": [
+    {
+      "elapsed_s": 0.00527308299933793,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+MyoShift licence and attribution manifest
+=========================================
+
+Copyright 2026 RoboteX Labs. Amirhossein (Amir) Daneshpajouh.
+
+Software
+--------
+Source code in src/ recursively (except src/myoshift/protocol/), scripts/ and tests/,
+packaging metadata, .github/ workflows and root dotfile configuration: Apache License 2.0
+(see LICENSE). LICENSE is the verbatim project software licence text.
+
+Written documentation
+---------------------
+README.md, RESULTS.md, CHANGELOG.md, CONTRIBUTING.md, CITATION.cff, NOTICE and
+docs/ recursively, including nested milestones, research context, templates (.md.in),
+the documentation site, amendments and frozen protocol/checksum records:
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+Licence URI: https://creativecommons.org/licenses/by/4.0/
+
+Machine-readable results
+------------------------
+results/ recursively, including current and historical JSON, prediction traces,
+figures, repair logs and verification receipts: CC BY 4.0.
+Redistribute with attribution to RoboteX Labs and the upstream dataset citation below.
+Licence URI: https://creativecommons.org/licenses/by/4.0/
+
+Bundled protocol
+----------------
+docs/PREREGISTRATION.md, docs/amendments/, docs/PREREGISTRATION.sha256 and copies under
+src/myoshift/protocol/: project documentation under CC BY 4.0; protocol bytes are frozen
+evaluation records.
+Licence URI: https://creativecommons.org/licenses/by/4.0/
+
+Exceptions and non-distribution
+------------------------------
+Raw upstream data under data/raw/ is downloaded separately under upstream terms;
+it is not a project relicensing grant. No raw data, private research, local review,
+environment, build cache or external state/ evidence is part of the tracked release.
+Locally supplied state/ verification receipts are project documentation under CC BY 4.0;
+Git bundles preserve the file scopes above rather than changing their licences.
+There is no vendored dependency or other third-party asset exception in the release.
+
+Upstream data (not shipped in the wheel)
+----------------------------------------
+GRABMyoFlow 1.0.0 (PhysioNet): CC BY 4.0.
+Ehlert CL, Tung J, Pradhan A. GRABMyoFlow - Dataset extension (version 1.0.0).
+PhysioNet. 2026. doi:10.13026/ah52-zq51.
+
+PhysioNet platform (current recommended citation):
+Pollard T, Moody BE, Lehman L, Gow B, Fernandes C, Xie C, Johnson A, Mark RG, Heldt T.
+PhysioNet as a global platform for biomedical research. Nature Health. 2026.
+doi:10.1038/s44360-026-00096-z.
+
+Excluded datasets (not redistributed)
+---------------------------------------
+NinaPro DB6: no explicit redistribution licence on the official page; withheld.
+Meta generic neuromotor interface: the inspected official repository release uses
+CC BY-NC 4.0; an earlier manuscript referenced CC BY-NC-SA. Both restrict commercial
+use; withheld.
+Hyser PR (PhysioNet hd-semg 1.0.0): ODC-By 1.0; deferred due to size.
+
+Third-party Python dependencies
+---------------------------------
+NumPy, SciPy, scikit-learn, WFDB, Matplotlib, Click and PyYAML are used under their
+respective licences at install time; none are vendored in the repository or wheel.

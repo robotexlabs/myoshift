@@ -1,0 +1,26 @@
+{
+  "name": "regressions_after",
+  "argv": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "-o",
+    "addopts=",
+    "tests/test_repairs.py",
+    "-q"
+  ],
+  "exit": 0,
+  "timeout_s": 120.0,
+  "timed_out": false,
+  "runtime_s": 6.322178417001851,
+  "top": [
+    {
+      "elapsed_s": 0.005857291998836445,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 5.039801792001526,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

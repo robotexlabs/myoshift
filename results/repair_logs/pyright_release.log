@@ -1,0 +1,16 @@
+Command: ['.venv/bin/pyright', 'src']
+src/myoshift/eval/benchmark.py
+  src/myoshift/eval/benchmark.py:292:13 - error: Type of "append" is partially unknown
+    Type of "append" is "(object: Unknown, /) -> None" (reportUnknownMemberType)
+  src/myoshift/eval/benchmark.py:293:16 - error: Argument type is partially unknown
+    Argument corresponds to parameter "iterable" in function "max"
+    Argument type is "Generator[Unknown, None, None]" (reportUnknownArgumentType)
+  src/myoshift/eval/benchmark.py:293:25 - error: Type of "b" is unknown (reportUnknownVariableType)
+  src/myoshift/eval/benchmark.py:293:44 - error: Argument type is partially unknown
+    Argument corresponds to parameter "iterable" in function "min"
+    Argument type is "Generator[Unknown, None, None]" (reportUnknownArgumentType)
+  src/myoshift/eval/benchmark.py:293:53 - error: Type of "b" is unknown (reportUnknownVariableType)
+5 errors, 0 warnings, 0 informations
+
+Exit: 1
+Runtime seconds: 1.553553

@@ -1,0 +1,5 @@
+* text=auto eol=lf
+# Frozen protocol bytes are stored verbatim; see AMENDMENT_2026-10-01_14_protocol_serialization.md
+docs/PREREGISTRATION.md -text
+src/myoshift/protocol/PREREGISTRATION.md -text
+docs/PREREGISTRATION.sha256 -text

@@ -1,0 +1,183 @@
+# Redacted publication copy: machine-specific paths replaced; recorded results unchanged.
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_repairs.py', '-q']
+FFFFFFFFFFFFF                                                            [100%]
+=================================== FAILURES ===================================
+________________________ test_f01_full_identity_mapping ________________________
+
+    def test_f01_full_identity_mapping():
+        original = [sample(g, f'p1_s1_g{g}_t1') for g in [1, 2, 3, 17]]
+        shifted = [replace(s, features=np.ones(3)) for s in original]
+>       mapped = benchmark.map_shifted_windows(original, shifted)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'myoshift.eval.benchmark' has no attribute 'map_shifted_windows'
+
+tests/test_repairs.py:29: AttributeError
+_____________ test_f02_held_event_stride_and_unavailable_exposure ______________
+
+    def test_f02_held_event_stride_and_unavailable_exposure():
+        for stride in [.04, .01]:
+            rest = [sample(t=i*stride) for i in range(round(5/stride))]
+            wrong = [DecoderOutput(1, .9, False)] * len(rest)
+            scores = metrics.compute_scores(metrics.score_windows(rest, wrong))
+>           assert scores['false_activations_per_rest_hour'] == pytest.approx(720)
+E           assert 90000.0 == 720 ± 7.2e-04
+E             
+E             comparison failed
+E             Obtained: 90000.0
+E             Expected: 720 ± 7.2e-04
+
+tests/test_repairs.py:44: AssertionError
+__________ test_f03_production_perfect_empty_and_ratio_counterexample __________
+
+    def test_f03_production_perfect_empty_and_ratio_counterexample():
+        rest = [sample(t=i*.04) for i in range(125)]
+        gesture = [sample(1, 'gesture', i*.04) for i in range(125)]
+        perfect = [DecoderOutput(s.label, .9, False) for s in rest + gesture]
+        scored = metrics.score_windows(rest + gesture, perfect)
+        result = metrics.bootstrap_by_trial(scored, n_resamples=50)
+>       assert result['event_recall'].value == 1.0
+E       AssertionError: assert 0.5 == 1.0
+E        +  where 0.5 = MetricResult(name='event_recall', value=0.5, ci_low=0.0, ci_high=1.0, unit='proportion').value
+
+tests/test_repairs.py:56: AssertionError
+______________ test_f04_raw_support_purged_and_trial_state_reset _______________
+
+    def test_f04_raw_support_purged_and_trial_state_reset():
+        samples = build_window_samples(ROOT, StreamConfig())
+        bundle = subject_holdout_split(samples, {47}, 50)
+        end = bundle.calibration[-1]
+        first = bundle.test[0]
+>       assert end.trial_key != first.trial_key or first.time_s >= end.time_s + 409/2048
+E       AssertionError: assert ('p47_s1_g17_t1' != 'p47_s1_g17_t1' or 1.9775390625 >= (1.93798828125 + (409 / 2048)))
+E        +  where 'p47_s1_g17_t1' = WindowSample(features=array([4.69044276e-03, 2.37878858e-03, 2.24022010e-03, 2.20531550e-03,\n       2.08796938e-03, 2....962401e+00]), label=17, participant_id=47, session_id=1, trial_key='p47_s1_g17_t1', time_s=1.93798828125, is_rest=True).trial_key
+E        +  and   'p47_s1_g17_t1' = WindowSample(features=array([4.84365373e-03, 2.44584286e-03, 2.27390326e-03, 2.20557532e-03,\n       2.03877903e-03, 2....5221966e+00]), label=17, participant_id=47, session_id=1, trial_key='p47_s1_g17_t1', time_s=1.9775390625, is_rest=True).trial_key
+E        +  and   1.9775390625 = WindowSample(features=array([4.84365373e-03, 2.44584286e-03, 2.27390326e-03, 2.20557532e-03,\n       2.03877903e-03, 2....5221966e+00]), label=17, participant_id=47, session_id=1, trial_key='p47_s1_g17_t1', time_s=1.9775390625, is_rest=True).time_s
+E        +  and   1.93798828125 = WindowSample(features=array([4.69044276e-03, 2.37878858e-03, 2.24022010e-03, 2.20531550e-03,\n       2.08796938e-03, 2....962401e+00]), label=17, participant_id=47, session_id=1, trial_key='p47_s1_g17_t1', time_s=1.93798828125, is_rest=True).time_s
+
+tests/test_repairs.py:72: AssertionError
+____________ test_f05_participant_bootstrap_and_paired_differences _____________
+
+    def test_f05_participant_bootstrap_and_paired_differences():
+        samples = [sample(1, f'p{p}_gesture', pid=p) for p in [1, 2]]
+        a = metrics.score_windows(samples, [DecoderOutput(1, .9, False)] * 2)
+        b = metrics.score_windows(samples, [DecoderOutput(1, .9, True)] * 2)
+>       assert metrics.bootstrap_by_participant(a)['event_recall'].value == 1.0
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'myoshift.eval.metrics' has no attribute 'bootstrap_by_participant'
+
+tests/test_repairs.py:89: AttributeError
+______________ test_f06_independent_calibration_consistent_score _______________
+
+    def test_f06_independent_calibration_consistent_score():
+        rng = np.random.default_rng(0)
+        x = rng.normal(size=(100, 6))
+        y = np.repeat([1, 2], 50)
+        dec = SelectiveDecoder()
+        dec.fit(x, y)
+>       assert dec._abstain_threshold is None
+E       assert 1.63039685639017 is None
+E        +  where 1.63039685639017 = <myoshift.models.selective_decoder.SelectiveDecoder object at 0x10ed73550>._abstain_threshold
+
+tests/test_repairs.py:102: AssertionError
+______________________ test_f07_few_shot_never_falls_back ______________________
+
+    def test_f07_few_shot_never_falls_back():
+        rng = np.random.default_rng(1)
+        x = rng.normal(size=(50, 6))
+        y = np.tile([1, 2], 25)
+>       with pytest.raises(ValueError, match='unavailable'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_repairs.py:114: Failed
+____________________ test_f08_wrist_channels_and_ring_shift ____________________
+
+    def test_f08_wrist_channels_and_ring_shift():
+        record = next(ROOT.rglob('*.hea')).with_suffix('')
+        emg = load_trial_emg(str(record))
+>       assert emg.shape[1] == 12
+E       assert 16 == 12
+
+tests/test_repairs.py:121: AssertionError
+_____________________ test_f09_generated_document_mismatch _____________________
+
+tmp_path = PosixPath('<temporary>/pytest/test_f09_generated_document_mi0')
+
+    def test_f09_generated_document_mismatch(tmp_path):
+>       from scripts.generate_documents import write_or_check
+E       ModuleNotFoundError: No module named 'scripts.generate_documents'
+
+tests/test_repairs.py:128: ModuleNotFoundError
+___________________ test_f11_strict_diagnostics_and_wheel_ci ___________________
+
+    def test_f11_strict_diagnostics_and_wheel_ci():
+        config = json.loads(Path('pyrightconfig.json').read_text())
+>       assert not any(config.get(k) == 'none' for k in [
+            'reportMissingImports', 'reportUnknownMemberType', 'reportUnknownVariableType',
+            'reportUnknownArgumentType', 'reportAttributeAccessIssue'])
+E       assert not True
+E        +  where True = any(<generator object test_f11_strict_diagnostics_and_wheel_ci.<locals>.<genexpr> at 0x10f1efe60>)
+
+tests/test_repairs.py:138: AssertionError
+________________ test_f13_cli_integer_validation[--stride-ms-0] ________________
+
+option = '--stride-ms', value = '0'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10edf3c50>
+
+    @pytest.mark.parametrize('option,value', [('--stride-ms', '0'), ('--window-ms', '-1'),
+                                             ('--calibration-windows', '-1')])
+    def test_f13_cli_integer_validation(option, value, monkeypatch):
+        monkeypatch.setattr("myoshift.cli.run_full_benchmark", lambda *args: {"runs": []})
+        result = CliRunner().invoke(main, ['benchmark', '--data-root', str(ROOT), option, value])
+>       assert 'is not in the range' in result.output
+E       AssertionError: assert 'is not in the range' in 'Wrote results/results.json (0 runs)\n'
+E        +  where 'Wrote results/results.json (0 runs)\n' = <Result okay>.output
+
+tests/test_repairs.py:150: AssertionError
+_______________ test_f13_cli_integer_validation[--window-ms--1] ________________
+
+option = '--window-ms', value = '-1'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10f1fd7d0>
+
+    @pytest.mark.parametrize('option,value', [('--stride-ms', '0'), ('--window-ms', '-1'),
+                                             ('--calibration-windows', '-1')])
+    def test_f13_cli_integer_validation(option, value, monkeypatch):
+        monkeypatch.setattr("myoshift.cli.run_full_benchmark", lambda *args: {"runs": []})
+        result = CliRunner().invoke(main, ['benchmark', '--data-root', str(ROOT), option, value])
+>       assert 'is not in the range' in result.output
+E       AssertionError: assert 'is not in the range' in 'Wrote results/results.json (0 runs)\n'
+E        +  where 'Wrote results/results.json (0 runs)\n' = <Result okay>.output
+
+tests/test_repairs.py:150: AssertionError
+__________ test_f13_cli_integer_validation[--calibration-windows--1] ___________
+
+option = '--calibration-windows', value = '-1'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10f1ff950>
+
+    @pytest.mark.parametrize('option,value', [('--stride-ms', '0'), ('--window-ms', '-1'),
+                                             ('--calibration-windows', '-1')])
+    def test_f13_cli_integer_validation(option, value, monkeypatch):
+        monkeypatch.setattr("myoshift.cli.run_full_benchmark", lambda *args: {"runs": []})
+        result = CliRunner().invoke(main, ['benchmark', '--data-root', str(ROOT), option, value])
+>       assert 'is not in the range' in result.output
+E       AssertionError: assert 'is not in the range' in 'Wrote results/results.json (0 runs)\n'
+E        +  where 'Wrote results/results.json (0 runs)\n' = <Result okay>.output
+
+tests/test_repairs.py:150: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_repairs.py::test_f01_full_identity_mapping - AttributeError...
+FAILED tests/test_repairs.py::test_f02_held_event_stride_and_unavailable_exposure
+FAILED tests/test_repairs.py::test_f03_production_perfect_empty_and_ratio_counterexample
+FAILED tests/test_repairs.py::test_f04_raw_support_purged_and_trial_state_reset
+FAILED tests/test_repairs.py::test_f05_participant_bootstrap_and_paired_differences
+FAILED tests/test_repairs.py::test_f06_independent_calibration_consistent_score
+FAILED tests/test_repairs.py::test_f07_few_shot_never_falls_back - Failed: DI...
+FAILED tests/test_repairs.py::test_f08_wrist_channels_and_ring_shift - assert...
+FAILED tests/test_repairs.py::test_f09_generated_document_mismatch - ModuleNo...
+FAILED tests/test_repairs.py::test_f11_strict_diagnostics_and_wheel_ci - asse...
+FAILED tests/test_repairs.py::test_f13_cli_integer_validation[--stride-ms-0]
+FAILED tests/test_repairs.py::test_f13_cli_integer_validation[--window-ms--1]
+FAILED tests/test_repairs.py::test_f13_cli_integer_validation[--calibration-windows--1]
+13 failed in 9.37s
+
+Exit: 1
+Runtime seconds: 10.124993

@@ -1,0 +1,6 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_release_repairs.py', '-m', 'not network', '-q']
+.......                                                                  [100%]
+7 passed, 1 deselected in 0.08s
+
+Exit: 0
+Runtime seconds: 0.316973

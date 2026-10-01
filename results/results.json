@@ -1,0 +1,1486 @@
+{
+  "schema_version": 2,
+  "provenance": {
+    "protocol_sha256": "15a1f7dd67a45e8848baa8a88ce6f752b66b46984388064dc037c560b5c04f38",
+    "freeze_chronology": "unverified; amendments made after results were seen",
+    "software": {
+      "myoshift": "0.1.1",
+      "numpy": "2.4.6",
+      "scikit-learn": "1.9.1",
+      "wfdb": "4.3.1"
+    },
+    "python": "3.11.15",
+    "hardware": "arm64",
+    "hostname": "Mac-Studio.local",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "footprint_measurement": "blocked or unavailable",
+    "latency_scope": "decoder.predict call only; excludes feature extraction, acquisition and end-to-end command response",
+    "source_sha256": {
+      ".gitattributes": "f35c4d220462bb28ae4f5085fa4bf1e35476d64a30916915b48d03563804fe7c",
+      ".github/workflows/ci.yml": "2405484b5cbe77cb73fcc42624fcc97a49bc45d49fdeb6f0366a610f463ee893",
+      "CITATION.cff": "d3504feb5b44bca0d1d6e1dc2a5e9f87dfe9acd123ac2ccbcf0895063914312d",
+      "LICENSE": "2104996520c29763904f7f59397fe0a6f41c8348d8b242d0f4e71d8163dd7d3a",
+      "NOTICE": "63f632eedb1feaf8a462fa737a6ccd781dcbb905e3d289c8fed7f9bac3aade8f",
+      "docs/amendments/AMENDMENT_2026-09-30.md": "58a5fd7603d5cad7187b3efddbea13f300ac56ee407a4123e11a3e625f43f445",
+      "docs/amendments/AMENDMENT_2026-10-01_01_identity_mapping.md": "c1d7052a2b9a6490ca7e8d598d04b02e05dbd06086f6801254d80aaa323427ef",
+      "docs/amendments/AMENDMENT_2026-10-01_02_command_events_exposure.md": "cd458bf2bbb16234b1061280aabde26c2f3c93e4e5fe38f672977eca344da713",
+      "docs/amendments/AMENDMENT_2026-10-01_03_ratio_aggregation.md": "3892a7546985381da54ca52364c635b00c8ca2df521e44887ec24664fa43bd77",
+      "docs/amendments/AMENDMENT_2026-10-01_04_purge_and_reset.md": "c480b5a96fd20ec88adb533af2a131ef98f77b49465bd49ce89f9c6bcee9cede",
+      "docs/amendments/AMENDMENT_2026-10-01_05_participant_uncertainty.md": "69cdf23e1dc6c819ab1a5ad8db36fa1b943bda598707a5d3c3c9a34f97897755",
+      "docs/amendments/AMENDMENT_2026-10-01_06_independent_selective_calibration.md": "9ade50796bd7148b6df86a83e310f06d3b1cab6c12ed4bef377ea93550b29250",
+      "docs/amendments/AMENDMENT_2026-10-01_07_unavailable_few_shot_equal_budget.md": "61daa270741cbe1bad8ddcca87d54176240c36494b0eeeca731cc2e8c90aa337",
+      "docs/amendments/AMENDMENT_2026-10-01_08_verified_wrist_ring_channels.md": "f5b69af889b45459b397f504361975fb14da207d5af7c8877728252fc3a5f285",
+      "docs/amendments/AMENDMENT_2026-10-01_09_generated_reporting.md": "429668d87b4b4cbb2f934dc685954c6d0bffd6aee067ac58e53ffb4ebf878de0",
+      "docs/amendments/AMENDMENT_2026-10-01_10_strict_engineering.md": "69afb64c89523530727281908f20d4a392cdec7bdacbc8e70db449ee2a896391",
+      "docs/amendments/AMENDMENT_2026-10-01_11_integer_validation.md": "20fb57689cd033be8d0582b21a0b151469d4e733826f5109aed5d1982474a55a",
+      "docs/amendments/AMENDMENT_2026-10-01_12_retained_novelty_stop.md": "5a106197f27ed5c0f73055655b7df0760414d8fb894f2b623ab8ef24948ccf9b",
+      "docs/amendments/AMENDMENT_2026-10-01_13_resource_cap.md": "b3b715ce3c9b987f0b39cb5081b897d6981724ea1a272838c7225ebf065bc7c4",
+      "docs/amendments/AMENDMENT_2026-10-01_14_protocol_serialization.md": "6d455e79f91ff9822d91b5d1c19990a64bcda92449c2b303f04f59491a3cd779",
+      "docs/negative-result-report.md.in": "ca2d73ae4f6c074abb122de7f47cb0581e4ac2469ed95da662ba6792b5d91ca6",
+      "pyproject.toml": "f7f988293d9610756e00c0722f0c230d04e77dae19ef96b0d884483c526b78ff",
+      "pyrightconfig.json": "634580a3dc69af20a1662fa233ef885ef5fc6c86a61281f0653f53a8c8eb25c2",
+      "scripts/check_wheel.py": "ae1c6fc1cf847da7f2c3f78e2304621f9f793094b4edf27fd087403c9b7a3924",
+      "scripts/compare_regeneration.py": "d8015bdad5ed5c7d8992fc9ac8807d2d5891dd7d0b22b6d2d675469b15434342",
+      "scripts/download_pilot.py": "16226ff856a52fba7c95c70caee184bfa7fd7d5dfd5b8739cc159b8ae7427c00",
+      "scripts/generate_documents.py": "87b8787a938dd84337267b2635a4b952306219694bff0bab316c6488d5533e39",
+      "scripts/generate_figures.py": "17b0ee1e3530c6a31a53950c4e2ef4b738ad8fcf68672c73f88f225f74f53103",
+      "scripts/generate_repair_report.py": "138a3175d9fb3b6728c2773247c731e70444ced7b214094b80fbfefb3a8dcf0b",
+      "scripts/generate_report_tables.py": "eb400250842bf3ee1b7e35b0a2eed8059915db792238e28a54292a569a4cf9bb",
+      "scripts/reproduce_all.py": "3ccddd63183c6cf3244cf065b562e66a16559f58524d8cf20798d6f1c66b778e",
+      "scripts/run_benchmark.py": "27a82969a91840daadf2d47afe0f759c878f295fa20fb74bcf3ed5276adcabfd",
+      "scripts/run_check.py": "d56000d32b80ba2d916615698e9e649e475974e4433224b00b0c6df6f7bb3dde",
+      "scripts/verify_publication.py": "933fd4f32294bddab68696597be54497d80e02ebb756f739646d9fa6060a47af",
+      "src/myoshift/__init__.py": "baa0075e94e5f6b34d42c72fc275170ac80d2993a1c182d8cb25c920f334cdd1",
+      "src/myoshift/_external.py": "bbe38824e12f4fea9adc76e46d7522486c7f6f04b4afbab634c65b2b8ef874fb",
+      "src/myoshift/_version.py": "ae739b3e3b817044ada923b44ba82c752fe8b7c2133908d58fff8fd4b5146298",
+      "src/myoshift/cli.py": "798d27d7a93e1823376c859801f79f3f4c9e5b1aebf8a3512883ec075efb2212",
+      "src/myoshift/data/__init__.py": "81de55824fa388b74e657ed7db2019cccb74a3b00a4695187bf80adfd1815e4d",
+      "src/myoshift/data/grabmyo.py": "ef270bb6e6d2ff6e00a49ec4f0c0b24c892508c94ef99c73f78c815f492c4e13",
+      "src/myoshift/eval/__init__.py": "2c572d30c4b51e277de956aceb0fc7bc9f132da19f98aa1690f56163488692f5",
+      "src/myoshift/eval/benchmark.py": "1622c0c9c307b62fc4c79b32c8936ca97c589c1218d5e93cf62139b0c2221b65",
+      "src/myoshift/eval/dataset.py": "df1ac204d746a6d66f439ce1595f0133a2cfa9acea3f2611f347db47b0f4e064",
+      "src/myoshift/eval/metrics.py": "bcc4e10c62f1c7dc7e734645bde220c6c82accfb15b773b6836a68e31f1ecfd4",
+      "src/myoshift/eval/splits.py": "b285c34d039eb88e5848b72e7eaa7b3c6c29c62c2bf3f6cb9cc01c8aba52b452",
+      "src/myoshift/features/__init__.py": "8ca1c0686a83a076d51d68729e72a605a8ad8e036871b0c8b0e016dbb99ee393",
+      "src/myoshift/features/extract.py": "f1f0ee0ca0dcee5409c0e1964c09d0a4d39c886da80275ca4d089d5d6ed10049",
+      "src/myoshift/models/__init__.py": "c2b16c6da3046398a792e1787eea5f5bb99085eaaac15ca02d080d05f76ac6fe",
+      "src/myoshift/models/base.py": "59a14f409bba8157cd9f8aeac78a0bcd490ccc6a573606578c06d4d442ad47bc",
+      "src/myoshift/models/hysteresis.py": "fd74d4aadea2e2f4b20fca3ace0c084973b14e462bfe3a7c5b888af8364fd739",
+      "src/myoshift/models/lda_baseline.py": "1ea7f235a49c7e219315588d4bc151de9863a9d5211b6eccf83d0c2474ed8975",
+      "src/myoshift/models/selective_decoder.py": "42654fc5a04b478c40dd14f69369ad4dcedcf6798406066c1a1f5a5cda516d29",
+      "src/myoshift/provenance.py": "f576ead5372c277c30bbc0fa2707b9b09158d08daefdf6158332b49f62ae538d",
+      "src/myoshift/types.py": "9fff3a5b9babd999cc4c983355c080593a09d8c3e53d462c178d55de1a3e3ff4",
+      "tests/test_benchmark.py": "19e6b64f107e88979f063c2d16e957b3fd97e5a4bd6f387bb1e24fdb4884a0b9",
+      "tests/test_cli.py": "b6eb003f4a7ffa9a1a6b398d1a7f8c953b635c505b5ebdb25265062532c989e3",
+      "tests/test_decoders.py": "ee08e496e8ebba9287847ca4bab0a5e0f46a8900359280a2108ae515c8e50981",
+      "tests/test_features.py": "83aee103d82c219c6744ea5d8e4ec233a081707c84911b3128d706958c8ff10c",
+      "tests/test_grabmyo.py": "ec186dbcd58f51ac54fee8f8eae794c5b69a604739ac43823159ea8d2833f6cb",
+      "tests/test_grabmyo_load.py": "47d50b575c299952fe20855a65c314cb53e778b3213faf94d55d2b65837d2c85",
+      "tests/test_metrics.py": "fd12f57adeecdba99350f5096a8182beff0fd2c88d5d017cfe4ff27adbb77c62",
+      "tests/test_models_extra.py": "ccc8522aa11111922c4d7c5188fdc5122f6a6d766a6753c03ff4110e7faa090e",
+      "tests/test_negative_report.py": "9bdbe2d18c9fd49d89f58d2816f9b0b42530a82803723609398ed176bcaf4799",
+      "tests/test_provenance_round3.py": "3156015bb9eb62c206ff91271e5b8fe93892f754fa37c4f073c5152ddd906af9",
+      "tests/test_publication_round3.py": "304904e250315ddc91c6a226fb5d9f2148c9a4d3b8c0d69a043b709092efb7ab",
+      "tests/test_publication_round4.py": "aa78303bcca09c7561d38459af7813cef27b9f8a1c0a425891fd14b4ba13b7c6",
+      "tests/test_regeneration_comparison.py": "a813628231ba12522a7daa59021efdb1059f5814d6b8d894fb0848103f3df325",
+      "tests/test_release_repairs.py": "d34a95b666fe3ae36619b9ffae8a3c91660271ec0368e448be4c499a6736c109",
+      "tests/test_repairs.py": "92e95dc475fc870625215a57dbd4dccced508e1c7121348aa3ca2aa4e3aeef7a",
+      "tests/test_splits.py": "dd71b375034a401ac3a744c16016a1fe9106c403b61b7439893b54140ff8be7d",
+      "tests/test_splits_extra.py": "b67332e8a425d62378a19b7188d634920533b38d64ce470776f3d243f7d99943"
+    },
+    "data_sha256": {
+      "session1/session1_participant44/session1_participant44_gesture17_trial1.dat": "fa44076c393074dec07a8e6182ebaeee56be8bf865c60cd9545a32410b4424fb",
+      "session1/session1_participant44/session1_participant44_gesture17_trial1.hea": "670c77c3554b4f5b28cb6dda4b0cd4e5eafdb66226b62ac017529b68fc7baa7f",
+      "session1/session1_participant44/session1_participant44_gesture17_trial2.dat": "0d1d954868873ec53866648649602120084a5cd097b6df71670c5575fe11bdf9",
+      "session1/session1_participant44/session1_participant44_gesture17_trial2.hea": "c9718693bf5bd14c7e52d1f88562ff5b80a858a33f34f2f3a09f75ae2fd5d412",
+      "session1/session1_participant44/session1_participant44_gesture1_trial1.dat": "96627cb0c5ae57b0de578f368e18b0dec94f9cae4bb3577eac7431fe2b49b10b",
+      "session1/session1_participant44/session1_participant44_gesture1_trial1.hea": "f675554ff088661b058b690f8df7029130bd5ade68f658d558fd6a25bb59b750",
+      "session1/session1_participant44/session1_participant44_gesture1_trial2.dat": "6afed6e99a5634a4a6a413663c7a26d4dbc862faf5a5cb7a4b0eb2e664d49724",
+      "session1/session1_participant44/session1_participant44_gesture1_trial2.hea": "e6ae84f9c2687a0fba059fe5ec368dff56982ade194bf63a8e4da4177456dc2a",
+      "session1/session1_participant44/session1_participant44_gesture2_trial1.dat": "f479fddc855eb807c278fa3196bce2ff1eeff8adfd855ce01a2070f969a7c39f",
+      "session1/session1_participant44/session1_participant44_gesture2_trial1.hea": "d2a0fdeb33565588a65aac7b356e9a9b0c363e5a3eea91f190cca6ef45232a99",
+      "session1/session1_participant44/session1_participant44_gesture2_trial2.dat": "e607e7b89af65d7024f3e5b1cfd843e6d64ac45d27b6b9fe7dbbc14a05eb7470",
+      "session1/session1_participant44/session1_participant44_gesture2_trial2.hea": "d57ce76dec0e0c50c9c6e1d3cf690263c70c11814928388a47332f278d583983",
+      "session1/session1_participant44/session1_participant44_gesture3_trial1.dat": "837e3589822cec8ebff85b761f9c9b0f7b0adbfb0d4e757bb181b6c6fd76852e",
+      "session1/session1_participant44/session1_participant44_gesture3_trial1.hea": "f9fe78273449970d429b014b712ef11911ab4c4c633780d412096e599eabe0f6",
+      "session1/session1_participant44/session1_participant44_gesture3_trial2.dat": "ded852500f50c6fb345c59a2cedd7cb861db3f65e5a777acf86c2b2242373d3e",
+      "session1/session1_participant44/session1_participant44_gesture3_trial2.hea": "4deb9f76aa3456e137c27c95c299405eed71a7e7d62e2721d96bed729ef919ef",
+      "session1/session1_participant45/session1_participant45_gesture17_trial1.dat": "925642699374dd8807ecce557cc2bd7192375dddf0785e6d68b2c3c1c063d50c",
+      "session1/session1_participant45/session1_participant45_gesture17_trial1.hea": "8cca17ea9c375d3678180d132bde6fd583e092d74e1f9f853869e8bb9cd5ad1f",
+      "session1/session1_participant45/session1_participant45_gesture17_trial2.dat": "3d299b539231a180b115cbc98d74c6eec4409d180d0a3f0a6c1fa6e3b1d09644",
+      "session1/session1_participant45/session1_participant45_gesture17_trial2.hea": "6f57e9b1a1a6722b8f6ef81eb02f4cc4e425879b75b318e93904bdd21103ffdb",
+      "session1/session1_participant45/session1_participant45_gesture1_trial1.dat": "50fc230c159b7d04ffdd2dac40910d7cb6f08dea333a102fcf90f039c6c77ce3",
+      "session1/session1_participant45/session1_participant45_gesture1_trial1.hea": "bcc1a37f85400289f40cdbe63ef5987005b5f3554e0582dd8e932bb216a1f6cf",
+      "session1/session1_participant45/session1_participant45_gesture1_trial2.dat": "ff5d2ce478162c6ce2b1a4a15a3dd76d9571198a29a91421bae14f7a0104a730",
+      "session1/session1_participant45/session1_participant45_gesture1_trial2.hea": "a368bb2465cd65f58cf39479b87428ad1d9f1952198aa6d80417222159456fea",
+      "session1/session1_participant45/session1_participant45_gesture2_trial1.dat": "e899864b916c2610818e6fa363911759be6265c31543029c686b6d81e61ede5e",
+      "session1/session1_participant45/session1_participant45_gesture2_trial1.hea": "2422c50cb949f141651421f0200655cb0ef9a9f28e0b844845945cb247f29ead",
+      "session1/session1_participant45/session1_participant45_gesture2_trial2.dat": "910bf36620eb2915c88afa037936fc913c53c1c20290937ea4d845f6696906d2",
+      "session1/session1_participant45/session1_participant45_gesture2_trial2.hea": "83fff5bb467d7f315ff861b1e34b6fc782d45fdf681c3d405d99c7c1ea3fc0d0",
+      "session1/session1_participant45/session1_participant45_gesture3_trial1.dat": "4b946e776640ef6f6c7f4d1e7caa23ccc5d224df2f565de2b71be60012b4b3a2",
+      "session1/session1_participant45/session1_participant45_gesture3_trial1.hea": "29bd36a1ea325c9ea5fb9d29868912a5c73a6382127be01378b9af700b75d65a",
+      "session1/session1_participant45/session1_participant45_gesture3_trial2.dat": "49b11312e6759c2d2482ab7169b68d6e181edcd0da0608e7e1d9462abb9c728f",
+      "session1/session1_participant45/session1_participant45_gesture3_trial2.hea": "fa5d28e3ae0420413a235d900b93f993e837ddebdb61f0396868ebf78bb49768",
+      "session1/session1_participant46/session1_participant46_gesture17_trial1.dat": "9ea4cfd79819ce00ac7392f1a670726fcf8a788f6fa19eb6badaeb1c6acf442b",
+      "session1/session1_participant46/session1_participant46_gesture17_trial1.hea": "a9c65d87886b7260170629ae4198331f0ab031e54cf225525dcbf011709b9770",
+      "session1/session1_participant46/session1_participant46_gesture17_trial2.dat": "57f319c53a17d2a26783d363fb202bdb371ee5df067271c3446f8a36e9afded7",
+      "session1/session1_participant46/session1_participant46_gesture17_trial2.hea": "cbd501617d9efb40e80c5857aa90247c02d1f2eae18149a4f8679ad6c1c4acc9",
+      "session1/session1_participant46/session1_participant46_gesture1_trial1.dat": "a6094366ba14adc37e3227b2f9b329af8d151226fe0641f5136cdd07dbcc2d41",
+      "session1/session1_participant46/session1_participant46_gesture1_trial1.hea": "212d569acb89d6ded17028b70104b917f5c6db38bd69379e6cd6cb58f3473a14",
+      "session1/session1_participant46/session1_participant46_gesture1_trial2.dat": "1cbb2d418d7e163ae98e75d9018aaa214a4139f5183ba42bc1cad30d2474b610",
+      "session1/session1_participant46/session1_participant46_gesture1_trial2.hea": "db4c0193966473d3754302f15637f5f15ed59631734e677248b6ea3aee75ac78",
+      "session1/session1_participant46/session1_participant46_gesture2_trial1.dat": "e2688f1873f0b9bdb90f391e6abf8ac6d849aea8cfe1e6e66de184feb0a5769b",
+      "session1/session1_participant46/session1_participant46_gesture2_trial1.hea": "6f2e72f4789f5e3455b0d299b2c1c0a1ad67e7dece14244be76323ac9ef2770d",
+      "session1/session1_participant46/session1_participant46_gesture2_trial2.dat": "ace25c92a508a7a87d08d0b160b9fae100f7a575889051c9a962c2498de8c5c8",
+      "session1/session1_participant46/session1_participant46_gesture2_trial2.hea": "a1c86939fd05f50590fecfc52be84e9bbde2495a4bc594603fa2ddbbdc04ee01",
+      "session1/session1_participant46/session1_participant46_gesture3_trial1.dat": "c6052cf12f2fe79ea349e3a7e333ea3f8173f96c9042055bd8aaf627bbe2254b",
+      "session1/session1_participant46/session1_participant46_gesture3_trial1.hea": "dac29114dfee1b16552e88b18df7fdc805943756897b7d9f11f1f1c24c3887df",
+      "session1/session1_participant46/session1_participant46_gesture3_trial2.dat": "d621f46a57a90516c8447b51c6e9e76561273def41e8361277eca11190391bfc",
+      "session1/session1_participant46/session1_participant46_gesture3_trial2.hea": "eac0413eea412c1f39a8bfa964d7698fa2589a649d6fc52b1c2aecfe84cc46ba",
+      "session1/session1_participant47/session1_participant47_gesture17_trial1.dat": "76dc6ff7e9da3d4a3ea984c84c4407f210be3e6a8569db22b39bb5e10e4fa81d",
+      "session1/session1_participant47/session1_participant47_gesture17_trial1.hea": "eeaf9e4d64f084486dfafcce451780571752ff4cd8296032ac01873340d4533a",
+      "session1/session1_participant47/session1_participant47_gesture17_trial2.dat": "fda9d8f36af62e1638a87c67310dd320ba4368746227ecf79356e1cf3c3a20af",
+      "session1/session1_participant47/session1_participant47_gesture17_trial2.hea": "76c955038db3cdb3de6423ad16e08d77da6948e0eeb430d887619fdd7cd97e67",
+      "session1/session1_participant47/session1_participant47_gesture1_trial1.dat": "c60b232c25580be74f1f4cea28baead53bf255e8ae2a656f27f8f6a9ab171751",
+      "session1/session1_participant47/session1_participant47_gesture1_trial1.hea": "59bea7b0b808230fbe65cdf19927e45cc032c62a1c322c01c96e0a5aeb7624df",
+      "session1/session1_participant47/session1_participant47_gesture1_trial2.dat": "77f4bc2fa4786bbd95962f60e11ff4b41be7e1b5285868b8195c2193a81e1012",
+      "session1/session1_participant47/session1_participant47_gesture1_trial2.hea": "ae1bcb89883ed6ffde430ce896393303373dd9af7a941ff1b3b8b7fc54ace660",
+      "session1/session1_participant47/session1_participant47_gesture2_trial1.dat": "2b1b16c4b33f0c75504da4761d08184de45fc3291493fa93d03bfaae0fdfa9ea",
+      "session1/session1_participant47/session1_participant47_gesture2_trial1.hea": "431d2994061dd85e78cc996e99bf08b2a6908b195842c2d5cfc595772e41bb76",
+      "session1/session1_participant47/session1_participant47_gesture2_trial2.dat": "fcfa275a24001c384684cbe091552b0ad518032c0cb21b564160fd313aa1f54d",
+      "session1/session1_participant47/session1_participant47_gesture2_trial2.hea": "4f6566a9bdf333c39d909ef1a923c546cc185a6b2c8782d51f99cb3c9b13be11",
+      "session1/session1_participant47/session1_participant47_gesture3_trial1.dat": "63e1ceb9204cdd76dfe83f5cd3f00fb9c57d7910f377fb82ce74dc4afba81010",
+      "session1/session1_participant47/session1_participant47_gesture3_trial1.hea": "6cf79b7967c03171fe1feb8e93f5fd140d2e6d00f2367933f80bd410e92a8c3d",
+      "session1/session1_participant47/session1_participant47_gesture3_trial2.dat": "2eb5b861bdbacdde5421b48a1263c618673a43c5614f334f83c20480cea5cd3a",
+      "session1/session1_participant47/session1_participant47_gesture3_trial2.hea": "f5c9bb28ab71cbf07608017c5cc088928bff6b773f54cc237e0c5df46c57022a",
+      "session2/session2_participant44/session2_participant44_gesture17_trial1.dat": "9c38626611a9b6ec1f4f8a8a9edb30fbf1091227975f99db8c7b2379acbe16b7",
+      "session2/session2_participant44/session2_participant44_gesture17_trial1.hea": "056effeb573d289be66cac792faf3db929655efb42eb1ae093879d0f1fadc2c3",
+      "session2/session2_participant44/session2_participant44_gesture17_trial2.dat": "141a74041730445ab3b8fffb43ae01846d20729071a078c717489eff2dd70868",
+      "session2/session2_participant44/session2_participant44_gesture17_trial2.hea": "3031a04e9b331da974cc9748d30f1beedac9027da75c51c21a38c1083ffa38d4",
+      "session2/session2_participant44/session2_participant44_gesture1_trial1.dat": "6fbd4552bfc96966ad2b6b4b11e0e2dffb4c7690a482305dd58f1ee634fc3bdd",
+      "session2/session2_participant44/session2_participant44_gesture1_trial1.hea": "d7d9d81b2e656c47ede77a48baec9863ba6165565b605bc4a0590f6da8b1358c",
+      "session2/session2_participant44/session2_participant44_gesture1_trial2.dat": "205798a6b1570b1e5ade565d53e116029f9294f32ffc94c16a0d5afe10f69f66",
+      "session2/session2_participant44/session2_participant44_gesture1_trial2.hea": "0ca16fc84b026550fb14f9ca5acc746fd6daa3580893752cc69ecd8b36621741",
+      "session2/session2_participant44/session2_participant44_gesture2_trial1.dat": "e17442b0e1969091f57e7174180e71ad79af0452fa435117621ecb40052e359c",
+      "session2/session2_participant44/session2_participant44_gesture2_trial1.hea": "acc317f8d0132b75c5f0e567b033a3c51dd0f422aefa773fd72295cac228db3c",
+      "session2/session2_participant44/session2_participant44_gesture2_trial2.dat": "d21e3d5a8a88c0e393b601ae1e6aa2615e74c57fb93cf838a197cc3d392f4544",
+      "session2/session2_participant44/session2_participant44_gesture2_trial2.hea": "f3180988f377d39727d303d63c14bda4fde3c1e3282f0de13b3884e447ea6d92",
+      "session2/session2_participant44/session2_participant44_gesture3_trial1.dat": "5651e0372ad2c3030efc9365de6390bdd0a733c56e7826f5fe98fbed6aa2fb1a",
+      "session2/session2_participant44/session2_participant44_gesture3_trial1.hea": "7b489f74e7a2278ab1b163aee7e32a3c13361809c3e8c7aa6d254f24a04949fc",
+      "session2/session2_participant44/session2_participant44_gesture3_trial2.dat": "fd04f143fa92234bd4691bc78395827d281524e70700cdaf0a225e28047fb30b",
+      "session2/session2_participant44/session2_participant44_gesture3_trial2.hea": "7d53aa53acdc7433d770debe7dd182cded492b4d78bfe2dc28d6c3712df8adb2",
+      "session2/session2_participant45/session2_participant45_gesture17_trial1.dat": "9050945417cccbc8b6e3b6d8849f8990eba014fc6b1702ea9ae1e02b6626cad2",
+      "session2/session2_participant45/session2_participant45_gesture17_trial1.hea": "dde8d5067a2779c91269431ac8c0fb3da7c36fa6655c2c348eebdef6a9b0eda8",
+      "session2/session2_participant45/session2_participant45_gesture17_trial2.dat": "dc74222540acfe0ea16fe6f127b5f89a01ca0ccc5205ee3d3fc1b3f5bdd4d20a",
+      "session2/session2_participant45/session2_participant45_gesture17_trial2.hea": "c0dd6e6afc91d8599cdb8dda8aa72ee05758122fcb5a71e37de52ce5eb0024b8",
+      "session2/session2_participant45/session2_participant45_gesture1_trial1.dat": "667f339cca3fad4da176b028a09bf775fc3fc3fe2b9e6de4b34fbe2fa2965e38",
+      "session2/session2_participant45/session2_participant45_gesture1_trial1.hea": "3f286aba654a7e3461a025025afe52d05f28d8fb959bff5dc9755352dae41398",
+      "session2/session2_participant45/session2_participant45_gesture1_trial2.dat": "5b1250c5fbbf901e3e5ea8397ccd6dad9166a2bf7bff2021988b70d59fee5e99",
+      "session2/session2_participant45/session2_participant45_gesture1_trial2.hea": "27e152c67b145fcd507295b55644469575f33379a2bcd288aef7c9e8fbfa0372",
+      "session2/session2_participant45/session2_participant45_gesture2_trial1.dat": "abdc2e4893b20d8df5dd7a59abfc27dbb108c7cdef85984fa90cf022e78eda03",
+      "session2/session2_participant45/session2_participant45_gesture2_trial1.hea": "026265f849521e17c2247a37a84ca4caa925d4a40ff6948d2d5bb541eae8af06",
+      "session2/session2_participant45/session2_participant45_gesture2_trial2.dat": "3698a3d63468b0c11c0ffa5ec1518ac31c44fdd081b5a24eee726edef5796bc2",
+      "session2/session2_participant45/session2_participant45_gesture2_trial2.hea": "0377f9286de0be85f6c326e8dde98fba0e19825be3af66d85930c515ea9b1a52",
+      "session2/session2_participant45/session2_participant45_gesture3_trial1.dat": "56606c7f3f002c3d49a55cb8eef9d3e5b78e2469244b1a950d65ad365d1b8f2a",
+      "session2/session2_participant45/session2_participant45_gesture3_trial1.hea": "e24ffd919c8df956ae65f8471a013a2715237fffbf78c38801077be165911479",
+      "session2/session2_participant45/session2_participant45_gesture3_trial2.dat": "4dc005010cfe5b69fcfbf6f4e5f43bec47b478cf09f07ef8e6cf406e58a884ab",
+      "session2/session2_participant45/session2_participant45_gesture3_trial2.hea": "c0af0dc9b394948123b2c813a357c448fb9d14c3590f33476d75c618e75ac83a",
+      "session2/session2_participant46/session2_participant46_gesture17_trial1.dat": "d16aea8fcfeedbe28d55b77e3e6b81d45da4692f1bc3371886fc234113c7485a",
+      "session2/session2_participant46/session2_participant46_gesture17_trial1.hea": "6f96957852f002d64066d43a4585eb786cc379159aa8302429aa10f68304fe0a",
+      "session2/session2_participant46/session2_participant46_gesture17_trial2.dat": "3401108b5b99e6d749c6ce18e95c140fc2dce84d4c3e928de3742a1c3a28a689",
+      "session2/session2_participant46/session2_participant46_gesture17_trial2.hea": "3641a10e4151f7fecf5ad164817e442c9526af1fb86ad226927fd032ce433ae5",
+      "session2/session2_participant46/session2_participant46_gesture1_trial1.dat": "3b3a6f349d734c67697d2a573146f5d67d60978b1c15df8444cfd43250915d37",
+      "session2/session2_participant46/session2_participant46_gesture1_trial1.hea": "75e66fab656d196fefc79069b0739293d99f32b6f6bd8c9291264defc9786451",
+      "session2/session2_participant46/session2_participant46_gesture1_trial2.dat": "48f4203a191edf604aae343487ac5364c65e89a13490d6490d4ecfbd8001085a",
+      "session2/session2_participant46/session2_participant46_gesture1_trial2.hea": "3f56d3740cbff847c05cb7de47b4f78533fc4801a863abca4f4c54fa500d01be",
+      "session2/session2_participant46/session2_participant46_gesture2_trial1.dat": "3f94b796098e3c41063a42c12db7b4af7debe0c2ebe2f7ece39ed05e6c3ddc3b",
+      "session2/session2_participant46/session2_participant46_gesture2_trial1.hea": "8a4ad303328a5c4aceaa2bd4b2bcef3998d61fd1f0c59a53d64fb53f775358ed",
+      "session2/session2_participant46/session2_participant46_gesture2_trial2.dat": "36fbe1e64fa54101aeba231b86f33863265ac38a8d8f5799ec598b0f5b0f949c",
+      "session2/session2_participant46/session2_participant46_gesture2_trial2.hea": "05179d8c0208a9c1b8e5434243afdd6262e3049c7dd2ced378178ceda7b08170",
+      "session2/session2_participant46/session2_participant46_gesture3_trial1.dat": "b18522919b62329edb8092b922c15327281a8475e0a141b59c65efa852917214",
+      "session2/session2_participant46/session2_participant46_gesture3_trial1.hea": "c8c792f271d718f60db65390e7ddd86d76073fdfc5d7698cfdfd95a0c35b5b70",
+      "session2/session2_participant46/session2_participant46_gesture3_trial2.dat": "bf7db7204f20a956e8a519f5d0f31bce7f4666d6b9b71c05d07be8905ce3fae7",
+      "session2/session2_participant46/session2_participant46_gesture3_trial2.hea": "c9077f4d8fafc2ca21fde91792863baf0cdda0e6f94ff509525734f8025b2ebd",
+      "session2/session2_participant47/session2_participant47_gesture17_trial1.dat": "4798f7eeb8d392de3fc28a23d9ba91b56e9ac68d9c7423d83f15a89873a63aa3",
+      "session2/session2_participant47/session2_participant47_gesture17_trial1.hea": "99b190fe22578565a54ad410ea5366578502d673358dd8042d5340b14238aa88",
+      "session2/session2_participant47/session2_participant47_gesture17_trial2.dat": "13698678efb619076eb5fd89817c9232bd48465e897ec0506c3278a98834ed83",
+      "session2/session2_participant47/session2_participant47_gesture17_trial2.hea": "f754dd8265d21a637c1902f5b7ed478842edfc672345ae182456807539f8d5ad",
+      "session2/session2_participant47/session2_participant47_gesture1_trial1.dat": "6069b60350151566773cf29cc3624961413ad7652aae5da85d6792e3e62fcf52",
+      "session2/session2_participant47/session2_participant47_gesture1_trial1.hea": "61a6a49b83d58808a1fbc3b3e829a433cb56cb8ae59dc75bcaf32417e2bb14a2",
+      "session2/session2_participant47/session2_participant47_gesture1_trial2.dat": "db4b82d78ef8141ea58c3f1abe0f457f72ef03fb6678ae884059f2cfc25e220e",
+      "session2/session2_participant47/session2_participant47_gesture1_trial2.hea": "f1b1f596452e2f6309463f0f537171b5a61f363ec223ea9233c20b266e8aa0f6",
+      "session2/session2_participant47/session2_participant47_gesture2_trial1.dat": "06b51501a17d09bad829c77fa596500904a032f6e64b4f19ebfe5c1a5ffe4cb2",
+      "session2/session2_participant47/session2_participant47_gesture2_trial1.hea": "2bf292811b51142bf8a3c29910ef6050d6a90d49f4885a59608edf9af26fcb20",
+      "session2/session2_participant47/session2_participant47_gesture2_trial2.dat": "7eaab40485a937c07bd585bbf33a5b9b9ba0ef3fc68720f669b3db8145a3cb40",
+      "session2/session2_participant47/session2_participant47_gesture2_trial2.hea": "ecd9a44845d273d7262d51ffdb6c754d0f49053fe845552990d54b0df82e3f3d",
+      "session2/session2_participant47/session2_participant47_gesture3_trial1.dat": "1f9801e279e583cafbc7eddfa65b162da0b6f9dd32bf5bb9383bd462d6ae2d27",
+      "session2/session2_participant47/session2_participant47_gesture3_trial1.hea": "3989f84f9e83e854a02c4353e7984b3e631dea829f1e30025fc233b2459c3dfd",
+      "session2/session2_participant47/session2_participant47_gesture3_trial2.dat": "dde4edb002224e5ff551abc4a6e1c647cfe6a44eca47502a17b2a48d5fd5c31a",
+      "session2/session2_participant47/session2_participant47_gesture3_trial2.hea": "d0fa88c2f54d7b115b69f145a2b2bab7b49560ca4b68bbad5f925c5b3ad11f43",
+      "session3/session3_participant44/session3_participant44_gesture17_trial1.dat": "f5a7082abdf0dd65059bf11c3c89e0d7bd2f5eec00911a0d33128533bfa4ee2f",
+      "session3/session3_participant44/session3_participant44_gesture17_trial1.hea": "690c32448bf881793656e82f0fcf79e5172199478962ee8627bf0ff8929d86b5",
+      "session3/session3_participant44/session3_participant44_gesture17_trial2.dat": "127625f14e6f368b4e21298723a36d317b41806565dd5fd7ce0f576231dd0d33",
+      "session3/session3_participant44/session3_participant44_gesture17_trial2.hea": "b4ce7a0f525dc6c4c0aefc8aab7d499e870db904995126717d197878ddd16362",
+      "session3/session3_participant44/session3_participant44_gesture1_trial1.dat": "d5916415293262492c3b7e44b3d70d1fbc4a4e3591aa4f99cae8d6c3cb118870",
+      "session3/session3_participant44/session3_participant44_gesture1_trial1.hea": "16e50b2bb5a9623f52947afffe054c69525df20e1fd5858f5fbfbc46e79cd308",
+      "session3/session3_participant44/session3_participant44_gesture1_trial2.dat": "fb00b7dfcb7b91b4c33d0ab04ab1b1f1c641c12e8fced53e4ffbc09543a93b90",
+      "session3/session3_participant44/session3_participant44_gesture1_trial2.hea": "5b0f8dbbb96a69c84f2c136238e0cf432a97b040bce832515f0fc89b4583451d",
+      "session3/session3_participant44/session3_participant44_gesture2_trial1.dat": "5681d187bad4314d40c67a4b123cf328bd29b61b8e6a7a6f29d86d404e81f800",
+      "session3/session3_participant44/session3_participant44_gesture2_trial1.hea": "aa778ba72478f962b7f46a60879e1f992d6712eef4c3a3f418ba8102c8c5a56e",
+      "session3/session3_participant44/session3_participant44_gesture2_trial2.dat": "602d8301d9287415dc0a01928301c36ee200eb7b5d732de3ffa9252b7c7db854",
+      "session3/session3_participant44/session3_participant44_gesture2_trial2.hea": "1f38d64fb57611e5bfa6477622278f75dfd79ec13d087a5819fcd224efd497f3",
+      "session3/session3_participant44/session3_participant44_gesture3_trial1.dat": "3a9f8c163c7588d01ea9d65f0d508b5921400ad38eede09c0aff1eb4e3a1092e",
+      "session3/session3_participant44/session3_participant44_gesture3_trial1.hea": "e625b0e3be487545a0f58e4548fe30cc27f4d2ebe999986f6b9c802615af1392",
+      "session3/session3_participant44/session3_participant44_gesture3_trial2.dat": "06666702d22c2591158343d5dfa8da90e09a1ab8b94d2b140e6681854c7861dd",
+      "session3/session3_participant44/session3_participant44_gesture3_trial2.hea": "ea41ac2c339ca14e89377ebe1e9f9f6bd928978880a297d917aa877c59a6baf9",
+      "session3/session3_participant45/session3_participant45_gesture17_trial1.dat": "0acae077a15b1e4548d7b16d62f02c42016cb121214bfa5b503d9bc6ac946b52",
+      "session3/session3_participant45/session3_participant45_gesture17_trial1.hea": "79a1ff25313aed3d59e147a0c10b27fbc245817e0f3070ba53457f36d180a7ed",
+      "session3/session3_participant45/session3_participant45_gesture17_trial2.dat": "aa062bbd573ac96764dac6b44427c245bdd1b1f2b02702d615fb3aed23801132",
+      "session3/session3_participant45/session3_participant45_gesture17_trial2.hea": "c9d1eab9183f81b6d4bbd421ec63b98127f7fd66d7377b7ebb113ef16020d0c8",
+      "session3/session3_participant45/session3_participant45_gesture1_trial1.dat": "57cd508af62a24a0dea4d799f82c739df4f0eb80b970b0d04f8ff011bad3b5bf",
+      "session3/session3_participant45/session3_participant45_gesture1_trial1.hea": "d6af7278c4b8099f48fa52a265de2925139cbbfa85148e573816f4a1943cfc23",
+      "session3/session3_participant45/session3_participant45_gesture1_trial2.dat": "dc05ee2eb3cfb138438f31b2eddbfe2e44596add168d1a46150e417ef762b6fe",
+      "session3/session3_participant45/session3_participant45_gesture1_trial2.hea": "37fab939ef3e539153931783e2e27f968e30b79871f98e66ec6216cf49520611",
+      "session3/session3_participant45/session3_participant45_gesture2_trial1.dat": "117c94f3dfd69fe8b570948d33d338b45d12db08fcc286b5c94a1d07ffebf016",
+      "session3/session3_participant45/session3_participant45_gesture2_trial1.hea": "20867e7177638d18c1a0d3ffaa08c8fffa5c620d885147da9593543b82e9f14b",
+      "session3/session3_participant45/session3_participant45_gesture2_trial2.dat": "0bbab334e0c6885e2601fd7d632662b3315937e18592be73d7969b765f443a2f",
+      "session3/session3_participant45/session3_participant45_gesture2_trial2.hea": "1decb9eaed1dc114bcca1a5bb51980a4ac0ba600677195e9db04da29c3761bff",
+      "session3/session3_participant45/session3_participant45_gesture3_trial1.dat": "6eee26a5f3b6af5f07436ea92802a586a4d81feca96adba00f136b2c66ebf4c3",
+      "session3/session3_participant45/session3_participant45_gesture3_trial1.hea": "cd8876ca9542a75f7be511c6bd291e2f5dd3de32274e88db4df5dcdb9d3e9aa4",
+      "session3/session3_participant45/session3_participant45_gesture3_trial2.dat": "ed88b0234ace0d334e44e0baf0fea79ed90baf6d5e9444056478c809957abd81",
+      "session3/session3_participant45/session3_participant45_gesture3_trial2.hea": "c72db23232b5b95b404e5c7a449a410a8e255ee65507ac5a0f547464c7cf4861",
+      "session3/session3_participant46/session3_participant46_gesture17_trial1.dat": "96db1f830505d851be01d21b946278777796212df1e87689e0660a661171f113",
+      "session3/session3_participant46/session3_participant46_gesture17_trial1.hea": "c8a3a6fe14492b3013ed4ed191737a39519e0cd8da95f8e48ce2a4f24d88b671",
+      "session3/session3_participant46/session3_participant46_gesture17_trial2.dat": "7603d41ea4fd975dae031f2f0905b6911b7efb5123c65360242aa03183fe1b3d",
+      "session3/session3_participant46/session3_participant46_gesture17_trial2.hea": "03fff356e644d08585851655617f99e4f8226ccff44399d9860b91465e3a4fbd",
+      "session3/session3_participant46/session3_participant46_gesture1_trial1.dat": "5b655e17549f954c430a4604a7f214a0fccb0407330e72145f048b23ea0ba881",
+      "session3/session3_participant46/session3_participant46_gesture1_trial1.hea": "7544e827967a2a9077ab8867c8ccb0992616a3359198d706168963c15ec9f917",
+      "session3/session3_participant46/session3_participant46_gesture1_trial2.dat": "822a54cb24446f7e59994e379b44ebe07fb29a8cd5d950ec71de88c7b353e74b",
+      "session3/session3_participant46/session3_participant46_gesture1_trial2.hea": "4a94ce85a9296eeccb6121b92e437f73785ff32beafd1b79d6191caaf6adbd3e",
+      "session3/session3_participant46/session3_participant46_gesture2_trial1.dat": "5d7dc27137cd63d7ea5ddc5fd3472943b50327533545d9383a8e8e5bd88e90d0",
+      "session3/session3_participant46/session3_participant46_gesture2_trial1.hea": "8eab5b92146dcb468359d1b493ba415167685fbbdec6ed1cdb979db44252707d",
+      "session3/session3_participant46/session3_participant46_gesture2_trial2.dat": "94c223a35a33d9b6234e873a641b4d1e1d19924ce0491df8e1cd561db1c6f1bc",
+      "session3/session3_participant46/session3_participant46_gesture2_trial2.hea": "c67f582bbac9fb643ca6252efef4f67632e38213610101a96917983479e1520c",
+      "session3/session3_participant46/session3_participant46_gesture3_trial1.dat": "2e2ba1c27fa916d5fc44b47d5944d522b0bc116675e04fb40200ec821a827637",
+      "session3/session3_participant46/session3_participant46_gesture3_trial1.hea": "58c0e4020a717c691334293583dbd1938eeb85296cf8a2eff9ab5b96066725a4",
+      "session3/session3_participant46/session3_participant46_gesture3_trial2.dat": "c72301a88486faa7e6b74e8b794d6ca867c5e810ae7763bb1a29c0823d1420b2",
+      "session3/session3_participant46/session3_participant46_gesture3_trial2.hea": "68e0eabf0e50739ef41d2d39a425deafddd123a28fcb0d0538f9d7a557ce259d",
+      "session3/session3_participant47/session3_participant47_gesture17_trial1.dat": "00473361d3be5eacbf15efde27167aa935c0f7ba0c32f8fba7ddda861fcbd048",
+      "session3/session3_participant47/session3_participant47_gesture17_trial1.hea": "d810147a59ba5fcd03426c7abdac54f3c29511fa133642656755ac87c3e0f8ec",
+      "session3/session3_participant47/session3_participant47_gesture17_trial2.dat": "3dd9eb3ba4685cc8dea303969d094006cf0bb1f72b432cbd6017efbc1746f5f3",
+      "session3/session3_participant47/session3_participant47_gesture17_trial2.hea": "44b6b90df7b51230f34b01c4f07e57647fe45554a5d63d3eb65400c14971f392",
+      "session3/session3_participant47/session3_participant47_gesture1_trial1.dat": "f9060f8575f77f90fc1d00911b094193fb742a9a540b61088b8c7f457cd75199",
+      "session3/session3_participant47/session3_participant47_gesture1_trial1.hea": "44d5c59b2c9012938a1a194464fbf9d178c153d561848d5b47a84dd45bc1c476",
+      "session3/session3_participant47/session3_participant47_gesture1_trial2.dat": "3c7cba837b5a2fe901459b8c83dffdb4ae4f9206af346f2ddb54c4332c0b9dad",
+      "session3/session3_participant47/session3_participant47_gesture1_trial2.hea": "66e90ef23faa5e38ad09555c9bcc7441864414098a0c936c0bf76523fd09d8a8",
+      "session3/session3_participant47/session3_participant47_gesture2_trial1.dat": "34f9d583105787a3aff7849caa8a449e5f633cbc073ef39a78867ef222ce9848",
+      "session3/session3_participant47/session3_participant47_gesture2_trial1.hea": "35a72e20e1038ec7f8cf4fc2665707d878f4a82e436b795c459e683733f6c854",
+      "session3/session3_participant47/session3_participant47_gesture2_trial2.dat": "3635d710ce177715c6b917f1ac65b20aafb87d1a7ec0c681bc9a7b82e6a9d293",
+      "session3/session3_participant47/session3_participant47_gesture2_trial2.hea": "8240d0c0aa0d3df695d58e9d2335cab8b058468b62b4402c74a4952ee3fdb016",
+      "session3/session3_participant47/session3_participant47_gesture3_trial1.dat": "724ca680ca728f02fcf155bf5f80274115ed67de6c8f278724e70f3d6442cf45",
+      "session3/session3_participant47/session3_participant47_gesture3_trial1.hea": "5f69f04436bbb43a5620e773824a8ebc0c83ac71bbd15ff9491278ef376ad9d7",
+      "session3/session3_participant47/session3_participant47_gesture3_trial2.dat": "a0e5428addb35f6d6d008c67f099d9f36465b0a02353ebc10f06f57c70bf0673",
+      "session3/session3_participant47/session3_participant47_gesture3_trial2.hea": "37d5bc14ea6ccb026bd4577db1e2b6c798597eb51e5cf4c021c9bc7b6e914915"
+    }
+  },
+  "config": {
+    "stream": {
+      "sample_rate_hz": 2048,
+      "window_ms": 200,
+      "stride_ms": 40,
+      "rest_gesture_id": 17
+    },
+    "budget": {
+      "max_calibration_windows": 50,
+      "max_inference_ms_p95": 50.0,
+      "max_peak_ram_mb": 2048.0,
+      "abstention_coverage_min": 0.05
+    },
+    "participants": [
+      44,
+      45,
+      46,
+      47
+    ],
+    "n_records": 96,
+    "n_windows": 11712,
+    "feature_dimensions": 36
+  },
+  "comparison_scope": "threshold-swept risk-coverage and matched-recall comparison untested",
+  "runs": [
+    {
+      "shift": "person",
+      "decoder": "static_lda",
+      "status": "available",
+      "held_out": [
+        "participants:44",
+        "participants:45",
+        "participants:46",
+        "participants:47"
+      ],
+      "folds": [
+        {
+          "held_out": "participants:44",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participants:45",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participants:46",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participants:47",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "n_train": 35136,
+      "n_calibration": 200,
+      "n_test": 11492,
+      "n_participants": 4,
+      "n_trials": 96,
+      "n_gesture_events": 72,
+      "n_gesture_windows": 8784,
+      "false_activation_events": 27,
+      "rest_exposure_s": 106.505859375,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 912.6258458491501,
+          "ci_low": 0.0,
+          "ci_high": 2636.4746657864334,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.8194444444444444,
+          "ci_low": 0.6944444444444444,
+          "ci_high": 0.9444444444444444,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.5121812386156649,
+          "ci_low": 0.3806921675774135,
+          "ci_high": 0.7505692167577414,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.39819004524886875,
+          "ci_low": 0.19195962408632092,
+          "ci_high": 0.5231465367211974,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.11983400327153504,
+      "latency_ms_p95": 0.14475000352831557,
+      "runtime_s": 1.5513038749995758,
+      "cumulative_process_peak_rss_mb": 214.390625
+    },
+    {
+      "shift": "person",
+      "decoder": "hysteresis",
+      "status": "available",
+      "held_out": [
+        "participants:44",
+        "participants:45",
+        "participants:46",
+        "participants:47"
+      ],
+      "folds": [
+        {
+          "held_out": "participants:44",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participants:45",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participants:46",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participants:47",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "n_train": 35136,
+      "n_calibration": 200,
+      "n_test": 11492,
+      "n_participants": 4,
+      "n_trials": 96,
+      "n_gesture_events": 72,
+      "n_gesture_windows": 8784,
+      "false_activation_events": 18,
+      "rest_exposure_s": 106.505859375,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 608.4172305661001,
+          "ci_low": 0.0,
+          "ci_high": 1723.8488199372835,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.75,
+          "ci_low": 0.6111111111111112,
+          "ci_high": 0.9166666666666666,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.4733606557377049,
+          "ci_low": 0.34676684881602915,
+          "ci_high": 0.6958105646630237,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.4229028889662374,
+          "ci_low": 0.23329272537417334,
+          "ci_high": 0.5395057431256526,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12320800306042656,
+      "latency_ms_p95": 0.15391700035252143,
+      "runtime_s": 1.6044703750012559,
+      "cumulative_process_peak_rss_mb": 218.625
+    },
+    {
+      "shift": "person",
+      "decoder": "few_shot",
+      "status": "unavailable",
+      "reason": "few_shot baseline unavailable: calibration lacks two classes",
+      "folds": [
+        {
+          "held_out": "participants:44",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "shift": "person",
+      "decoder": "myoshift",
+      "status": "available",
+      "held_out": [
+        "participants:44",
+        "participants:45",
+        "participants:46",
+        "participants:47"
+      ],
+      "folds": [
+        {
+          "held_out": "participants:44",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 8.576950144723061e-06
+        },
+        {
+          "held_out": "participants:45",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 9.379498262518384e-08
+        },
+        {
+          "held_out": "participants:46",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 9.489861119149623e-10
+        },
+        {
+          "held_out": "participants:47",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 2.6922751361624366e-09
+        }
+      ],
+      "n_train": 35136,
+      "n_calibration": 200,
+      "n_test": 11492,
+      "n_participants": 4,
+      "n_trials": 96,
+      "n_gesture_events": 72,
+      "n_gesture_windows": 8784,
+      "false_activation_events": 0,
+      "rest_exposure_s": 106.505859375,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.3333333333333333,
+          "ci_low": 0.1527777777777778,
+          "ci_high": 0.5972222222222222,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.07331511839708561,
+          "ci_low": 0.03135530510018215,
+          "ci_high": 0.13721254553734044,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.23877068557919623,
+          "ci_low": 0.008085676037483277,
+          "ci_high": 0.5885885885885885,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 0.07361642882004873,
+          "ci_low": 0.04263835711799513,
+          "ci_high": 0.10833623390184476,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12079100270057097,
+      "latency_ms_p95": 0.1519081477454163,
+      "runtime_s": 1.5576500839961227,
+      "cumulative_process_peak_rss_mb": 222.359375
+    },
+    {
+      "shift": "session",
+      "decoder": "static_lda",
+      "status": "available",
+      "held_out": [
+        "session:3"
+      ],
+      "folds": [
+        {
+          "held_out": "session:3",
+          "n_train": 7808,
+          "n_calibration": 50,
+          "n_test": 3849,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3849,
+      "n_participants": 4,
+      "n_trials": 32,
+      "n_gesture_events": 24,
+      "n_gesture_windows": 2928,
+      "false_activation_events": 0,
+      "rest_exposure_s": 36.22705078125,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.9583333333333334,
+          "ci_low": 0.875,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.7243852459016393,
+          "ci_low": 0.46269637978142086,
+          "ci_high": 0.9439890710382514,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.20966484801247076,
+          "ci_low": 0.04322614654717976,
+          "ci_high": 0.4029777151639333,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.11812499724328518,
+      "latency_ms_p95": 0.14505840372294174,
+      "runtime_s": 0.5343409170018276,
+      "cumulative_process_peak_rss_mb": 225.5
+    },
+    {
+      "shift": "session",
+      "decoder": "hysteresis",
+      "status": "available",
+      "held_out": [
+        "session:3"
+      ],
+      "folds": [
+        {
+          "held_out": "session:3",
+          "n_train": 7808,
+          "n_calibration": 50,
+          "n_test": 3849,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3849,
+      "n_participants": 4,
+      "n_trials": 32,
+      "n_gesture_events": 24,
+      "n_gesture_windows": 2928,
+      "false_activation_events": 0,
+      "rest_exposure_s": 36.22705078125,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.75,
+          "ci_low": 0.45625000000000016,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.694672131147541,
+          "ci_low": 0.43145491803278696,
+          "ci_high": 0.912568306010929,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.23226812159002339,
+          "ci_low": 0.06747496046389036,
+          "ci_high": 0.42640881147540877,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12237500050105155,
+      "latency_ms_p95": 0.16062479844549668,
+      "runtime_s": 0.5256590829958441,
+      "cumulative_process_peak_rss_mb": 225.5
+    },
+    {
+      "shift": "session",
+      "decoder": "few_shot",
+      "status": "unavailable",
+      "reason": "few_shot baseline unavailable: calibration lacks two classes",
+      "folds": [
+        {
+          "held_out": "session:3",
+          "n_train": 7808,
+          "n_calibration": 50,
+          "n_test": 3849,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "shift": "session",
+      "decoder": "myoshift",
+      "status": "available",
+      "held_out": [
+        "session:3"
+      ],
+      "folds": [
+        {
+          "held_out": "session:3",
+          "n_train": 7808,
+          "n_calibration": 50,
+          "n_test": 3849,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 1.3621102045169312e-07
+        }
+      ],
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3849,
+      "n_participants": 4,
+      "n_trials": 32,
+      "n_gesture_events": 24,
+      "n_gesture_windows": 2928,
+      "false_activation_events": 0,
+      "rest_exposure_s": 36.22705078125,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.4583333333333333,
+          "ci_low": 0.25,
+          "ci_high": 0.7083333333333334,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.21721311475409835,
+          "ci_low": 0.08401639344262295,
+          "ci_high": 0.28688524590163933,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.003134796238244514,
+          "ci_low": 0.0,
+          "ci_high": 0.009302359033371682,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 0.16575733956871916,
+          "ci_low": 0.06352459016393443,
+          "ci_high": 0.22034791776489193,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.1208749963552691,
+      "latency_ms_p95": 0.13808360090479252,
+      "runtime_s": 0.5099068330018781,
+      "cumulative_process_peak_rss_mb": 225.84375
+    },
+    {
+      "shift": "electrode",
+      "decoder": "static_lda",
+      "status": "available",
+      "held_out": [
+        "participant:44;within_ring_shift:2",
+        "participant:45;within_ring_shift:2",
+        "participant:46;within_ring_shift:2",
+        "participant:47;within_ring_shift:2"
+      ],
+      "folds": [
+        {
+          "held_out": "participant:44;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participant:45;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participant:46;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participant:47;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "n_train": 35136,
+      "n_calibration": 200,
+      "n_test": 11492,
+      "n_participants": 4,
+      "n_trials": 96,
+      "n_gesture_events": 72,
+      "n_gesture_windows": 8784,
+      "false_activation_events": 26,
+      "rest_exposure_s": 106.505859375,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 878.8248885954778,
+          "ci_low": 0.0,
+          "ci_high": 2636.4746657864334,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.4722222222222222,
+          "ci_low": 0.375,
+          "ci_high": 0.5277777777777778,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.22654826958105648,
+          "ci_low": 0.1341558515482696,
+          "ci_high": 0.31397996357012753,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.6105116602854159,
+          "ci_low": 0.5243647754959972,
+          "ci_high": 0.684563174382179,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.11983400327153504,
+      "latency_ms_p95": 0.15204199735308066,
+      "runtime_s": 1.5538275420040009,
+      "cumulative_process_peak_rss_mb": 229.890625
+    },
+    {
+      "shift": "electrode",
+      "decoder": "hysteresis",
+      "status": "available",
+      "held_out": [
+        "participant:44;within_ring_shift:2",
+        "participant:45;within_ring_shift:2",
+        "participant:46;within_ring_shift:2",
+        "participant:47;within_ring_shift:2"
+      ],
+      "folds": [
+        {
+          "held_out": "participant:44;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participant:45;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participant:46;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        },
+        {
+          "held_out": "participant:47;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "n_train": 35136,
+      "n_calibration": 200,
+      "n_test": 11492,
+      "n_participants": 4,
+      "n_trials": 96,
+      "n_gesture_events": 72,
+      "n_gesture_windows": 8784,
+      "false_activation_events": 20,
+      "rest_exposure_s": 106.505859375,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 676.0191450734444,
+          "ci_low": 0.0,
+          "ci_high": 2028.0574352203334,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.4444444444444444,
+          "ci_low": 0.3260416666666667,
+          "ci_high": 0.5277777777777778,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.20070582877959928,
+          "ci_low": 0.11125056921675776,
+          "ci_high": 0.28233151183970856,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.6254785938043856,
+          "ci_low": 0.5485555168813088,
+          "ci_high": 0.6992690567351201,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12224999954923987,
+      "latency_ms_p95": 0.15174635045696042,
+      "runtime_s": 1.6044678750040475,
+      "cumulative_process_peak_rss_mb": 233.4375
+    },
+    {
+      "shift": "electrode",
+      "decoder": "few_shot",
+      "status": "unavailable",
+      "reason": "few_shot baseline unavailable: calibration lacks two classes",
+      "folds": [
+        {
+          "held_out": "participant:44;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "shift": "electrode",
+      "decoder": "myoshift",
+      "status": "available",
+      "held_out": [
+        "participant:44;within_ring_shift:2",
+        "participant:45;within_ring_shift:2",
+        "participant:46;within_ring_shift:2",
+        "participant:47;within_ring_shift:2"
+      ],
+      "folds": [
+        {
+          "held_out": "participant:44;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 8.576950144723061e-06
+        },
+        {
+          "held_out": "participant:45;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 9.379498262518384e-08
+        },
+        {
+          "held_out": "participant:46;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 9.489861119149623e-10
+        },
+        {
+          "held_out": "participant:47;within_ring_shift:2",
+          "n_train": 8784,
+          "n_calibration": 50,
+          "n_test": 2873,
+          "calibration_labels": [
+            17
+          ],
+          "n_purged": 5,
+          "threshold_examples": 50,
+          "confidence_score_threshold": 2.6922751361624366e-09
+        }
+      ],
+      "n_train": 35136,
+      "n_calibration": 200,
+      "n_test": 11492,
+      "n_participants": 4,
+      "n_trials": 96,
+      "n_gesture_events": 72,
+      "n_gesture_windows": 8784,
+      "false_activation_events": 1,
+      "rest_exposure_s": 106.505859375,
+      "interval_scope": "participant-cluster descriptive pilot intervals; shared training folds",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 33.80095725367222,
+          "ci_low": 0.0,
+          "ci_high": 101.40287176101667,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.1111111111111111,
+          "ci_low": 0.06944444444444445,
+          "ci_high": 0.1388888888888889,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": 0.016962659380692167,
+          "ci_low": 0.005009107468123861,
+          "ci_high": 0.03574681238615665,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.5814606741573034,
+          "ci_low": 0.05223880597014925,
+          "ci_high": 0.9009009009009009,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 0.030978071702053602,
+          "ci_low": 0.010570396797772363,
+          "ci_high": 0.0527323355377654,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12016700202366337,
+      "latency_ms_p95": 0.14385189861059183,
+      "runtime_s": 1.5503301249991637,
+      "cumulative_process_peak_rss_mb": 237.1875
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "shift": "person",
+      "contrast": "myoshift minus static_lda",
+      "status": "available",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": -912.6258458491501,
+          "ci_low": -2636.4746657864334,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": -0.4861111111111111,
+          "ci_low": -0.6666666666666667,
+          "ci_high": -0.3055555555555556,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": -0.4388661202185793,
+          "ci_low": -0.6095173041894353,
+          "ci_high": -0.3333333333333333,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": -0.15941935966967252,
+          "ci_low": -0.3472888366658657,
+          "ci_high": 0.0524593823244316,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": -0.9263835711799513,
+          "ci_low": -0.9573616428820049,
+          "ci_high": -0.8916637660981552,
+          "unit": "proportion"
+        }
+      }
+    },
+    {
+      "shift": "person",
+      "contrast": "myoshift minus hysteresis",
+      "status": "available",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": -608.4172305661001,
+          "ci_low": -1723.8488199372835,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": -0.4166666666666667,
+          "ci_low": -0.5694444444444444,
+          "ci_high": -0.27777777777777773,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": -0.4000455373406193,
+          "ci_low": -0.5547586520947176,
+          "ci_high": -0.3043032786885246,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": -0.18413220338704117,
+          "ci_low": -0.38231755229412884,
+          "ci_high": 0.044110095864285444,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": -0.9263835711799513,
+          "ci_low": -0.9573616428820049,
+          "ci_high": -0.8916637660981552,
+          "unit": "proportion"
+        }
+      }
+    },
+    {
+      "shift": "session",
+      "contrast": "myoshift minus static_lda",
+      "status": "available",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": -0.5,
+          "ci_low": -0.6666666666666667,
+          "ci_high": -0.29166666666666663,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": -0.507172131147541,
+          "ci_low": -0.6810109289617485,
+          "ci_high": -0.2159067622950821,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": -0.20653005177422626,
+          "ci_low": -0.39457627176169413,
+          "ci_high": -0.04322614654717976,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": -0.8342426604312808,
+          "ci_low": -0.9364754098360656,
+          "ci_high": -0.7796520822351081,
+          "unit": "proportion"
+        }
+      }
+    },
+    {
+      "shift": "session",
+      "contrast": "myoshift minus hysteresis",
+      "status": "available",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": -0.2916666666666667,
+          "ci_low": -0.5,
+          "ci_high": -0.08333333333333326,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": -0.4774590163934427,
+          "ci_low": -0.6454918032786885,
+          "ci_high": -0.18464822404371595,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": -0.22913332535177888,
+          "ci_low": -0.41800736807316957,
+          "ci_high": -0.06747496046389036,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": -0.8342426604312808,
+          "ci_low": -0.9364754098360656,
+          "ci_high": -0.7796520822351081,
+          "unit": "proportion"
+        }
+      }
+    },
+    {
+      "shift": "electrode",
+      "contrast": "myoshift minus static_lda",
+      "status": "available",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": -845.0239313418056,
+          "ci_low": -2535.0717940254167,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": -0.3611111111111111,
+          "ci_low": -0.3888888888888889,
+          "ci_high": -0.3055555555555556,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": -0.20958561020036431,
+          "ci_low": -0.28938979963570133,
+          "ci_high": -0.12404371584699479,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": -0.02905098612811252,
+          "ci_low": -0.5395713285128874,
+          "ci_high": 0.26741673800497334,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": -0.9690219282979464,
+          "ci_low": -0.9894296032022276,
+          "ci_high": -0.9472676644622346,
+          "unit": "proportion"
+        }
+      }
+    },
+    {
+      "shift": "electrode",
+      "contrast": "myoshift minus hysteresis",
+      "status": "available",
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": -642.2181878197722,
+          "ci_low": -1926.6545634593167,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": -0.3333333333333333,
+          "ci_low": -0.3888888888888889,
+          "ci_high": -0.2565972222222225,
+          "unit": "proportion"
+        },
+        "window_recall": {
+          "name": "window_recall",
+          "value": -0.1837431693989071,
+          "ci_low": -0.25774134790528236,
+          "ci_high": -0.10113843351548307,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": -0.04401791964708224,
+          "ci_low": -0.5610906462991735,
+          "ci_high": 0.2566266231424602,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": -0.9690219282979464,
+          "ci_low": -0.9894296032022276,
+          "ci_high": -0.9472676644622346,
+          "unit": "proportion"
+        }
+      }
+    }
+  ],
+  "stop_rules": {
+    "person_coverage_failure": false,
+    "hysteresis_interval_stop_fired": true,
+    "decoder_novelty_claim": "withdrawn; overlapping intervals are not safety equivalence",
+    "threshold_frontier": "untested"
+  },
+  "runtime_s": 20.37009450000187,
+  "cumulative_process_peak_rss_mb": 240.3125
+}

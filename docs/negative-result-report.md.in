@@ -1,0 +1,79 @@
+# No recall advantage for selective sEMG decoding in the corrected MyoShift pilot
+
+## Abstract
+
+Does a budgeted selective streaming decoder reduce false gesture commands while preserving recall under distribution shift? This corrected evaluation uses the GRABMyoFlow static-extension pilot, licensed under $licence, with $participants participants, $records records, $windows extracted windows and $events metadata-defined gesture events. Compared with static linear discriminant analysis (LDA), the selective decoder has no recall advantage under person, session or proxy electrode shift. Paired participant-bootstrap differences in trial-event recall, selective minus static LDA, are $abstract_contrasts. Window recall is also lower under every shift. Reduced command emission accompanies substantial abstention, so these operating points do not establish a better risk-coverage trade-off or safety equivalence. The decoder novelty claim was withdrawn. This report replaces scientific interpretation of the earlier invalid evaluation with an auditable negative result, while retaining the frozen protocol, retrospective amendments and withdrawn outputs as evidence of the actual chronology.
+
+## Background
+
+Surface electromyography provides information about intended movement, but a classifier's behaviour can change across users, sessions and recording arrangements.
+
+Prior work includes [EMGBench]($arxiv), which addresses out-of-distribution sEMG generalisation and adaptation, and the [generic non-invasive neuromotor interface study]($related_doi). Neither work is re-evaluated here; no missing capability or unoccupied research area is claimed. The [GRABMyoFlow dataset extension]($dataset_doi), by Ehlert, Tung and Pradhan, supplies the public recordings. Only selected static records are evaluated. DOI metadata matches the repository references. These citations provide context, not decoder validation.
+
+## Registered question and chronology
+
+The [frozen protocol](PREREGISTRATION.md) asks whether budgeted selective streaming decoding reduces false activations while preserving event recall against static LDA, calibration-only few-shot LDA and hysteresis, under person, session and electrode shift. Its recorded hash is `$protocol_hash`. The hash matches the preserved protocol bytes. It establishes byte consistency; it does not independently establish that freezing occurred before results were inspected. The available provenance explicitly leaves pre-result freeze chronology unverified. Prospective registration is not established.
+
+Amendments were made after seeing results. Dates are repair-round labels, not immutable timestamps. Finding identifiers are extracted from the linked records.
+
+$chronology
+
+The [withdrawn historical outputs](../results/historical_2026-09-30/WITHDRAWN.md) must not support scientific claims. The earlier evaluation had invalid shifted-window mapping, corrupted electrode-condition labels, incorrect command-event counting and exposure, and inappropriate ratio aggregation. It also allowed overlapping calibration and test support, carried state across independent records, used insufficient uncertainty units, misrepresented selective calibration and substituted a static classifier when calibration-only fitting was impossible.
+
+The earlier reported recall and corrected trial-event recall are different estimands. Changed hold-outs and repaired labels also preclude a direct before-and-after comparison. Old files support auditing, not scientific interpretation. Corrections were made after observing outcomes, so this report is a retrospective corrected analysis of the registered question. Engineering checks do not restore the original chronology.
+
+## Methods
+
+The pilot has $participants healthy adult participants recorded in seated laboratory conditions and $records independent static records. Clinical or impaired-population generalisation is untested. Feature extraction produces $windows windows at a native sampling rate of $sample_rate Hz, using nominal causal windows of $window_ms ms and strides of $stride_ms ms. Named wrist channels produce $features features using mean absolute value, root mean square and bandpower. Exposure uses actual integer sample support. Ground truth is the gesture identity supplied by trial metadata, independent of predictions from every decoder.
+
+Person shift uses participant hold-out folds, training on the remaining participants. Session shift trains on earlier sessions and holds out the final selected session. Electrode shift uses held-out participant evaluation with a separate cyclic permutation inside each wrist ring. Mapping preserves full window identity, raw sample support, gesture labels and rest flags. This permutation approximates a change in channel arrangement. It does not reproduce a measured physical displacement, changing contact impedance or all consequences of reapplying electrodes.
+
+The calibration prefix is limited to $calibration target windows. Test windows sharing raw support with calibration are purged, and decoder state resets at independent record boundaries. Record order does not imply continuous acquisition. The source-informed methods share the same labelled source support and optional target calibration budget. Static LDA and the bespoke hysteresis reference do not consume that optional budget. Hysteresis applies fixed confidence and dwell rules to source LDA; it is a bespoke reference, not a verified strongest controller.
+
+The selective decoder fits LDA and scaling on source data only. An independent target prefix sets an empirical confidence-rejection threshold using the same score applied at prediction. Fixed margin rejection and rest abstention remain. The removed session normalisation cancelled within refitting and cannot support an adaptation claim. Empirical calibration supplies no conformal guarantee. The prefix contains rest alone, so it cannot establish gesture-conditioned calibration performance.
+
+Calibration-only few-shot LDA has no source data and requires multiple calibration classes. Under the preserved prefix it cannot fit. It is recorded as unavailable, including its reason, throughout the results. No fallback score or comparison with a successfully fitted few-shot system is available. Adding gesture examples would require a separately declared evaluation.
+
+A command onset is an eligible non-rest, sufficiently confident, non-abstained decision, or a change to another command. Holding the same command counts once until offset. Trial-event recall counts a metadata-defined gesture record as detected if a correct command occurs in its eligible test portion. Window recall instead counts correct accepted gesture windows over eligible gesture windows. Trial detection can remain high despite inconsistent windows. False commands are normalised by measured eligible rest exposure. Risk is error among accepted windows; coverage is the accepted fraction. Undefined exposure or accepted support produces an unavailable estimate rather than a fabricated rate.
+
+Uncertainty resamples complete participant clusters and keeps paired methods together. Sufficient statistics are pooled before each ratio is formed. Differences preserve method pairing. The displayed intervals are descriptive participant-bootstrap intervals conditional on this pilot, with shared training data across hold-out folds. They are not independent-population safety guarantees. Repeated records do not add independent participants.
+
+## Results
+
+All tables below are generated from `results/results.json`, whose digest is `$results_hash`. Counts describe each evaluation support; the same recordings recur across shifts and methods, so table rows must not be summed as independent observations. The abstract reports paired differences; decoder tables show marginal estimates.
+
+$tables
+
+The selective decoder loses both trial-event and window recall against static LDA in every shift, and the paired intervals remain below no difference. Its coverage is markedly lower. Person and electrode operating points emit fewer false commands than static LDA, but those reductions occur alongside missed gestures and heavy rejection. In the session condition, the observed false-command rate cannot distinguish the methods.
+
+The retained hysteresis interval-overlap novelty stop fired: $novelty_stop. The person coverage-failure stop fired: $coverage_stop. The novelty stop is a conservative rule for withdrawing a claim, not an equivalence test. Reduced output does not establish superiority or recall preservation.
+
+## What the result does and does not show
+
+The evidence is a negative result at the evaluated operating points. The repaired scoring and audit trail can be reused. Decoder novelty remains withdrawn; broader benchmark novelty is unestablished.
+
+The pilot is small and uses a single dataset from healthy adults in seated laboratory conditions. Bootstrap intervals cannot compensate for the limited participant pool or shared fold training. Trial-event detection neither measures physiological onset delay nor guarantees sustained correct control. Reported p95 latency times `decoder.predict` only; it excludes feature extraction, acquisition and end-to-end command response.
+
+The electrode condition is a proxy with preserved labels, not a physical displacement experiment. Rest exposure is short, and event rates expressed per hour extrapolate the observed denominator without supplying an hour of observation. Zero observed events and degenerate bootstrap intervals remain compatible with unobserved future errors.
+
+Threshold-swept risk-coverage and matched-recall comparisons are untested. Lower accepted-window risk at much lower coverage cannot establish a better frontier. Few-shot remains unanswered; hysteresis is not an exhaustive search. No clinical suitability, deployment, adoption, population safety or best-decoder claim follows.
+
+## Reproduction and resources
+
+Regenerate the report from preserved results without rerunning evaluation:
+
+```sh
+python scripts/generate_report_tables.py
+```
+
+The generator supports `--check` for byte-for-byte mismatch detection. Measurements come from results; dates, finding identifiers and citation metadata come from repository records. See the [repair receipt](milestones/REPAIR_2026-10-01_REPORT.md) for regression evidence.
+
+For a fresh data acquisition, follow [the data manifest](DATA.md) and run `bash scripts/download_pilot.sh`. The bounded downloader retrieves the upstream checksum manifest and verifies each selected waveform and header before replacing its destination. The upstream manifest remains the retrieval trust source. The preserved results contain per-file data digests for comparison with the evaluated inputs. After installing the documented development dependencies, `python scripts/run_benchmark.py` reproduces evaluation, traces, figures and generated current documents, including this report. Runtime and result provenance will then describe that new execution.
+
+The preserved evaluation reports $runtime s for benchmark runtime and $rss MiB for cumulative process peak RSS, using Python $python and software versions `$software`. Runtime excludes installation, downloading and document or figure generation. RSS is a process high-water mark, not isolated evaluation memory or the required compressed and swapped macOS footprint. The footprint measurement was blocked, so that resource gate remains unverified. Small RSS does not certify the governing memory cap.
+
+## Licences and citation
+
+Code is licensed under [$code_licence](../LICENSE). Written documentation, including this report, is under [$licence](https://creativecommons.org/licenses/by/4.0/). Machine-readable results, prediction traces and figures are under [$licence](https://creativecommons.org/licenses/by/4.0/). See [NOTICE](../NOTICE) for the file-scope manifest. GRABMyoFlow remains under its own $licence terms and must be attributed to Ehlert, Tung and Pradhan through the [dataset citation]($dataset_doi). Cite the PhysioNet platform per Pollard et al., Nature Health 2026, doi:10.1038/s44360-026-00096-z, as requested on the [official dataset page](https://physionet.org/content/grabmyo-flow/1.0.0/). Dataset terms remain applicable to the subset.
+
+For consistent repository attribution, use [CITATION.cff](../CITATION.cff): $author. *$citation_title*. Version $version, released $released. [Repository]($repository). Identify this document by its title and path, `docs/negative-result-report.md`, and retain the results digest and protocol hash above when citing its negative finding. This repository report has no assigned DOI.

@@ -1,0 +1,122 @@
+Command: ['.venv/bin/python', '-m', 'build', '--wheel', '--outdir', 'results/repair_dist']
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=61
+* Getting build dependencies for wheel...
+running egg_info
+writing src/myoshift.egg-info/PKG-INFO
+writing dependency_links to src/myoshift.egg-info/dependency_links.txt
+writing entry points to src/myoshift.egg-info/entry_points.txt
+writing requirements to src/myoshift.egg-info/requires.txt
+writing top-level names to src/myoshift.egg-info/top_level.txt
+reading manifest file 'src/myoshift.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'src/myoshift.egg-info/SOURCES.txt'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Installed build dependency versions:
+  - setuptools==84.0.0
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+running egg_info
+writing src/myoshift.egg-info/PKG-INFO
+writing dependency_links to src/myoshift.egg-info/dependency_links.txt
+writing entry points to src/myoshift.egg-info/entry_points.txt
+writing requirements to src/myoshift.egg-info/requires.txt
+writing top-level names to src/myoshift.egg-info/top_level.txt
+reading manifest file 'src/myoshift.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'src/myoshift.egg-info/SOURCES.txt'
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.macosx-26.5-arm64/wheel
+running install
+running install_lib
+creating build/bdist.macosx-26.5-arm64/wheel
+creating build/bdist.macosx-26.5-arm64/wheel/myoshift
+copying build/lib/myoshift/_version.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift
+creating build/bdist.macosx-26.5-arm64/wheel/myoshift/features
+copying build/lib/myoshift/features/__init__.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/features
+copying build/lib/myoshift/features/extract.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/features
+copying build/lib/myoshift/__init__.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift
+copying build/lib/myoshift/types.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift
+creating build/bdist.macosx-26.5-arm64/wheel/myoshift/models
+copying build/lib/myoshift/models/__init__.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/models
+copying build/lib/myoshift/models/selective_decoder.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/models
+copying build/lib/myoshift/models/lda_baseline.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/models
+copying build/lib/myoshift/models/hysteresis.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/models
+copying build/lib/myoshift/models/base.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/models
+copying build/lib/myoshift/cli.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift
+creating build/bdist.macosx-26.5-arm64/wheel/myoshift/eval
+copying build/lib/myoshift/eval/metrics.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/eval
+copying build/lib/myoshift/eval/benchmark.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/eval
+copying build/lib/myoshift/eval/__init__.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/eval
+copying build/lib/myoshift/eval/dataset.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/eval
+copying build/lib/myoshift/eval/splits.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/eval
+creating build/bdist.macosx-26.5-arm64/wheel/myoshift/data
+copying build/lib/myoshift/data/grabmyo.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/data
+copying build/lib/myoshift/data/__init__.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift/data
+copying build/lib/myoshift/_external.py -> build/bdist.macosx-26.5-arm64/wheel/./myoshift
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying src/myoshift.egg-info to build/bdist.macosx-26.5-arm64/wheel/./myoshift-0.1.0-py3.11.egg-info
+running install_scripts
+creating build/bdist.macosx-26.5-arm64/wheel/myoshift-0.1.0.dist-info/WHEEL
+creating 'results/repair_dist/.tmp-j_35us5m/myoshift-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.5-arm64/wheel' to it
+adding 'myoshift/__init__.py'
+adding 'myoshift/_external.py'
+adding 'myoshift/_version.py'
+adding 'myoshift/cli.py'
+adding 'myoshift/types.py'
+adding 'myoshift/data/__init__.py'
+adding 'myoshift/data/grabmyo.py'
+adding 'myoshift/eval/__init__.py'
+adding 'myoshift/eval/benchmark.py'
+adding 'myoshift/eval/dataset.py'
+adding 'myoshift/eval/metrics.py'
+adding 'myoshift/eval/splits.py'
+adding 'myoshift/features/__init__.py'
+adding 'myoshift/features/extract.py'
+adding 'myoshift/models/__init__.py'
+adding 'myoshift/models/base.py'
+adding 'myoshift/models/hysteresis.py'
+adding 'myoshift/models/lda_baseline.py'
+adding 'myoshift/models/selective_decoder.py'
+adding 'myoshift-0.1.0.dist-info/licenses/LICENSE'
+adding 'myoshift-0.1.0.dist-info/METADATA'
+adding 'myoshift-0.1.0.dist-info/WHEEL'
+adding 'myoshift-0.1.0.dist-info/entry_points.txt'
+adding 'myoshift-0.1.0.dist-info/top_level.txt'
+adding 'myoshift-0.1.0.dist-info/RECORD'
+removing build/bdist.macosx-26.5-arm64/wheel
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+Successfully built myoshift-0.1.0-py3-none-any.whl
+
+Exit: 0
+Runtime seconds: 1.904997

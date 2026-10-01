@@ -1,0 +1,55 @@
+Command: ['.venv/bin/pyright', 'src']
+src/myoshift/cli.py
+  src/myoshift/cli.py:83:13 - error: Parameter "decision_duration_s" is already assigned (reportCallIssue)
+  src/myoshift/cli.py:103:24 - error: Argument of type "float | None" cannot be assigned to parameter "x" of type "ConvertibleToFloat" in function "__new__"
+    Type "float | None" is not assignable to type "ConvertibleToFloat"
+      Type "None" is not assignable to type "ConvertibleToFloat"
+        "None" is not assignable to "str"
+        "None" is incompatible with protocol "Buffer"
+          "__buffer__" is not present
+        "None" is incompatible with protocol "SupportsFloat"
+          "__float__" is not present
+        "None" is incompatible with protocol "SupportsIndex"
+    ... (reportArgumentType)
+  src/myoshift/cli.py:103:24 - error: Argument of type "float | None" cannot be assigned to parameter "x" of type "ConvertibleToFloat" in function "__new__"
+    Type "float | None" is not assignable to type "ConvertibleToFloat"
+      Type "None" is not assignable to type "ConvertibleToFloat"
+        "None" is not assignable to "str"
+        "None" is incompatible with protocol "Buffer"
+          "__buffer__" is not present
+        "None" is incompatible with protocol "SupportsFloat"
+          "__float__" is not present
+        "None" is incompatible with protocol "SupportsIndex" (reportArgumentType)
+  src/myoshift/cli.py:113:24 - error: Argument of type "float | None" cannot be assigned to parameter "x" of type "ConvertibleToFloat" in function "__new__"
+    Type "float | None" is not assignable to type "ConvertibleToFloat"
+      Type "None" is not assignable to type "ConvertibleToFloat"
+        "None" is not assignable to "str"
+        "None" is incompatible with protocol "Buffer"
+          "__buffer__" is not present
+        "None" is incompatible with protocol "SupportsFloat"
+          "__float__" is not present
+        "None" is incompatible with protocol "SupportsIndex"
+    ... (reportArgumentType)
+  src/myoshift/cli.py:113:24 - error: Argument of type "float | None" cannot be assigned to parameter "x" of type "ConvertibleToFloat" in function "__new__"
+    Type "float | None" is not assignable to type "ConvertibleToFloat"
+      Type "None" is not assignable to type "ConvertibleToFloat"
+        "None" is not assignable to "str"
+        "None" is incompatible with protocol "Buffer"
+          "__buffer__" is not present
+        "None" is incompatible with protocol "SupportsFloat"
+          "__float__" is not present
+        "None" is incompatible with protocol "SupportsIndex" (reportArgumentType)
+src/myoshift/eval/benchmark.py
+  src/myoshift/eval/benchmark.py:103:9 - error: Type of "append" is partially unknown
+    Type of "append" is "(object: Unknown, /) -> None" (reportUnknownMemberType)
+  src/myoshift/eval/benchmark.py:104:9 - error: Type of "append" is partially unknown
+    Type of "append" is "(object: Unknown, /) -> None" (reportUnknownMemberType)
+  src/myoshift/eval/benchmark.py:105:12 - error: Return type, "tuple[list[Unknown], list[Unknown]]", is partially unknown (reportUnknownVariableType)
+  src/myoshift/eval/benchmark.py:127:9 - error: Type of "append" is partially unknown
+    Type of "append" is "(object: Unknown, /) -> None" (reportUnknownMemberType)
+  src/myoshift/eval/benchmark.py:128:12 - error: Return type, "list[Unknown]", is partially unknown (reportUnknownVariableType)
+  src/myoshift/eval/benchmark.py:172:58 - error: "_abstain_threshold" is protected and used outside of the class in which it is declared (reportPrivateUsage)
+11 errors, 0 warnings, 0 informations
+
+Exit: 1
+Runtime seconds: 1.575055

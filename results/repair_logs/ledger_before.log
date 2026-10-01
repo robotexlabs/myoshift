@@ -1,0 +1,19 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_repairs.py::test_f09_repair_report_links_each_numbered_amendment', '-q']
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_f09_repair_report_links_each_numbered_amendment _____________
+
+    def test_f09_repair_report_links_each_numbered_amendment():
+        text = Path('docs/milestones/REPAIR_2026-10-01_REPORT.md').read_text()
+        row1 = next(line for line in text.splitlines() if line.startswith('| 1 |'))
+        row13 = next(line for line in text.splitlines() if line.startswith('| 13 |'))
+>       assert 'AMENDMENT_2026-10-01_01_identity_mapping.md' in row1
+E       AssertionError: assert 'AMENDMENT_2026-10-01_01_identity_mapping.md' in '| 1 | Fixed within scope. Strict complete identity mapping and invariant labels/rest flags. | `src/myoshift/eval/benc...:85` | `test_f01_full_identity_mapping`, `test_f01_real_electrode_probe` | `docs/amendments/AMENDMENT_2026-09-30.md` |'
+
+tests/test_repairs.py:363: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_repairs.py::test_f09_repair_report_links_each_numbered_amendment
+1 failed in 1.77s
+
+Exit: 1
+Runtime seconds: 2.148804

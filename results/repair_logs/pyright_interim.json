@@ -1,0 +1,17 @@
+{
+  "name": "pyright_interim",
+  "argv": [
+    ".venv/bin/pyright",
+    "src"
+  ],
+  "exit": 0,
+  "timeout_s": 60.0,
+  "timed_out": false,
+  "runtime_s": 1.3877717909999774,
+  "top": [
+    {
+      "elapsed_s": 0.005290332999720704,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+Command: ['.venv/bin/python', 'scripts/run_benchmark.py']
+person/static_lda: available
+person/hysteresis: available
+person/few_shot: unavailable
+person/myoshift: available
+session/static_lda: available
+session/hysteresis: available
+session/few_shot: unavailable
+session/myoshift: available
+electrode/static_lda: available
+electrode/hysteresis: available
+electrode/few_shot: unavailable
+electrode/myoshift: available
+Matplotlib is building the font cache; this may take a moment.
+Figures written to results/figures
+Results written to results/results.json
+
+Exit: 0
+Runtime seconds: 38.329187

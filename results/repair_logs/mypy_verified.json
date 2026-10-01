@@ -1,0 +1,62 @@
+{
+  "source_changed_during_run": [],
+  "child_peak_rss_mb": 85.96875,
+  "source_sha256": {
+    "src/myoshift/_version.py": "41362a5ea4931c546433d4c48290c5707bf02dbbea1c3aafa9f43d1225e47003",
+    "src/myoshift/__init__.py": "f39d9717ef24d80bc7a6c0d708e1b34b144a9673ae94390f9592137f49ae15e1",
+    "src/myoshift/types.py": "9fff3a5b9babd999cc4c983355c080593a09d8c3e53d462c178d55de1a3e3ff4",
+    "src/myoshift/cli.py": "449c78882564c99fa03eacd7f9b52e7d54f3df35128b65dff48693b70afac9a8",
+    "src/myoshift/_external.py": "bbe38824e12f4fea9adc76e46d7522486c7f6f04b4afbab634c65b2b8ef874fb",
+    "src/myoshift/features/__init__.py": "f707f1695b34ff1f1756ded0c8a8800dd260c565406cb4ecb1c18fb833b91248",
+    "src/myoshift/features/extract.py": "f1f0ee0ca0dcee5409c0e1964c09d0a4d39c886da80275ca4d089d5d6ed10049",
+    "src/myoshift/models/__init__.py": "9b93f5c3892973cc0477f9bc75996b232166a1efe868151a71e38ee5514e52fa",
+    "src/myoshift/models/selective_decoder.py": "42654fc5a04b478c40dd14f69369ad4dcedcf6798406066c1a1f5a5cda516d29",
+    "src/myoshift/models/lda_baseline.py": "1ea7f235a49c7e219315588d4bc151de9863a9d5211b6eccf83d0c2474ed8975",
+    "src/myoshift/models/hysteresis.py": "fd74d4aadea2e2f4b20fca3ace0c084973b14e462bfe3a7c5b888af8364fd739",
+    "src/myoshift/models/base.py": "59a14f409bba8157cd9f8aeac78a0bcd490ccc6a573606578c06d4d442ad47bc",
+    "src/myoshift/eval/metrics.py": "bcc4e10c62f1c7dc7e734645bde220c6c82accfb15b773b6836a68e31f1ecfd4",
+    "src/myoshift/eval/benchmark.py": "902a5f5f4cf398317603d10af8a08c8ef1bdd94a0741cd4577cbc760605ee4f1",
+    "src/myoshift/eval/__init__.py": "d7bd311f9788bb3158feed68d20fcbf445357b7cb79f6f5b067d9a10cf780d4e",
+    "src/myoshift/eval/dataset.py": "df1ac204d746a6d66f439ce1595f0133a2cfa9acea3f2611f347db47b0f4e064",
+    "src/myoshift/eval/splits.py": "b285c34d039eb88e5848b72e7eaa7b3c6c29c62c2bf3f6cb9cc01c8aba52b452",
+    "src/myoshift/data/grabmyo.py": "ef270bb6e6d2ff6e00a49ec4f0c0b24c892508c94ef99c73f78c815f492c4e13",
+    "src/myoshift/data/__init__.py": "a20fcd57d14278cfec42a5a86b41dec4d06cb8241b60868e86764b734697eedc",
+    "scripts/run_benchmark.py": "82b69814e44a135a7a4dbfcfb2828720d9a08a79eb66b9a2cfd192728bd73fcf",
+    "scripts/generate_figures.py": "b25110b2f18a006f8ff5fea44b97fda2936fbaf1736fe8cb8de94f4c95520f52",
+    "scripts/reproduce_all.py": "3ccddd63183c6cf3244cf065b562e66a16559f58524d8cf20798d6f1c66b778e",
+    "scripts/generate_documents.py": "422538b643d00cf5c14f9b30982d1e116fdcb92b916060cb158f3a1145a6b21d",
+    "scripts/check_wheel.py": "8d45aa8fd864f51ce87cf0b4bcce9be62313d9eb9eb6fa5cc3f7f0c892001090",
+    "scripts/run_check.py": "d56000d32b80ba2d916615698e9e649e475974e4433224b00b0c6df6f7bb3dde",
+    "scripts/generate_repair_report.py": "5b2052e16d6eeb9e6ece1996f67f6c5a8655fac1395ea207f22a9a4521de6572",
+    "tests/test_splits_extra.py": "9e0b2cfeadbd3534c517bc5b03256b657e44a9cc2ae1bc18a65ec143d4c8316c",
+    "tests/test_grabmyo.py": "1c926adc1c3382b97dc7db4bcba2a907626cbfc36d0242a310c8a227c0052f3b",
+    "tests/test_features.py": "83aee103d82c219c6744ea5d8e4ec233a081707c84911b3128d706958c8ff10c",
+    "tests/test_grabmyo_load.py": "cc473ce3c912d0663db9ce8a893bf947aab3f9dbdb247370585827cb3948aa6a",
+    "tests/test_metrics.py": "fd12f57adeecdba99350f5096a8182beff0fd2c88d5d017cfe4ff27adbb77c62",
+    "tests/test_splits.py": "dd71b375034a401ac3a744c16016a1fe9106c403b61b7439893b54140ff8be7d",
+    "tests/test_decoders.py": "ee08e496e8ebba9287847ca4bab0a5e0f46a8900359280a2108ae515c8e50981",
+    "tests/test_repairs.py": "1f7d9963955c9caa3622a9d66a0e20d7d0fe1268dcdc81466b8a21b2604b0dbf",
+    "tests/test_benchmark.py": "3d515a4f4aac1cb240b05bb160224db95d80533c3a30bbc271df2184c15eac92",
+    "tests/test_models_extra.py": "ccc8522aa11111922c4d7c5188fdc5122f6a6d766a6753c03ff4110e7faa090e",
+    "tests/test_cli.py": "2c2ddd764f0cac40e78ae1c45642a309d6cc2fa7cd50582464c5209872c14c8f",
+    "pyrightconfig.json": "634580a3dc69af20a1662fa233ef885ef5fc6c86a61281f0653f53a8c8eb25c2",
+    "pyproject.toml": "1e55af677032be0a5f4e2db54f583c2cbc540fbdd381fec522dc546cf29cf9bd",
+    "docs/PREREGISTRATION.md": "15a1f7dd67a45e8848baa8a88ce6f752b66b46984388064dc037c560b5c04f38",
+    "docs/PREREGISTRATION.sha256": "4e703dd7c165b6d15a8cfe44d514e3eff9df459188f29a68462f6d832494b509"
+  },
+  "name": "mypy_verified",
+  "argv": [
+    ".venv/bin/mypy",
+    "src"
+  ],
+  "exit": 0,
+  "timeout_s": 60.0,
+  "timed_out": false,
+  "runtime_s": 0.21441441700153518,
+  "top": [
+    {
+      "elapsed_s": 0.005318667001120048,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

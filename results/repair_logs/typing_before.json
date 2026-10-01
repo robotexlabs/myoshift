@@ -1,0 +1,17 @@
+{
+  "name": "typing_before",
+  "argv": [
+    ".venv/bin/pyright",
+    "src"
+  ],
+  "exit": 1,
+  "timeout_s": 60.0,
+  "timed_out": false,
+  "runtime_s": 1.57505541700084,
+  "top": [
+    {
+      "elapsed_s": 0.005820166999910725,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

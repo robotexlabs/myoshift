@@ -1,0 +1,80 @@
+# Redacted publication copy: machine-specific paths replaced; recorded results unchanged.
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', '--cov=myoshift', '--cov-report=term-missing', '--cov-report=json:results/repair_logs/round2_coverage.json', '--cov-fail-under=90', '-q']
+.................................F............................           [100%]
+=================================== FAILURES ===================================
+__________________________ test_clean_download_smoke ___________________________
+
+tmp_path = PosixPath('<temporary>/pytest/test_clean_download_smoke0')
+
+    @pytest.mark.network
+    def test_clean_download_smoke(tmp_path: Path) -> None:
+        script = ROOT / "scripts/download_pilot.sh"
+        assert b"\r" not in script.read_bytes()
+        subprocess.run(["/bin/bash", "-n", str(script)], timeout=10, check=True)  # noqa: S603
+>       DOWNLOAD.download(tmp_path)
+
+tests/test_release_repairs.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/download_pilot.py:57: in download
+    total = fetch(UPSTREAM + "SHA256SUMS.txt", manifest, None, 2 * 1024 * 1024)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+url = 'https://physionet.org/files/grabmyo-flow/1.0.0/SHA256SUMS.txt'
+target = PosixPath('<temporary>/pytest/test_clean_download_smoke0/SHA256SUMS.txt')
+expected = None, limit = 2097152
+
+    def fetch(url: str, target: Path, expected: str | None, limit: int) -> int:
+        """Never replace a target until a bounded transfer and digest check succeed."""
+        if not url.startswith(UPSTREAM):
+            raise ValueError("unexpected download URL")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        descriptor, name = tempfile.mkstemp(prefix=target.name + ".", suffix=".part", dir=target.parent)
+        temporary = Path(name)
+        size = 0
+        digest = hashlib.sha256()
+        deadline = time.monotonic() + TIMEOUT
+        try:
+            with (
+                os.fdopen(descriptor, "wb") as output,
+                urllib.request.urlopen(url, timeout=10) as response,  # noqa: S310
+            ):
+                if int(response.headers.get("Content-Length", "0")) > limit:
+>                   raise ValueError("download exceeds byte cap")
+E                   ValueError: download exceeds byte cap
+
+scripts/download_pilot.py:35: ValueError
+================================ tests coverage ================================
+______________ coverage: platform darwin, python 3.11.15-final-0 _______________
+
+Name                                       Stmts   Miss Branch BrPart  Cover   Missing
+--------------------------------------------------------------------------------------
+src/myoshift/__init__.py                       2      0      0      0   100%
+src/myoshift/_external.py                     19      0      0      0   100%
+src/myoshift/_version.py                       1      0      0      0   100%
+src/myoshift/cli.py                           38      6      8      2    83%   44-47, 104, 109
+src/myoshift/data/__init__.py                  2      0      0      0   100%
+src/myoshift/data/grabmyo.py                  53      4     18      4    89%   31, 35, 56, 59
+src/myoshift/eval/__init__.py                  2      0      0      0   100%
+src/myoshift/eval/benchmark.py               192     11     70      9    92%   137, 173, 200, 217, 221, 265, 291, 319-321, 330
+src/myoshift/eval/dataset.py                  25      2      8      0    94%   62-63
+src/myoshift/eval/metrics.py                 132      2     38      1    98%   102, 106, 222->226
+src/myoshift/eval/splits.py                   51      2     18      2    94%   65, 67
+src/myoshift/features/__init__.py              2      0      0      0   100%
+src/myoshift/features/extract.py              21      0      6      0   100%
+src/myoshift/models/__init__.py                4      0      0      0   100%
+src/myoshift/models/base.py                   15      1      0      0    93%   31
+src/myoshift/models/hysteresis.py             41      0      8      0   100%
+src/myoshift/models/lda_baseline.py           25      0      2      0   100%
+src/myoshift/models/selective_decoder.py      41      0      8      0   100%
+src/myoshift/types.py                         80      0      6      0   100%
+--------------------------------------------------------------------------------------
+TOTAL                                        746     28    190     18    95%
+Coverage JSON written to file results/repair_logs/round2_coverage.json
+Required test coverage of 90% reached. Total coverage: 95.09%
+=========================== short test summary info ============================
+FAILED tests/test_release_repairs.py::test_clean_download_smoke - ValueError:...
+1 failed, 61 passed in 128.73s (0:02:08)
+
+Exit: 1
+Runtime seconds: 129.313235

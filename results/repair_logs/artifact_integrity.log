@@ -1,0 +1,11 @@
+Command: ['.venv/bin/python', 'results/repair_logs/artifact_integrity_probe.txt']
+{
+  "status": "passed",
+  "recomputed_point_and_interval_scalars": 225,
+  "trial_labels_and_rest_flags": "unchanged",
+  "source_and_data_hashes": "matched",
+  "frozen_protocol": "unchanged"
+}
+
+Exit: 0
+Runtime seconds: 2.881651

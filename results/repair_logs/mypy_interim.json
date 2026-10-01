@@ -1,0 +1,17 @@
+{
+  "name": "mypy_interim",
+  "argv": [
+    ".venv/bin/mypy",
+    "src"
+  ],
+  "exit": 1,
+  "timeout_s": 60.0,
+  "timed_out": false,
+  "runtime_s": 0.5439565410015348,
+  "top": [
+    {
+      "elapsed_s": 0.005932583000685554,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Command: ['.venv/bin/python', '-m', 'pytest', 'tests/test_release_repairs.py::test_public_text_hygiene', '-q']
+.                                                                        [100%]
+1 passed in 0.12s
+
+Exit: 0
+Runtime seconds: 0.327287

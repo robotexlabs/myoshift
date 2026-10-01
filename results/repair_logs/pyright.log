@@ -1,0 +1,5 @@
+Command: ['.venv/bin/pyright', 'src']
+0 errors, 0 warnings, 0 informations
+
+Exit: 0
+Runtime seconds: 1.611119

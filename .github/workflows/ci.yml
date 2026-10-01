@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -e ".[dev]" build
+      - name: Lint
+        run: |
+          .venv/bin/ruff check .
+          .venv/bin/mypy src
+          .venv/bin/pyright src
+      - name: Download acceptance and complete suite
+        timeout-minutes: 30
+        env:
+          MYOSHIFT_PILOT_DESTINATION: data/raw/grabmyo-flow
+        run: |
+          .venv/bin/python -m pytest -o addopts= -m network -q
+          .venv/bin/python -m pytest -o addopts= -m "not network" --cov=myoshift --cov-fail-under=90 -q
+      - name: Generated document consistency
+        run: .venv/bin/python scripts/generate_documents.py --check
+      - name: Publication history and input-byte audit
+        run: .venv/bin/python scripts/verify_publication.py --ref HEAD --output /tmp/publication-receipt.json
+      - name: Headless one-command regeneration
+        timeout-minutes: 15
+        env:
+          MYOSHIFT_PILOT_DESTINATION: data/raw/grabmyo-flow
+        run: .venv/bin/python scripts/run_benchmark.py
+      - name: Build and isolated wheel install
+        run: |
+          .venv/bin/python -m build --wheel
+          python -m venv /tmp/myoshift-wheel
+          /tmp/myoshift-wheel/bin/python -m pip install dist/*.whl
+          cd /tmp
+          /tmp/myoshift-wheel/bin/python -I -c 'from myoshift.cli import main; main(["verify-scorers"])'

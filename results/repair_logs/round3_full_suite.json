@@ -1,0 +1,700 @@
+{
+  "source_changed_during_run": [],
+  "child_peak_rss_mb": 301.640625,
+  "source_sha256": {
+    "src/myoshift/_version.py": "ae739b3e3b817044ada923b44ba82c752fe8b7c2133908d58fff8fd4b5146298",
+    "src/myoshift/__init__.py": "f39d9717ef24d80bc7a6c0d708e1b34b144a9673ae94390f9592137f49ae15e1",
+    "src/myoshift/types.py": "9fff3a5b9babd999cc4c983355c080593a09d8c3e53d462c178d55de1a3e3ff4",
+    "src/myoshift/cli.py": "449c78882564c99fa03eacd7f9b52e7d54f3df35128b65dff48693b70afac9a8",
+    "src/myoshift/_external.py": "bbe38824e12f4fea9adc76e46d7522486c7f6f04b4afbab634c65b2b8ef874fb",
+    "src/myoshift/features/__init__.py": "f707f1695b34ff1f1756ded0c8a8800dd260c565406cb4ecb1c18fb833b91248",
+    "src/myoshift/features/extract.py": "f1f0ee0ca0dcee5409c0e1964c09d0a4d39c886da80275ca4d089d5d6ed10049",
+    "src/myoshift/models/__init__.py": "9b93f5c3892973cc0477f9bc75996b232166a1efe868151a71e38ee5514e52fa",
+    "src/myoshift/models/selective_decoder.py": "42654fc5a04b478c40dd14f69369ad4dcedcf6798406066c1a1f5a5cda516d29",
+    "src/myoshift/models/lda_baseline.py": "1ea7f235a49c7e219315588d4bc151de9863a9d5211b6eccf83d0c2474ed8975",
+    "src/myoshift/models/hysteresis.py": "fd74d4aadea2e2f4b20fca3ace0c084973b14e462bfe3a7c5b888af8364fd739",
+    "src/myoshift/models/base.py": "59a14f409bba8157cd9f8aeac78a0bcd490ccc6a573606578c06d4d442ad47bc",
+    "src/myoshift/eval/metrics.py": "bcc4e10c62f1c7dc7e734645bde220c6c82accfb15b773b6836a68e31f1ecfd4",
+    "src/myoshift/eval/benchmark.py": "98a2f89e9e1378af1f5c4a2142e53a933f692e308d0eae301a62a8973d2a8e68",
+    "src/myoshift/eval/__init__.py": "d7bd311f9788bb3158feed68d20fcbf445357b7cb79f6f5b067d9a10cf780d4e",
+    "src/myoshift/eval/dataset.py": "df1ac204d746a6d66f439ce1595f0133a2cfa9acea3f2611f347db47b0f4e064",
+    "src/myoshift/eval/splits.py": "b285c34d039eb88e5848b72e7eaa7b3c6c29c62c2bf3f6cb9cc01c8aba52b452",
+    "src/myoshift/data/grabmyo.py": "ef270bb6e6d2ff6e00a49ec4f0c0b24c892508c94ef99c73f78c815f492c4e13",
+    "src/myoshift/data/__init__.py": "a20fcd57d14278cfec42a5a86b41dec4d06cb8241b60868e86764b734697eedc",
+    "scripts/run_benchmark.py": "82b69814e44a135a7a4dbfcfb2828720d9a08a79eb66b9a2cfd192728bd73fcf",
+    "scripts/download_pilot.py": "16226ff856a52fba7c95c70caee184bfa7fd7d5dfd5b8739cc159b8ae7427c00",
+    "scripts/generate_figures.py": "b25110b2f18a006f8ff5fea44b97fda2936fbaf1736fe8cb8de94f4c95520f52",
+    "scripts/reproduce_all.py": "3ccddd63183c6cf3244cf065b562e66a16559f58524d8cf20798d6f1c66b778e",
+    "scripts/generate_documents.py": "422538b643d00cf5c14f9b30982d1e116fdcb92b916060cb158f3a1145a6b21d",
+    "scripts/check_wheel.py": "fcae07258fab20d9a817da2fc37fc89f1954248842c5526de873f058653eac6c",
+    "scripts/run_check.py": "d56000d32b80ba2d916615698e9e649e475974e4433224b00b0c6df6f7bb3dde",
+    "scripts/generate_repair_report.py": "138a3175d9fb3b6728c2773247c731e70444ced7b214094b80fbfefb3a8dcf0b",
+    "tests/test_splits_extra.py": "9e0b2cfeadbd3534c517bc5b03256b657e44a9cc2ae1bc18a65ec143d4c8316c",
+    "tests/test_grabmyo.py": "1c926adc1c3382b97dc7db4bcba2a907626cbfc36d0242a310c8a227c0052f3b",
+    "tests/test_features.py": "83aee103d82c219c6744ea5d8e4ec233a081707c84911b3128d706958c8ff10c",
+    "tests/test_grabmyo_load.py": "cc473ce3c912d0663db9ce8a893bf947aab3f9dbdb247370585827cb3948aa6a",
+    "tests/test_metrics.py": "fd12f57adeecdba99350f5096a8182beff0fd2c88d5d017cfe4ff27adbb77c62",
+    "tests/test_splits.py": "dd71b375034a401ac3a744c16016a1fe9106c403b61b7439893b54140ff8be7d",
+    "tests/test_decoders.py": "ee08e496e8ebba9287847ca4bab0a5e0f46a8900359280a2108ae515c8e50981",
+    "tests/test_release_repairs.py": "98c93939b85d81bb7f332dd1c45be76cb21abbaa10b0201124e2c3dbb35fda71",
+    "tests/test_repairs.py": "92e95dc475fc870625215a57dbd4dccced508e1c7121348aa3ca2aa4e3aeef7a",
+    "tests/test_benchmark.py": "19e6b64f107e88979f063c2d16e957b3fd97e5a4bd6f387bb1e24fdb4884a0b9",
+    "tests/test_models_extra.py": "ccc8522aa11111922c4d7c5188fdc5122f6a6d766a6753c03ff4110e7faa090e",
+    "tests/test_cli.py": "2c2ddd764f0cac40e78ae1c45642a309d6cc2fa7cd50582464c5209872c14c8f",
+    "pyrightconfig.json": "634580a3dc69af20a1662fa233ef885ef5fc6c86a61281f0653f53a8c8eb25c2",
+    "pyproject.toml": "f7f988293d9610756e00c0722f0c230d04e77dae19ef96b0d884483c526b78ff",
+    "docs/PREREGISTRATION.md": "15a1f7dd67a45e8848baa8a88ce6f752b66b46984388064dc037c560b5c04f38",
+    "docs/PREREGISTRATION.sha256": "4e703dd7c165b6d15a8cfe44d514e3eff9df459188f29a68462f6d832494b509"
+  },
+  "name": "round3_full_suite",
+  "argv": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "-o",
+    "addopts=",
+    "--cov=myoshift",
+    "--cov-report=term-missing",
+    "--cov-report=json:results/repair_logs/round3_coverage.json",
+    "--cov-fail-under=90",
+    "-q"
+  ],
+  "exit": 0,
+  "timeout_s": 1800.0,
+  "timed_out": false,
+  "runtime_s": 795.7052604579949,
+  "top": [
+    {
+      "elapsed_s": 0.007807582995155826,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 5.080414915995789,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 10.177748999994947,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 15.275661207997473,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 20.364081415995315,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 25.447867165996286,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 30.548394749996078,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 35.65241758299817,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 40.66713995800092,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 45.775198625000485,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 50.867126290999295,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 55.94661137499497,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 61.03054699999484,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 66.10995412500051,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 71.19668820799416,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 76.2902224579957,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 81.37424833299883,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 86.46840154099482,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 91.54550654099876,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 96.63032329099951,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 101.72902879100002,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 106.80202374999499,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 111.89213279099931,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 116.98427366599935,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 122.0592597079958,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 127.14823904099467,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 132.22532958299416,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 137.3325675409942,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 142.4263084999984,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 147.50135916599538,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 152.57770816599805,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 157.65996845799964,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 162.7516192080002,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 167.83924745799595,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 172.92167099999642,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 178.0030412499982,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 183.07423804100108,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 188.15466204100085,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 193.2471900409946,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 198.32468808299745,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 203.4249100409943,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 208.50815816599788,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 213.56521549999889,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 218.65747329100122,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 223.72715237499506,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 228.80466591599543,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 233.83670041599544,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 238.85880695800006,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 243.96417824999662,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 248.99936295799853,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 254.02620241599652,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 259.03398424999614,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 264.06870949999575,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 269.0736337079943,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 274.1008999159967,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 279.1269503329968,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 284.1532181250004,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 289.16476724999666,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 294.26243737500045,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 299.295654290996,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 304.33347179099655,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 309.3767159159979,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 314.40992620799807,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 319.425595875,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 324.44147320799675,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 329.46740087500075,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 334.48071516599884,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 339.5196352499988,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 344.56613300000026,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 349.59772249999514,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 354.6277899159977,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 359.6502798750007,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 364.701039915999,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 369.73641808299726,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 374.7656987500013,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 379.79678658299963,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 384.9015776249944,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 389.9455101249987,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 394.98924979099684,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 400.00423366599716,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 405.06675162499596,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 410.07032966599945,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 415.1080701249957,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 420.13055695799994,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 425.14188454100076,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 430.24177904099633,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 435.3411222499999,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 440.427636249995,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 445.5230110409975,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 450.5452614159949,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 455.5917756659983,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 460.68945779099886,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 465.7111786249952,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 470.7441035000011,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 475.74782954099646,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 480.7667432909948,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 485.78192929099896,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 490.8682897079998,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 495.92828987499524,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 500.944730915995,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 505.99355958299566,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 511.0009692909953,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 516.0385873329942,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 521.0689444999953,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 526.1007629999949,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 531.182315207996,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 536.2733480409952,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 541.3200891249944,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 546.3307981659964,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 551.4389657499996,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 556.4926676249961,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 561.5987542079965,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 566.6209723749998,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 571.656169707996,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 576.6777703749976,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 581.6904955829959,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 586.7191261249973,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 591.7702529999951,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 596.786448040999,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 601.825241874998,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 606.9325848329972,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 611.9642751659994,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 616.9741460000005,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 622.0726327909942,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 627.1105366659976,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 632.2123988749954,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 637.2246902499974,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 642.249346083001,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 647.3023016250008,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 652.344767290997,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 657.3933949159982,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 662.4344370830004,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 667.4894339999955,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 672.544872874998,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 677.6030431659965,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 682.712835833001,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 687.8127962500002,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 692.8411255409956,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 697.8803390409958,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 702.9017806659976,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 707.923430750001,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 712.9505473329991,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 717.9959108749972,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 723.0072991659981,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 728.0639657499996,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 733.1432870829958,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 738.1516624159995,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 743.259905040999,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 748.291583708,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 753.3292148330002,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 758.3324533329942,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 763.3371006659945,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 768.3749786249973,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 773.3958040409998,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 778.4461918749948,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 783.4587550829965,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 788.4904974159945,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 793.5605002909942,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

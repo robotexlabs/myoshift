@@ -1,0 +1,15 @@
+{
+  "scientific_fields_unchanged": true,
+  "prediction_trace_unchanged": true,
+  "metric_scalars_compared": 225,
+  "before_sha256": "a46e64fcb8392ff8a367239cddbe648db30a6fb4709c283bd3867815b89ee0bc",
+  "fresh_sha256": "46ee720768a69517fc3713281102be21cc5b294cf4a9fda804f019bd48959a87",
+  "runtime_s": 21.787687542004278,
+  "excluded_changes": [
+    "cumulative_process_peak_rss_mb",
+    "latency_ms_p50",
+    "latency_ms_p95",
+    "provenance",
+    "runtime_s"
+  ]
+}

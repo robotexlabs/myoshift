@@ -1,0 +1,87 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_repairs.py', '-q']
+..............FFFF...                                                    [100%]
+=================================== FAILURES ===================================
+_______________ test_f02_event_offset_change_and_actual_exposure _______________
+
+    def test_f02_event_offset_change_and_actual_exposure():
+        rest = [replace(sample(t=i * 0.25), decision_duration_s=0.25) for i in range(8)]
+        outputs = [
+            DecoderOutput(g, 0.9, abstain)
+            for g, abstain in [
+                (1, False),
+                (1, False),
+                (17, False),
+                (1, False),
+                (2, False),
+                (2, True),
+                (2, False),
+                (17, False),
+            ]
+        ]
+        scored = metrics.score_windows(rest, outputs)
+>       assert metrics.compute_scores(scored)["false_activations_per_rest_hour"] == 4 / 2 * 3600
+E       assert 5400.0 == ((4 / 2) * 3600)
+
+tests/test_repairs.py:202: AssertionError
+_______ test_f03_metric_specific_eligibility_and_wholly_abstained_trial ________
+
+    def test_f03_metric_specific_eligibility_and_wholly_abstained_trial():
+        samples = [
+            replace(sample(1, "correct"), decision_duration_s=0.04),
+            replace(sample(2, "abstained"), decision_duration_s=0.04),
+        ]
+        result = metrics.bootstrap_by_trial(
+            metrics.score_windows(samples, [DecoderOutput(1, 0.9, False), DecoderOutput(1, 0.9, True)])
+        )
+        assert result["risk"].value == 0
+        assert result["event_recall"].value == 0.5
+>       with pytest.raises(ValueError, match="duplicate"):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_repairs.py:225: Failed
+______________ test_f04_both_split_boundaries_and_unknown_support ______________
+
+    def test_f04_both_split_boundaries_and_unknown_support():
+        from myoshift.eval.splits import calibration_and_test, session_chrono_split
+    
+        real = build_window_samples(ROOT, StreamConfig())
+        for bundle in [subject_holdout_split(real, {47}, 50), session_chrono_split(real, 3, 50)]:
+            for a in bundle.calibration:
+                for b in bundle.test:
+                    if (a.participant_id, a.session_id, a.trial_key) == (
+                        b.participant_id,
+                        b.session_id,
+                        b.trial_key,
+                    ):
+                        assert a.end_sample <= b.start_sample or b.end_sample <= a.start_sample
+            assert len(bundle.calibration) == 50
+        unknown = [sample(1, "a", 0), sample(1, "a", 1), sample(1, "b", 0)]
+>       assert calibration_and_test(unknown, 1)[1] == unknown[2:]
+E       assert [WindowSample...ation_s=None)] == [WindowSample...ation_s=None)]
+E         
+E         (pytest_assertion plugin: representation of details failed: <string>:4: ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all().
+E          Probably an object has a faulty __repr__.)
+
+tests/test_repairs.py:244: AssertionError
+____________ test_f05_cluster_draws_keep_repeated_trials_and_labels ____________
+
+    def test_f05_cluster_draws_keep_repeated_trials_and_labels():
+        samples = [sample(1, f"t{i}", pid=p) for p in [1, 2] for i in range(20)]
+        a = metrics.score_windows(
+            samples, [DecoderOutput(1 if s.participant_id == 1 else 2, 0.9, False) for s in samples]
+        )
+        result = metrics.bootstrap_by_participant(a, n_resamples=200)
+>       assert result["event_recall"].value == 0.5
+E       AssertionError: assert 1.0 == 0.5
+E        +  where 1.0 = MetricResult(name='event_recall', value=1.0, ci_low=0.76, ci_high=0.860125, unit='proportion').value
+
+tests/test_repairs.py:255: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_repairs.py::test_f02_event_offset_change_and_actual_exposure
+FAILED tests/test_repairs.py::test_f03_metric_specific_eligibility_and_wholly_abstained_trial
+FAILED tests/test_repairs.py::test_f04_both_split_boundaries_and_unknown_support
+FAILED tests/test_repairs.py::test_f05_cluster_draws_keep_repeated_trials_and_labels
+4 failed, 17 passed in 21.25s
+
+Exit: 1
+Runtime seconds: 21.591832

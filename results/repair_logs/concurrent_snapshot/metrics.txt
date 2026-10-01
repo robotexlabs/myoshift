@@ -1,0 +1,335 @@
+"""Event-level metrics with bootstrap uncertainty."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+import numpy as np
+
+from myoshift.models.base import DecoderOutput
+from myoshift.types import REST_GESTURE_ID, MetricResult, WindowSample
+
+
+@dataclass(frozen=True)
+class ScoredWindow:
+    true_label: int
+    output: DecoderOutput
+    is_rest: bool
+    time_s: float
+    trial_key: str
+    participant_id: int
+    decision_duration_s: float
+    session_id: int = 1
+    start_sample: int | None = None
+    end_sample: int | None = None
+
+    @property
+    def identity(self) -> tuple[int, int, str, float, int | None, int | None]:
+        return (
+            self.participant_id,
+            self.session_id,
+            self.trial_key,
+            self.time_s,
+            self.start_sample,
+            self.end_sample,
+        )
+
+
+def sufficient_statistics(
+    scored: list[ScoredWindow],
+) -> tuple[int, float, int, int, int, int]:
+    """Return false events, rest exposure seconds, rest windows, gesture trials, gesture windows."""
+    rest = [s for s in scored if s.is_rest]
+    exposure_h = _rest_exposure_hours(scored)
+    rest_exposure_s = 0.0 if exposure_h is None else exposure_h * 3600.0
+    false_events = 0
+    active = False
+    for window in sorted(rest, key=lambda s: (s.trial_key, s.time_s)):
+        wrong = _is_wrong_activation(window.output)
+        if wrong and not active:
+            false_events += 1
+            active = True
+        elif not wrong:
+            active = False
+    gesture_trials = {s.trial_key for s in scored if not s.is_rest}
+    gesture_windows = [s for s in scored if not s.is_rest]
+    return (
+        false_events,
+        rest_exposure_s,
+        len(rest),
+        len(gesture_trials),
+        len({s.trial_key for s in scored}),
+        len(gesture_windows),
+    )
+
+
+def _rest_exposure_hours(scored: list[ScoredWindow]) -> float | None:
+    rest = [s for s in scored if s.is_rest]
+    if not rest:
+        return None
+    by_trial: dict[str, list[ScoredWindow]] = {}
+    for window in rest:
+        by_trial.setdefault(window.trial_key, []).append(window)
+    total_s = 0.0
+    for trial_windows in by_trial.values():
+        ordered = sorted(trial_windows, key=lambda w: w.time_s)
+        for index, window in enumerate(ordered):
+            if index + 1 < len(ordered):
+                duration = ordered[index + 1].time_s - window.time_s
+            elif index > 0:
+                duration = ordered[index].time_s - ordered[index - 1].time_s
+            else:
+                duration = window.decision_duration_s
+            total_s += max(duration, 0.0)
+    if total_s <= 0.0:
+        return None
+    return total_s / 3600.0
+
+
+def _is_wrong_activation(output: DecoderOutput) -> bool:
+    return not output.abstained and output.gesture != REST_GESTURE_ID and output.confidence >= 0.5
+
+
+def false_activations_per_rest_hour(scored: list[ScoredWindow]) -> float | None:
+    rest = sorted(
+        [s for s in scored if s.is_rest],
+        key=lambda s: (s.trial_key, s.time_s),
+    )
+    exposure_h = _rest_exposure_hours(scored)
+    if exposure_h is None or exposure_h <= 0.0:
+        return None
+    events = 0
+    active = False
+    for window in rest:
+        wrong = _is_wrong_activation(window.output)
+        if wrong and not active:
+            events += 1
+            active = True
+        elif not wrong:
+            active = False
+    return events / exposure_h
+
+
+def window_recall(scored: list[ScoredWindow]) -> float:
+    gesture_windows = [s for s in scored if not s.is_rest]
+    if not gesture_windows:
+        return 0.0
+    correct = sum(
+        1 for s in gesture_windows if not s.output.abstained and s.output.gesture == s.true_label
+    )
+    return correct / len(gesture_windows)
+
+
+def event_recall(scored: list[ScoredWindow]) -> float:
+    trials = sorted({s.trial_key for s in scored if not s.is_rest})
+    if not trials:
+        return 0.0
+    recalled = 0
+    for key in trials:
+        gesture_windows = [s for s in scored if s.trial_key == key and not s.is_rest]
+        if any(
+            not s.output.abstained and s.output.gesture == s.true_label for s in gesture_windows
+        ):
+            recalled += 1
+    return recalled / len(trials)
+
+
+def risk_coverage(scored: list[ScoredWindow]) -> tuple[float, float]:
+    if not scored:
+        return 0.0, 0.0
+    non_abstained = [s for s in scored if not s.output.abstained]
+    coverage = len(non_abstained) / len(scored)
+    if not non_abstained:
+        return 1.0, coverage
+    errors = sum(1 for s in non_abstained if s.output.gesture != s.true_label)
+    return errors / len(non_abstained), coverage
+
+
+def perfect_score() -> dict[str, float | None]:
+    return {
+        "false_activations_per_rest_hour": 0.0,
+        "event_recall": 1.0,
+        "window_recall": 1.0,
+        "risk": 0.0,
+        "coverage": 1.0,
+    }
+
+
+def empty_score() -> dict[str, float | None]:
+    return {
+        "false_activations_per_rest_hour": None,
+        "event_recall": 0.0,
+        "window_recall": 0.0,
+        "risk": 1.0,
+        "coverage": 0.0,
+    }
+
+
+def compute_scores(scored: list[ScoredWindow]) -> dict[str, float | None]:
+    risk, coverage = risk_coverage(scored)
+    return {
+        "false_activations_per_rest_hour": false_activations_per_rest_hour(scored),
+        "event_recall": event_recall(scored),
+        "window_recall": window_recall(scored),
+        "risk": risk,
+        "coverage": coverage,
+    }
+
+
+def bootstrap_ci(
+    values: list[float],
+    n_resamples: int = 1000,
+    alpha: float = 0.05,
+    seed: int = 42,
+) -> tuple[float, float, float]:
+    if not values:
+        return 0.0, 0.0, 0.0
+    rng = np.random.default_rng(seed)
+    arr = np.asarray(values, dtype=np.float64)
+    means = [
+        float(np.mean(rng.choice(arr, size=len(arr), replace=True))) for _ in range(n_resamples)
+    ]
+    point = float(np.mean(arr))
+    low = float(np.quantile(means, alpha / 2))
+    high = float(np.quantile(means, 1 - alpha / 2))
+    return point, low, high
+
+
+def _metric_result(
+    name: str,
+    point: float | None,
+    low: float | None,
+    high: float | None,
+) -> MetricResult:
+    unit = "events/hour" if name == "false_activations_per_rest_hour" else "proportion"
+    return MetricResult(name=name, value=point, ci_low=low, ci_high=high, unit=unit)
+
+
+def _bootstrap_aggregate(
+    scored: list[ScoredWindow],
+    group_keys: list[str],
+    group_of: dict[str, list[ScoredWindow]],
+    n_resamples: int,
+    seed: int,
+) -> dict[str, MetricResult]:
+    rng = np.random.default_rng(seed)
+    metric_names = (
+        "false_activations_per_rest_hour",
+        "event_recall",
+        "window_recall",
+        "risk",
+        "coverage",
+    )
+    resampled: dict[str, list[float | None]] = {name: [] for name in metric_names}
+    for _ in range(n_resamples):
+        chosen = rng.choice(group_keys, size=len(group_keys), replace=True)
+        pooled = [window for key in chosen for window in group_of[key]]
+        scores = compute_scores(pooled)
+        for name in metric_names:
+            resampled[name].append(scores[name])
+
+    full_scores = compute_scores(scored)
+    metrics: dict[str, MetricResult] = {}
+    for name in metric_names:
+        numeric = [v for v in resampled[name] if v is not None]
+        point = full_scores[name]
+        if point is None or not numeric:
+            metrics[name] = _metric_result(name, point, None, None)
+            continue
+        _, low, high = bootstrap_ci(numeric, n_resamples=n_resamples, seed=seed)
+        metrics[name] = _metric_result(name, point, low, high)
+    return metrics
+
+
+def bootstrap_by_trial(
+    scored: list[ScoredWindow],
+    n_resamples: int = 500,
+    seed: int = 42,
+) -> dict[str, MetricResult]:
+    trials = sorted({s.trial_key for s in scored})
+    group_of = {key: [s for s in scored if s.trial_key == key] for key in trials}
+    return _bootstrap_aggregate(scored, trials, group_of, n_resamples, seed)
+
+
+def bootstrap_by_participant(
+    scored: list[ScoredWindow],
+    n_resamples: int = 500,
+    seed: int = 42,
+) -> dict[str, MetricResult]:
+    participants = sorted({s.participant_id for s in scored})
+    group_of = {pid: [s for s in scored if s.participant_id == pid] for pid in participants}
+    keys = [str(pid) for pid in participants]
+    keyed_group = {str(pid): group_of[pid] for pid in participants}
+    return _bootstrap_aggregate(scored, keys, keyed_group, n_resamples, seed)
+
+
+def paired_comparison(
+    scored_a: list[ScoredWindow],
+    scored_b: list[ScoredWindow],
+    n_resamples: int = 500,
+    seed: int = 42,
+) -> dict[str, MetricResult]:
+    participants_a = {s.participant_id for s in scored_a}
+    participants_b = {s.participant_id for s in scored_b}
+    if participants_a != participants_b:
+        raise ValueError("paired comparison requires identical participant sets")
+    participants = sorted(participants_a)
+    deltas: dict[str, list[float | None]] = {
+        name: []
+        for name in (
+            "false_activations_per_rest_hour",
+            "event_recall",
+            "window_recall",
+            "risk",
+            "coverage",
+        )
+    }
+    for pid in participants:
+        subset_a = [s for s in scored_a if s.participant_id == pid]
+        subset_b = [s for s in scored_b if s.participant_id == pid]
+        scores_a = compute_scores(subset_a)
+        scores_b = compute_scores(subset_b)
+        for name in deltas:
+            left = scores_a[name]
+            right = scores_b[name]
+            if left is None or right is None:
+                deltas[name].append(None)
+            else:
+                deltas[name].append(left - right)
+
+    metrics: dict[str, MetricResult] = {}
+    for name, values in deltas.items():
+        numeric = [v for v in values if v is not None]
+        if not numeric:
+            metrics[name] = _metric_result(name, None, None, None)
+            continue
+        point = float(np.mean(numeric))
+        if len(numeric) == 1:
+            metrics[name] = _metric_result(name, point, point, point)
+            continue
+        _, low, high = bootstrap_ci(numeric, n_resamples=n_resamples, seed=seed)
+        metrics[name] = _metric_result(name, point, low, high)
+    return metrics
+
+
+def score_windows(
+    samples: list[WindowSample],
+    outputs: list[DecoderOutput],
+) -> list[ScoredWindow]:
+    if len(samples) != len(outputs):
+        raise ValueError("samples and outputs length mismatch")
+    return [
+        ScoredWindow(
+            true_label=s.label,
+            output=o,
+            is_rest=s.is_rest,
+            time_s=s.time_s,
+            trial_key=s.trial_key,
+            participant_id=s.participant_id,
+            session_id=s.session_id,
+            decision_duration_s=s.decision_duration_s or 0.04,
+            start_sample=s.start_sample,
+            end_sample=s.end_sample,
+        )
+        for s, o in zip(samples, outputs, strict=True)
+    ]

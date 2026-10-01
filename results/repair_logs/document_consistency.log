@@ -1,0 +1,4 @@
+Command: ['.venv/bin/python', 'scripts/generate_documents.py', '--check']
+
+Exit: 0
+Runtime seconds: 0.111219

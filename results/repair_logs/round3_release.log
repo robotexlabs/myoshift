@@ -1,0 +1,6 @@
+Command: ['.venv/bin/python', '-m', 'pytest', 'tests/test_release_repairs.py', '-q']
+.........                                                                [100%]
+9 passed, 1 deselected in 0.10s
+
+Exit: 0
+Runtime seconds: 0.312677

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use MyoShift, please cite:"
+title: "MyoShift: streaming sEMG benchmark and budgeted selective decoder"
+version: 0.1.1
+date-released: 2026-10-01
+authors:
+  - family-names: Daneshpajouh
+    given-names: Amirhossein
+    affiliation: RoboteX Labs
+repository-code: "https://github.com/robotexlabs/myoshift"
+license: Apache-2.0
+keywords:
+  - electromyography
+  - gesture recognition
+  - benchmark
+  - abstention

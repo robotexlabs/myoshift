@@ -1,0 +1,6 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_repairs.py', '-q']
+.....................                                                    [100%]
+21 passed in 22.03s
+
+Exit: 0
+Runtime seconds: 22.505175

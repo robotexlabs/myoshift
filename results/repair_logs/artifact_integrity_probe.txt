@@ -1,0 +1,66 @@
+"""Independent artifact checks using persisted predictions, metadata and sources."""
+import hashlib
+import json
+from collections import defaultdict
+from pathlib import Path
+
+from myoshift.eval.metrics import (
+    ScoredWindow, bootstrap_by_participant, paired_comparison, sufficient_statistics,
+)
+from myoshift.models.base import DecoderOutput
+
+root = Path.cwd()
+data = json.loads((root / 'results/results.json').read_text())
+groups = defaultdict(list)
+for line in (root / 'results/predictions.jsonl').read_text().splitlines():
+    row = json.loads(line)
+    shift, name = row.pop('shift'), row.pop('decoder')
+    output = DecoderOutput(**row.pop('output'))
+    scored = ScoredWindow(output=output, **row)
+    gesture_id = int(scored.trial_key.split('_g')[1].split('_')[0])
+    assert gesture_id == scored.true_label
+    assert scored.is_rest == (gesture_id == 17)
+    groups[shift, name].append(scored)
+scalar_checks = 0
+for run in data['runs']:
+    if run['status'] == 'unavailable':
+        assert not groups[run['shift'], run['decoder']]
+        continue
+    scored = groups[run['shift'], run['decoder']]
+    assert len(scored) == len({s.identity for s in scored}) == run['n_test']
+    assert len({s.participant_id for s in scored}) == run['n_participants'] == 4
+    metrics = bootstrap_by_participant(scored)
+    for name, metric in metrics.items():
+        for field in ['value', 'ci_low', 'ci_high']:
+            assert getattr(metric, field) == run['metrics'][name][field]
+            scalar_checks += 1
+    stats = sufficient_statistics(scored)
+    assert int(stats[0]) == run['false_activation_events']
+    assert float(stats[1]) == run['rest_exposure_s']
+    assert int(stats[3]) == run['n_gesture_events']
+    assert all(f['n_purged'] >= 0 for f in run['folds'])
+    if run['decoder'] == 'myoshift':
+        assert all(f['threshold_examples'] == f['n_calibration'] == 50 for f in run['folds'])
+    if run['shift'] in ['person', 'electrode']:
+        assert len(run['folds']) == 4
+for contrast in data['paired_comparisons']:
+    shift = contrast['shift']
+    baseline = contrast['contrast'].split(' minus ')[1]
+    paired = paired_comparison(groups[shift, 'myoshift'], groups[shift, baseline])
+    for name, metric in paired.items():
+        for field in ['value', 'ci_low', 'ci_high']:
+            assert getattr(metric, field) == contrast['metrics'][name][field]
+            scalar_checks += 1
+for path, sha in data['provenance']['source_sha256'].items():
+    assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == sha
+frozen = json.loads(Path('results/repair_logs/frozen_before.json').read_text())
+for path, sha in frozen.items():
+    assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == sha
+for path, sha in data['provenance']['data_sha256'].items():
+    path = Path('data/raw/grabmyo-flow/static_extension_WFDB') / path
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == sha
+for path in ['README.md', 'RESULTS.md', 'docs/technical-report.md', 'docs/site/index.html']:
+    assert '\u2014' not in Path(path).read_text()
+print(json.dumps({'status': 'passed', 'recomputed_point_and_interval_scalars': scalar_checks,
+                  'trial_labels_and_rest_flags': 'unchanged', 'source_and_data_hashes': 'matched',
+                  'frozen_protocol': 'unchanged'}, indent=2))

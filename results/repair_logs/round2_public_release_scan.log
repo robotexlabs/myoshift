@@ -1,0 +1,6 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_release_repairs.py::test_public_text_hygiene', 'tests/test_release_repairs.py::test_report_supersession', '-q']
+..                                                                       [100%]
+2 passed in 0.07s
+
+Exit: 0
+Runtime seconds: 0.216033

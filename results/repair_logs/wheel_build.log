@@ -1,0 +1,5 @@
+Command: ['.venv/bin/python', '-m', 'build', '--wheel', '--outdir', 'results/repair_dist']
+.venv/bin/python: No module named build
+
+Exit: 1
+Runtime seconds: 0.124319

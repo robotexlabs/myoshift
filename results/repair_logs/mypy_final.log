@@ -1,0 +1,5 @@
+Command: ['.venv/bin/mypy', 'src']
+Success: no issues found in 19 source files
+
+Exit: 0
+Runtime seconds: 0.328692

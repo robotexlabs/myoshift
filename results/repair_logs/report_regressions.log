@@ -1,0 +1,6 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_repairs.py::test_f09_generated_document_mismatch', 'tests/test_repairs.py::test_f11_strict_diagnostics_and_wheel_ci', '-q']
+..                                                                       [100%]
+2 passed in 1.52s
+
+Exit: 0
+Runtime seconds: 1.939826

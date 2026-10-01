@@ -1,0 +1,529 @@
+{
+  "config": {
+    "stream": {
+      "sample_rate_hz": 2048,
+      "window_ms": 200,
+      "stride_ms": 40,
+      "rest_gesture_id": 17
+    },
+    "budget": {
+      "max_calibration_windows": 50,
+      "max_inference_ms_p95": 50.0,
+      "max_peak_ram_mb": 2048.0,
+      "abstention_coverage_min": 0.05
+    },
+    "data_root": "data/raw/grabmyo-flow/static_extension_WFDB",
+    "participants": [
+      44,
+      45,
+      46,
+      47
+    ]
+  },
+  "runs": [
+    {
+      "shift": "person",
+      "decoder": "static_lda",
+      "held_out": "participants:47",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.3056693989071038,
+          "ci_low": 0.16090334699453554,
+          "ci_high": 0.4841444672131147,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.4443306010928962,
+          "ci_low": 0.2612790300546448,
+          "ci_high": 0.6251793032786885,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12416599929565564,
+      "latency_ms_p95": 0.12996429941267706,
+      "runtime_s": 6.343709083001158,
+      "peak_rss_mb": 198.953125
+    },
+    {
+      "shift": "person",
+      "decoder": "hysteresis",
+      "held_out": "participants:47",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.28244535519125685,
+          "ci_low": 0.14506489071038253,
+          "ci_high": 0.4577015027322404,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.4675546448087431,
+          "ci_low": 0.2899675546448087,
+          "ci_high": 0.6459187158469945,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12583300122059882,
+      "latency_ms_p95": 0.14610619873565162,
+      "runtime_s": 6.336504500002775,
+      "peak_rss_mb": 220.453125
+    },
+    {
+      "shift": "person",
+      "decoder": "few_shot",
+      "held_out": "participants:47",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.3056693989071038,
+          "ci_low": 0.16090334699453554,
+          "ci_high": 0.4841444672131147,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.4443306010928962,
+          "ci_low": 0.2612790300546448,
+          "ci_high": 0.6251793032786885,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12425000022631139,
+      "latency_ms_p95": 0.14183129896991892,
+      "runtime_s": 6.152248624999629,
+      "peak_rss_mb": 220.484375
+    },
+    {
+      "shift": "person",
+      "decoder": "myoshift",
+      "held_out": "participants:47",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.18271857923497267,
+          "ci_low": 0.054807035519125684,
+          "ci_high": 0.3440061475409835,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.6955246913580247,
+          "ci_low": 0.4895717592592593,
+          "ci_high": 0.8612654320987655,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 0.30430327868852464,
+          "ci_low": 0.16809255464480874,
+          "ci_high": 0.4606471994535518,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.1269999993382953,
+      "latency_ms_p95": 0.13978749848320152,
+      "runtime_s": 6.135089375002281,
+      "peak_rss_mb": 220.484375
+    },
+    {
+      "shift": "session",
+      "decoder": "static_lda",
+      "held_out": "session:3",
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3854,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.5425204918032787,
+          "ci_low": 0.38422771516393445,
+          "ci_high": 0.6944800204918031,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.2074795081967213,
+          "ci_low": 0.0790983606557377,
+          "ci_high": 0.33888319672131123,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12387500100885518,
+      "latency_ms_p95": 0.14081470017117675,
+      "runtime_s": 6.262550208000903,
+      "peak_rss_mb": 220.484375
+    },
+    {
+      "shift": "session",
+      "decoder": "hysteresis",
+      "held_out": "session:3",
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3854,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.5358606557377049,
+          "ci_low": 0.3798411885245902,
+          "ci_high": 0.6919569672131147,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.21413934426229508,
+          "ci_low": 0.08306224385245901,
+          "ci_high": 0.3464715676229508,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12608299948624335,
+      "latency_ms_p95": 0.14254375000746222,
+      "runtime_s": 6.381446084000345,
+      "peak_rss_mb": 220.484375
+    },
+    {
+      "shift": "session",
+      "decoder": "few_shot",
+      "held_out": "session:3",
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3854,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.5425204918032787,
+          "ci_low": 0.38422771516393445,
+          "ci_high": 0.6944800204918031,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.2074795081967213,
+          "ci_low": 0.0790983606557377,
+          "ci_high": 0.33888319672131123,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12375000005704351,
+      "latency_ms_p95": 0.14223979906091697,
+      "runtime_s": 6.33417691700015,
+      "peak_rss_mb": 220.484375
+    },
+    {
+      "shift": "session",
+      "decoder": "myoshift",
+      "held_out": "session:3",
+      "n_train": 7808,
+      "n_calibration": 50,
+      "n_test": 3854,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.4569672131147541,
+          "ci_low": 0.30621798155737706,
+          "ci_high": 0.6141393442622949,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.4408097290640394,
+          "ci_low": 0.28455972906403937,
+          "ci_high": 0.5981373152709359,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 0.5125512295081966,
+          "ci_low": 0.36728995901639344,
+          "ci_high": 0.6638383709016392,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12687499838648364,
+      "latency_ms_p95": 0.14666064871562406,
+      "runtime_s": 6.366457082996931,
+      "peak_rss_mb": 220.484375
+    },
+    {
+      "shift": "electrode",
+      "decoder": "static_lda",
+      "held_out": "channel_shift:2",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.24223370012725498,
+          "ci_low": 0.00273224043715847,
+          "ci_high": 0.5559360730593608,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.757766299872745,
+          "ci_low": 0.4440639269406393,
+          "ci_high": 0.9972677595628415,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12333399899944197,
+      "latency_ms_p95": 0.14082934922043935,
+      "runtime_s": 18.25313833400287,
+      "peak_rss_mb": 239.8125
+    },
+    {
+      "shift": "electrode",
+      "decoder": "hysteresis",
+      "held_out": "channel_shift:2",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.19894827457144995,
+          "ci_low": 0.0,
+          "ci_high": 0.49575192753948644,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.80105172542855,
+          "ci_low": 0.5042480724605135,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12712500029010698,
+      "latency_ms_p95": 0.15737064768472922,
+      "runtime_s": 17.82601229100328,
+      "peak_rss_mb": 250.796875
+    },
+    {
+      "shift": "electrode",
+      "decoder": "few_shot",
+      "held_out": "channel_shift:2",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.24223370012725498,
+          "ci_low": 0.00273224043715847,
+          "ci_high": 0.5559360730593608,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.757766299872745,
+          "ci_low": 0.4440639269406393,
+          "ci_high": 0.9972677595628415,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.1239160010300111,
+      "latency_ms_p95": 0.14004379991092722,
+      "runtime_s": 17.84636274999866,
+      "peak_rss_mb": 253.65625
+    },
+    {
+      "shift": "electrode",
+      "decoder": "myoshift",
+      "held_out": "channel_shift:2",
+      "n_train": 8784,
+      "n_calibration": 50,
+      "n_test": 2878,
+      "metrics": {
+        "false_activations_per_rest_hour": {
+          "name": "false_activations_per_rest_hour",
+          "value": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "unit": "events/hour"
+        },
+        "event_recall": {
+          "name": "event_recall",
+          "value": 0.06726426628739675,
+          "ci_low": 0.0,
+          "ci_high": 0.19359607755071487,
+          "unit": "proportion"
+        },
+        "risk": {
+          "name": "risk",
+          "value": 0.8039215686274511,
+          "ci_low": 0.4784313725490195,
+          "ci_high": 1.0,
+          "unit": "proportion"
+        },
+        "coverage": {
+          "name": "coverage",
+          "value": 0.09474262045562293,
+          "ci_low": 0.01092896174863388,
+          "ci_high": 0.2186540908750655,
+          "unit": "proportion"
+        }
+      },
+      "latency_ms_p50": 0.12566700024763122,
+      "latency_ms_p95": 0.14566879908670674,
+      "runtime_s": 17.810917667000467,
+      "peak_rss_mb": 253.65625
+    }
+  ]
+}

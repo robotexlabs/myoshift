@@ -1,0 +1,38 @@
+{
+  "name": "regressions_extended",
+  "argv": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "-o",
+    "addopts=",
+    "tests/test_repairs.py",
+    "-q"
+  ],
+  "exit": 1,
+  "timeout_s": 120.0,
+  "timed_out": false,
+  "runtime_s": 21.591831749999983,
+  "top": [
+    {
+      "elapsed_s": 0.004289874999813037,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 5.054412875000708,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 10.064104834000318,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 15.119943542002147,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    },
+    {
+      "elapsed_s": 20.202832124999986,
+      "error": "[Errno 1] Operation not permitted: '/usr/bin/top'"
+    }
+  ]
+}

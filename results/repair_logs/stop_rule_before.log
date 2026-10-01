@@ -1,0 +1,23 @@
+Command: ['.venv/bin/python', '-m', 'pytest', '-o', 'addopts=', 'tests/test_repairs.py::test_f05_original_novelty_stop_is_retained', '-q']
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_f05_original_novelty_stop_is_retained __________________
+
+    def test_f05_original_novelty_stop_is_retained():
+        runs = []
+        for shift in ['person', 'session', 'electrode']:
+            for decoder, bounds in [('hysteresis', (0, 100)), ('myoshift', (0, 10))]:
+                runs.append({'shift': shift, 'decoder': decoder, 'status': 'available',
+                             'metrics': {'false_activations_per_rest_hour': {
+                                 'ci_low': bounds[0], 'ci_high': bounds[1]}}})
+>       assert benchmark.hysteresis_interval_stop(runs) is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'myoshift.eval.benchmark' has no attribute 'hysteresis_interval_stop'
+
+tests/test_repairs.py:343: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_repairs.py::test_f05_original_novelty_stop_is_retained - At...
+1 failed in 1.94s
+
+Exit: 1
+Runtime seconds: 2.382672

@@ -1,0 +1,5 @@
+Command: ['.venv/bin/ruff', 'check', '.']
+All checks passed!
+
+Exit: 0
+Runtime seconds: 0.109643

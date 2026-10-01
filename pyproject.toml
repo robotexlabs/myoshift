@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myoshift"
+version = "0.1.1"
+description = "Streaming event-level sEMG benchmark and budgeted selective decoder under shift"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+authors = [{ name = "Amirhossein (Amir) Daneshpajouh" }]
+keywords = ["emg", "gesture", "benchmark", "abstention", "streaming"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "wfdb>=4.1",
+    "matplotlib>=3.8",
+    "click>=8.1",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pyright>=1.1",
+    "types-PyYAML>=6.0",
+]
+
+[project.scripts]
+myoshift = "myoshift.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "network: marks tests that need network access",
+]
+addopts = "-m 'not slow and not network'"
+
+[tool.coverage.run]
+source = ["myoshift"]
+branch = true
+omit = ["tests/*"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["myoshift"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["wfdb.*", "sklearn.*"]
+ignore_missing_imports = true
+
+[tool.pyright]
+include = ["src"]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+
+[tool.setuptools.package-data]
+myoshift = ["protocol/*.md", "protocol/amendments/*.md"]

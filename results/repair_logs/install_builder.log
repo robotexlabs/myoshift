@@ -1,0 +1,14 @@
+Command: ['.venv/bin/python', '-m', 'pip', 'install', 'build']
+WARNING: The directory '.' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting build
+  Downloading build-1.6.1-py3-none-any.whl.metadata (5.6 kB)
+Requirement already satisfied: packaging>=24.0 in ./.venv/lib/python3.11/site-packages (from build) (26.3)
+Collecting pyproject_hooks (from build)
+  Downloading pyproject_hooks-1.3.3-py3-none-any.whl.metadata (1.3 kB)
+Downloading build-1.6.1-py3-none-any.whl (31 kB)
+Downloading pyproject_hooks-1.3.3-py3-none-any.whl (10 kB)
+Installing collected packages: pyproject_hooks, build
+Successfully installed build-1.6.1 pyproject_hooks-1.3.3
+
+Exit: 0
+Runtime seconds: 1.160453

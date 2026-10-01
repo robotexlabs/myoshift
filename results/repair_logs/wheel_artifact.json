@@ -1,0 +1,6 @@
+{
+  "wheel": "results/repair_dist/myoshift-0.1.1-py3-none-any.whl",
+  "sha256": "a0f4b11bebb0877abb040b1e34c8acdf6d69c9140d7736669f469f263c8c5397",
+  "isolated_install": "passed",
+  "python": "3.11.15 (main, Jul 15 2026, 16:46:18) [Clang 21.0.0 (clang-2100.1.1.101)]"
+}
