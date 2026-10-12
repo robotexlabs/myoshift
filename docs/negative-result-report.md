@@ -54,7 +54,7 @@ Uncertainty resamples complete participant clusters and keeps paired methods tog
 
 ## Results
 
-All tables below are generated from `results/results.json`, whose digest is `caa8e1cc23016896fd945890506faafbcbeb82b1af6ffa11f809b2df7d99c4f0`. Counts describe each evaluation support; the same recordings recur across shifts and methods, so table rows must not be summed as independent observations. The abstract reports paired differences; decoder tables show marginal estimates.
+All tables below are generated from `results/results.json`, whose digest is `dfd09577ab3c317712d0684c4b25bf5178fbddf33fa669d128d67abbf4c03b89`. Counts describe each evaluation support; the same recordings recur across shifts and methods, so table rows must not be summed as independent observations. The abstract reports paired differences; decoder tables show marginal estimates.
 
 
 ## Person shift

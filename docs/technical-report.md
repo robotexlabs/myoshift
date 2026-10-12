@@ -2,7 +2,7 @@
 
 Draft technical report.
 
-Generated from `results/results.json`, SHA-256 `caa8e1cc23016896fd945890506faafbcbeb82b1af6ffa11f809b2df7d99c4f0`. Python 3.11.15; software versions: `{"myoshift": "0.1.1", "numpy": "2.4.6", "scikit-learn": "1.9.1", "wfdb": "4.3.1"}`.
+Generated from `results/results.json`, SHA-256 `dfd09577ab3c317712d0684c4b25bf5178fbddf33fa669d128d67abbf4c03b89`. Python 3.11.15; software versions: `{"myoshift": "0.1.1", "numpy": "2.4.6", "scikit-learn": "1.9.1", "wfdb": "4.3.1"}`.
 
 Protocol hash: `15a1f7dd67a45e8848baa8a88ce6f752b66b46984388064dc037c560b5c04f38`. Pre-result freeze chronology is unverified. All repair amendments were made after results had been seen.
 
@@ -74,7 +74,7 @@ GRABMyoFlow participants are healthy adults recorded in seated laboratory condit
 
 ## Resources
 
-Full evaluation runtime: 20.370 s. Cumulative process peak RSS: 240.312 MiB. Host: Mac-Studio.local; platform: macOS-27.0.1-arm64-arm-64bit. Footprint measurement: blocked or unavailable. Latency p95 columns time `decoder.predict` only; they exclude feature extraction, acquisition and end-to-end command response. RSS is not isolated evaluation memory or macOS compressed/swapped footprint. The required footprint gate remains unverified when measurement is blocked or unavailable.
+Full evaluation runtime: 20.370 s. Cumulative process peak RSS: 240.312 MiB. Host: unknown; platform: macOS-27.0.1-arm64-arm-64bit. Footprint measurement: blocked or unavailable. Latency p95 columns time `decoder.predict` only; they exclude feature extraction, acquisition and end-to-end command response. RSS is not isolated evaluation memory or macOS compressed/swapped footprint. The required footprint gate remains unverified when measurement is blocked or unavailable.
 
 
 ## References
