@@ -12,6 +12,12 @@ from typing import Any
 from myoshift.provenance import verify
 
 ROOT = Path(__file__).resolve().parents[1]
+# Console lines observed when the README quick start was run on 2026-10-18.
+QUICK_START_OUTPUT = (
+    "Verified 96 records; 35032550 transferred bytes including manifest\n"
+    "Results written to results/results.json\n"
+    "Scorer verification passed\n"
+)
 
 
 def write_or_check(path: Path, content: str, *, check: bool) -> None:
@@ -30,6 +36,24 @@ def interval(metric: dict[str, Any]) -> str:
     if low is None or high is None:
         return f"{value:.3f} [unavailable]"
     return f"{value:.3f} [{low:.3f}, {high:.3f}]"
+
+
+def quick_table(data: dict[str, Any], shift: str = "person") -> str:
+    """Compact README table computed from the same results file as RESULTS.md."""
+    names = ("event_recall", "window_recall", "coverage", "false_activations_per_rest_hour")
+    text = (
+        "| Decoder | Trial-event recall | Window recall | Coverage | False events/rest hour |\n"
+        "|---|---|---|---|---|\n"
+    )
+    for run in data["runs"]:
+        if run["shift"] != shift:
+            continue
+        if run["status"] == "unavailable":
+            text += f"| {run['decoder']} | unavailable | | | |\n"
+            continue
+        cells = [interval(run["metrics"][name]) for name in names]
+        text += f"| {run['decoder']} | " + " | ".join(cells) + " |\n"
+    return text
 
 
 def tables(data: dict[str, Any]) -> str:
@@ -230,19 +254,43 @@ def generate(*, check: bool = False) -> None:
         "Four healthy seated participants, heavy abstention and short rest exposure limit "
         "interpretation; zero counts cannot establish safety.\n\n"
         + conclusion
-        + "\n\n## Run the demonstration\n\n"
-        "```sh\npython3 -m venv .venv\nsource .venv/bin/activate\n"
+        + "\n\n## Quick start\n\n"
+        "These commands work on a fresh clone. The download script fetches the 96 public "
+        "GRABMyoFlow pilot records from PhysioNet and checks every SHA-256; "
+        "everything after it runs offline.\n\n"
+        "```sh\ngit clone https://github.com/robotexlabs/myoshift.git\ncd myoshift\n"
+        "python3.11 -m venv .venv\nsource .venv/bin/activate\n"
         'pip install -e ".[dev]"\nbash scripts/download_pilot.sh\n'
-        "python scripts/run_benchmark.py\npython scripts/generate_documents.py --check\n"
+        "python scripts/run_benchmark.py\nmyoshift verify-scorers\n"
+        "python scripts/generate_documents.py --check\n"
         "python -m pytest -o addopts= -m 'not network' --cov=myoshift --cov-fail-under=90\n"
         "```\n\n"
         "The single benchmark command regenerates JSON, traces, figures and current documents "
-        "headlessly from downloaded public data. The network test needs internet access and "
+        "headlessly from downloaded public data. Without the download, the benchmark and the "
+        "data-bound tests cannot run. PhysioNet can be slow: if the download stops with a "
+        "read timeout, run it again. On 2026-10-18 it needed four runs. "
+        "The network test needs internet access and "
         "an empty destination; cached acceptance is recorded separately. "
         "Python 3.11 on macOS arm64 is locally exercised; Python 3.12 is configured in CI "
         "and awaits a hosted receipt. No other platform is validated.\n\n"
         "CLI example: `myoshift verify-scorers`; library entry: "
         "`myoshift.eval.benchmark.run_full_benchmark(data_root, output_dir)`.\n\n"
+        "## What you get\n\n"
+        "MyoShift is a research prototype, not a medical device. "
+        "On 2026-10-18 the quick start printed these lines, among others:\n\n"
+        "```text\n" + QUICK_START_OUTPUT + "```\n\n"
+        "The benchmark writes `results/results.json`, prediction traces in "
+        "`results/predictions.jsonl` and two figures, "
+        "[risk and coverage](results/figures/risk_coverage_person.png) and "
+        "[false command events](results/figures/false_activations.png). "
+        "It also regenerates RESULTS.md, this README, the technical report, the "
+        "negative-result report and a static summary page, "
+        "[docs/site/index.html](docs/site/index.html), which you can open in a browser "
+        "from your clone.\n\n"
+        "Person-shift results from `results/results.json`, with 95% participant-cluster "
+        "intervals:\n\n" + quick_table(data) + "\n"
+        "These are fixed operating points from four healthy seated participants. "
+        "They do not show safety, adoption or clinical benefit.\n\n"
         "## Inspect the evidence\n\n"
         "[Compact verification receipt](docs/milestones/PUBLICATION_FIX_REPORT_3_2026-10-01.md), "
         "[full results and limitations](RESULTS.md), "

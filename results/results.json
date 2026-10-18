@@ -9,7 +9,7 @@
       "scikit-learn": "1.9.1",
       "wfdb": "4.3.1"
     },
-    "python": "3.11.15",
+    "python": "3.11.13",
     "hardware": "arm64",
     "platform": "macOS-27.0.1-arm64-arm-64bit",
     "footprint_measurement": "blocked or unavailable",
@@ -41,7 +41,7 @@
       "scripts/check_wheel.py": "ae1c6fc1cf847da7f2c3f78e2304621f9f793094b4edf27fd087403c9b7a3924",
       "scripts/compare_regeneration.py": "d8015bdad5ed5c7d8992fc9ac8807d2d5891dd7d0b22b6d2d675469b15434342",
       "scripts/download_pilot.py": "16226ff856a52fba7c95c70caee184bfa7fd7d5dfd5b8739cc159b8ae7427c00",
-      "scripts/generate_documents.py": "87b8787a938dd84337267b2635a4b952306219694bff0bab316c6488d5533e39",
+      "scripts/generate_documents.py": "5d17e4e3c6d4c819736901a6a5c847b90d242a6521f8ffea2e6355bcb1ffacec",
       "scripts/generate_figures.py": "17b0ee1e3530c6a31a53950c4e2ef4b738ad8fcf68672c73f88f225f74f53103",
       "scripts/generate_repair_report.py": "138a3175d9fb3b6728c2773247c731e70444ced7b214094b80fbfefb3a8dcf0b",
       "scripts/generate_report_tables.py": "eb400250842bf3ee1b7e35b0a2eed8059915db792238e28a54292a569a4cf9bb",
@@ -406,10 +406,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11983400327153504,
-      "latency_ms_p95": 0.14475000352831557,
-      "runtime_s": 1.5513038749995758,
-      "cumulative_process_peak_rss_mb": 214.390625
+      "latency_ms_p50": 0.11016696225851774,
+      "latency_ms_p95": 0.1417037768987938,
+      "runtime_s": 1.4632210419513285,
+      "cumulative_process_peak_rss_mb": 208.625
     },
     {
       "shift": "person",
@@ -510,10 +510,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.12320800306042656,
-      "latency_ms_p95": 0.15391700035252143,
-      "runtime_s": 1.6044703750012559,
-      "cumulative_process_peak_rss_mb": 218.625
+      "latency_ms_p50": 0.11191604426130652,
+      "latency_ms_p95": 0.14143546577543015,
+      "runtime_s": 1.5026712919934653,
+      "cumulative_process_peak_rss_mb": 212.1875
     },
     {
       "shift": "person",
@@ -641,10 +641,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.12079100270057097,
-      "latency_ms_p95": 0.1519081477454163,
-      "runtime_s": 1.5576500839961227,
-      "cumulative_process_peak_rss_mb": 222.359375
+      "latency_ms_p50": 0.11012505274266005,
+      "latency_ms_p95": 0.13407935039140276,
+      "runtime_s": 1.4363397079869173,
+      "cumulative_process_peak_rss_mb": 216.34375
     },
     {
       "shift": "session",
@@ -712,10 +712,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11812499724328518,
-      "latency_ms_p95": 0.14505840372294174,
-      "runtime_s": 0.5343409170018276,
-      "cumulative_process_peak_rss_mb": 225.5
+      "latency_ms_p50": 0.1092919846996665,
+      "latency_ms_p95": 0.1228254288434982,
+      "runtime_s": 0.5096577910007909,
+      "cumulative_process_peak_rss_mb": 219.5
     },
     {
       "shift": "session",
@@ -783,10 +783,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.12237500050105155,
-      "latency_ms_p95": 0.16062479844549668,
-      "runtime_s": 0.5256590829958441,
-      "cumulative_process_peak_rss_mb": 225.5
+      "latency_ms_p50": 0.1127920113503933,
+      "latency_ms_p95": 0.13829197268933058,
+      "runtime_s": 0.49089433398330584,
+      "cumulative_process_peak_rss_mb": 219.5
     },
     {
       "shift": "session",
@@ -875,10 +875,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.1208749963552691,
-      "latency_ms_p95": 0.13808360090479252,
-      "runtime_s": 0.5099068330018781,
-      "cumulative_process_peak_rss_mb": 225.84375
+      "latency_ms_p50": 0.10970799485221505,
+      "latency_ms_p95": 0.1306836027652025,
+      "runtime_s": 0.47446895798202604,
+      "cumulative_process_peak_rss_mb": 219.890625
     },
     {
       "shift": "electrode",
@@ -979,10 +979,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11983400327153504,
-      "latency_ms_p95": 0.15204199735308066,
-      "runtime_s": 1.5538275420040009,
-      "cumulative_process_peak_rss_mb": 229.890625
+      "latency_ms_p50": 0.11054199421778321,
+      "latency_ms_p95": 0.1294169924221933,
+      "runtime_s": 1.4705078749684617,
+      "cumulative_process_peak_rss_mb": 224.015625
     },
     {
       "shift": "electrode",
@@ -1083,10 +1083,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.12224999954923987,
-      "latency_ms_p95": 0.15174635045696042,
-      "runtime_s": 1.6044678750040475,
-      "cumulative_process_peak_rss_mb": 233.4375
+      "latency_ms_p50": 0.11191598605364561,
+      "latency_ms_p95": 0.12253735330887129,
+      "runtime_s": 1.504570249991957,
+      "cumulative_process_peak_rss_mb": 227.5625
     },
     {
       "shift": "electrode",
@@ -1214,10 +1214,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.12016700202366337,
-      "latency_ms_p95": 0.14385189861059183,
-      "runtime_s": 1.5503301249991637,
-      "cumulative_process_peak_rss_mb": 237.1875
+      "latency_ms_p50": 0.11033302871510386,
+      "latency_ms_p95": 0.14131090720184142,
+      "runtime_s": 1.4733987089712173,
+      "cumulative_process_peak_rss_mb": 231.21875
     }
   ],
   "paired_comparisons": [
@@ -1480,6 +1480,6 @@
     "decoder_novelty_claim": "withdrawn; overlapping intervals are not safety equivalence",
     "threshold_frontier": "untested"
   },
-  "runtime_s": 20.37009450000187,
-  "cumulative_process_peak_rss_mb": 240.3125
+  "runtime_s": 24.51378375000786,
+  "cumulative_process_peak_rss_mb": 234.375
 }

@@ -2,7 +2,7 @@
 
 Draft technical report.
 
-Generated from `results/results.json`, SHA-256 `dfd09577ab3c317712d0684c4b25bf5178fbddf33fa669d128d67abbf4c03b89`. Python 3.11.15; software versions: `{"myoshift": "0.1.1", "numpy": "2.4.6", "scikit-learn": "1.9.1", "wfdb": "4.3.1"}`.
+Generated from `results/results.json`, SHA-256 `6cd25aa35b676b15fdbfb510edf1825f10e35a227a3139b2cd9717ae63877843`. Python 3.11.13; software versions: `{"myoshift": "0.1.1", "numpy": "2.4.6", "scikit-learn": "1.9.1", "wfdb": "4.3.1"}`.
 
 Protocol hash: `15a1f7dd67a45e8848baa8a88ce6f752b66b46984388064dc037c560b5c04f38`. Pre-result freeze chronology is unverified. All repair amendments were made after results had been seen.
 
@@ -26,10 +26,10 @@ The frozen dated protocol remains byte-identical; pre-result chronology is unver
 
 | Decoder | Trial-event recall [95% interval] | Window recall [95% interval] | False events/rest hour [95% interval] | Risk [95% interval] | Coverage [95% interval] | Test windows | Gesture events | Participants | p95 predict ms |
 |---|---|---|---|---|---|---:|---:|---:|---:|
-| static_lda | 0.819 [0.694, 0.944] | 0.512 [0.381, 0.751] | 912.626 [0.000, 2636.475] | 0.398 [0.192, 0.523] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.145 |
-| hysteresis | 0.750 [0.611, 0.917] | 0.473 [0.347, 0.696] | 608.417 [0.000, 1723.849] | 0.423 [0.233, 0.540] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.154 |
+| static_lda | 0.819 [0.694, 0.944] | 0.512 [0.381, 0.751] | 912.626 [0.000, 2636.475] | 0.398 [0.192, 0.523] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.142 |
+| hysteresis | 0.750 [0.611, 0.917] | 0.473 [0.347, 0.696] | 608.417 [0.000, 1723.849] | 0.423 [0.233, 0.540] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.141 |
 | few_shot | unavailable: few_shot baseline unavailable: calibration lacks two classes | | | | | | | | |
-| myoshift | 0.333 [0.153, 0.597] | 0.073 [0.031, 0.137] | 0.000 [0.000, 0.000] | 0.239 [0.008, 0.589] | 0.074 [0.043, 0.108] | 11492 | 72 | 4 | 0.152 |
+| myoshift | 0.333 [0.153, 0.597] | 0.073 [0.031, 0.137] | 0.000 [0.000, 0.000] | 0.239 [0.008, 0.589] | 0.074 [0.043, 0.108] | 11492 | 72 | 4 | 0.134 |
 
 Measured eligible rest exposure: 106.505859 seconds. 96 independent test records.
 
@@ -37,10 +37,10 @@ Measured eligible rest exposure: 106.505859 seconds. 96 independent test records
 
 | Decoder | Trial-event recall [95% interval] | Window recall [95% interval] | False events/rest hour [95% interval] | Risk [95% interval] | Coverage [95% interval] | Test windows | Gesture events | Participants | p95 predict ms |
 |---|---|---|---|---|---|---:|---:|---:|---:|
-| static_lda | 0.958 [0.875, 1.000] | 0.724 [0.463, 0.944] | 0.000 [0.000, 0.000] | 0.210 [0.043, 0.403] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.145 |
-| hysteresis | 0.750 [0.456, 1.000] | 0.695 [0.431, 0.913] | 0.000 [0.000, 0.000] | 0.232 [0.067, 0.426] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.161 |
+| static_lda | 0.958 [0.875, 1.000] | 0.724 [0.463, 0.944] | 0.000 [0.000, 0.000] | 0.210 [0.043, 0.403] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.123 |
+| hysteresis | 0.750 [0.456, 1.000] | 0.695 [0.431, 0.913] | 0.000 [0.000, 0.000] | 0.232 [0.067, 0.426] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.138 |
 | few_shot | unavailable: few_shot baseline unavailable: calibration lacks two classes | | | | | | | | |
-| myoshift | 0.458 [0.250, 0.708] | 0.217 [0.084, 0.287] | 0.000 [0.000, 0.000] | 0.003 [0.000, 0.009] | 0.166 [0.064, 0.220] | 3849 | 24 | 4 | 0.138 |
+| myoshift | 0.458 [0.250, 0.708] | 0.217 [0.084, 0.287] | 0.000 [0.000, 0.000] | 0.003 [0.000, 0.009] | 0.166 [0.064, 0.220] | 3849 | 24 | 4 | 0.131 |
 
 Measured eligible rest exposure: 36.227051 seconds. 32 independent test records.
 
@@ -48,10 +48,10 @@ Measured eligible rest exposure: 36.227051 seconds. 32 independent test records.
 
 | Decoder | Trial-event recall [95% interval] | Window recall [95% interval] | False events/rest hour [95% interval] | Risk [95% interval] | Coverage [95% interval] | Test windows | Gesture events | Participants | p95 predict ms |
 |---|---|---|---|---|---|---:|---:|---:|---:|
-| static_lda | 0.472 [0.375, 0.528] | 0.227 [0.134, 0.314] | 878.825 [0.000, 2636.475] | 0.611 [0.524, 0.685] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.152 |
-| hysteresis | 0.444 [0.326, 0.528] | 0.201 [0.111, 0.282] | 676.019 [0.000, 2028.057] | 0.625 [0.549, 0.699] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.152 |
+| static_lda | 0.472 [0.375, 0.528] | 0.227 [0.134, 0.314] | 878.825 [0.000, 2636.475] | 0.611 [0.524, 0.685] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.129 |
+| hysteresis | 0.444 [0.326, 0.528] | 0.201 [0.111, 0.282] | 676.019 [0.000, 2028.057] | 0.625 [0.549, 0.699] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.123 |
 | few_shot | unavailable: few_shot baseline unavailable: calibration lacks two classes | | | | | | | | |
-| myoshift | 0.111 [0.069, 0.139] | 0.017 [0.005, 0.036] | 33.801 [0.000, 101.403] | 0.581 [0.052, 0.901] | 0.031 [0.011, 0.053] | 11492 | 72 | 4 | 0.144 |
+| myoshift | 0.111 [0.069, 0.139] | 0.017 [0.005, 0.036] | 33.801 [0.000, 101.403] | 0.581 [0.052, 0.901] | 0.031 [0.011, 0.053] | 11492 | 72 | 4 | 0.141 |
 
 Measured eligible rest exposure: 106.505859 seconds. 96 independent test records.
 
@@ -74,7 +74,7 @@ GRABMyoFlow participants are healthy adults recorded in seated laboratory condit
 
 ## Resources
 
-Full evaluation runtime: 20.370 s. Cumulative process peak RSS: 240.312 MiB. Host: unknown; platform: macOS-27.0.1-arm64-arm-64bit. Footprint measurement: blocked or unavailable. Latency p95 columns time `decoder.predict` only; they exclude feature extraction, acquisition and end-to-end command response. RSS is not isolated evaluation memory or macOS compressed/swapped footprint. The required footprint gate remains unverified when measurement is blocked or unavailable.
+Full evaluation runtime: 24.514 s. Cumulative process peak RSS: 234.375 MiB. Host: unknown; platform: macOS-27.0.1-arm64-arm-64bit. Footprint measurement: blocked or unavailable. Latency p95 columns time `decoder.predict` only; they exclude feature extraction, acquisition and end-to-end command response. RSS is not isolated evaluation memory or macOS compressed/swapped footprint. The required footprint gate remains unverified when measurement is blocked or unavailable.
 
 
 ## References
