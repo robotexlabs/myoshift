@@ -16,7 +16,7 @@
     "latency_scope": "decoder.predict call only; excludes feature extraction, acquisition and end-to-end command response",
     "source_sha256": {
       ".gitattributes": "f35c4d220462bb28ae4f5085fa4bf1e35476d64a30916915b48d03563804fe7c",
-      ".github/workflows/ci.yml": "2405484b5cbe77cb73fcc42624fcc97a49bc45d49fdeb6f0366a610f463ee893",
+      ".github/workflows/ci.yml": "36551717e8602a75f1c54b9a788e0b6019512b20ca34bb60b7a01e4f50abcdfb",
       "CITATION.cff": "d3504feb5b44bca0d1d6e1dc2a5e9f87dfe9acd123ac2ccbcf0895063914312d",
       "LICENSE": "2104996520c29763904f7f59397fe0a6f41c8348d8b242d0f4e71d8163dd7d3a",
       "NOTICE": "63f632eedb1feaf8a462fa737a6ccd781dcbb905e3d289c8fed7f9bac3aade8f",
@@ -406,10 +406,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11016696225851774,
-      "latency_ms_p95": 0.1417037768987938,
-      "runtime_s": 1.4632210419513285,
-      "cumulative_process_peak_rss_mb": 208.625
+      "latency_ms_p50": 0.11008296860381961,
+      "latency_ms_p95": 0.13458342582453042,
+      "runtime_s": 1.4673382919863798,
+      "cumulative_process_peak_rss_mb": 210.28125
     },
     {
       "shift": "person",
@@ -510,10 +510,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11191604426130652,
-      "latency_ms_p95": 0.14143546577543015,
-      "runtime_s": 1.5026712919934653,
-      "cumulative_process_peak_rss_mb": 212.1875
+      "latency_ms_p50": 0.1117910142056644,
+      "latency_ms_p95": 0.14031045429874206,
+      "runtime_s": 1.501231000002008,
+      "cumulative_process_peak_rss_mb": 213.8125
     },
     {
       "shift": "person",
@@ -641,10 +641,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11012505274266005,
-      "latency_ms_p95": 0.13407935039140276,
-      "runtime_s": 1.4363397079869173,
-      "cumulative_process_peak_rss_mb": 216.34375
+      "latency_ms_p50": 0.11108396574854851,
+      "latency_ms_p95": 0.13904200459364802,
+      "runtime_s": 1.4635210830019787,
+      "cumulative_process_peak_rss_mb": 217.53125
     },
     {
       "shift": "session",
@@ -712,10 +712,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.1092919846996665,
-      "latency_ms_p95": 0.1228254288434982,
-      "runtime_s": 0.5096577910007909,
-      "cumulative_process_peak_rss_mb": 219.5
+      "latency_ms_p50": 0.11004199041053653,
+      "latency_ms_p95": 0.13747516786679623,
+      "runtime_s": 0.5141445419867523,
+      "cumulative_process_peak_rss_mb": 220.703125
     },
     {
       "shift": "session",
@@ -783,10 +783,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.1127920113503933,
-      "latency_ms_p95": 0.13829197268933058,
-      "runtime_s": 0.49089433398330584,
-      "cumulative_process_peak_rss_mb": 219.5
+      "latency_ms_p50": 0.11324998922646046,
+      "latency_ms_p95": 0.1429332187399268,
+      "runtime_s": 0.494960916985292,
+      "cumulative_process_peak_rss_mb": 220.703125
     },
     {
       "shift": "session",
@@ -875,10 +875,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.10970799485221505,
-      "latency_ms_p95": 0.1306836027652025,
-      "runtime_s": 0.47446895798202604,
-      "cumulative_process_peak_rss_mb": 219.890625
+      "latency_ms_p50": 0.11029199231415987,
+      "latency_ms_p95": 0.13391660759225488,
+      "runtime_s": 0.4788761250092648,
+      "cumulative_process_peak_rss_mb": 221.125
     },
     {
       "shift": "electrode",
@@ -979,10 +979,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11054199421778321,
-      "latency_ms_p95": 0.1294169924221933,
-      "runtime_s": 1.4705078749684617,
-      "cumulative_process_peak_rss_mb": 224.015625
+      "latency_ms_p50": 0.11100003030151129,
+      "latency_ms_p95": 0.1383104448905214,
+      "runtime_s": 1.4687283340026625,
+      "cumulative_process_peak_rss_mb": 225.28125
     },
     {
       "shift": "electrode",
@@ -1083,10 +1083,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11191598605364561,
-      "latency_ms_p95": 0.12253735330887129,
-      "runtime_s": 1.504570249991957,
-      "cumulative_process_peak_rss_mb": 227.5625
+      "latency_ms_p50": 0.11220801388844848,
+      "latency_ms_p95": 0.1383104448905214,
+      "runtime_s": 1.5206581670208834,
+      "cumulative_process_peak_rss_mb": 228.828125
     },
     {
       "shift": "electrode",
@@ -1214,10 +1214,10 @@
           "unit": "proportion"
         }
       },
-      "latency_ms_p50": 0.11033302871510386,
-      "latency_ms_p95": 0.14131090720184142,
-      "runtime_s": 1.4733987089712173,
-      "cumulative_process_peak_rss_mb": 231.21875
+      "latency_ms_p50": 0.11008302681148052,
+      "latency_ms_p95": 0.13539392384700472,
+      "runtime_s": 1.4507805000175722,
+      "cumulative_process_peak_rss_mb": 232.484375
     }
   ],
   "paired_comparisons": [
@@ -1480,6 +1480,6 @@
     "decoder_novelty_claim": "withdrawn; overlapping intervals are not safety equivalence",
     "threshold_frontier": "untested"
   },
-  "runtime_s": 24.51378375000786,
-  "cumulative_process_peak_rss_mb": 234.375
+  "runtime_s": 24.6561890830053,
+  "cumulative_process_peak_rss_mb": 235.640625
 }

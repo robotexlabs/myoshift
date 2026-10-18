@@ -54,17 +54,17 @@ Uncertainty resamples complete participant clusters and keeps paired methods tog
 
 ## Results
 
-All tables below are generated from `results/results.json`, whose digest is `6cd25aa35b676b15fdbfb510edf1825f10e35a227a3139b2cd9717ae63877843`. Counts describe each evaluation support; the same recordings recur across shifts and methods, so table rows must not be summed as independent observations. The abstract reports paired differences; decoder tables show marginal estimates.
+All tables below are generated from `results/results.json`, whose digest is `9e7f2585278555ab0ee3559b6279145b208da5eb44a6314744bc556f482c839b`. Counts describe each evaluation support; the same recordings recur across shifts and methods, so table rows must not be summed as independent observations. The abstract reports paired differences; decoder tables show marginal estimates.
 
 
 ## Person shift
 
 | Decoder | Trial-event recall [95% interval] | Window recall [95% interval] | False events/rest hour [95% interval] | Risk [95% interval] | Coverage [95% interval] | Test windows | Gesture events | Participants | p95 predict ms |
 |---|---|---|---|---|---|---:|---:|---:|---:|
-| static_lda | 0.819 [0.694, 0.944] | 0.512 [0.381, 0.751] | 912.626 [0.000, 2636.475] | 0.398 [0.192, 0.523] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.142 |
-| hysteresis | 0.750 [0.611, 0.917] | 0.473 [0.347, 0.696] | 608.417 [0.000, 1723.849] | 0.423 [0.233, 0.540] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.141 |
+| static_lda | 0.819 [0.694, 0.944] | 0.512 [0.381, 0.751] | 912.626 [0.000, 2636.475] | 0.398 [0.192, 0.523] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.135 |
+| hysteresis | 0.750 [0.611, 0.917] | 0.473 [0.347, 0.696] | 608.417 [0.000, 1723.849] | 0.423 [0.233, 0.540] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.140 |
 | few_shot | unavailable: few_shot baseline unavailable: calibration lacks two classes | | | | | | | | |
-| myoshift | 0.333 [0.153, 0.597] | 0.073 [0.031, 0.137] | 0.000 [0.000, 0.000] | 0.239 [0.008, 0.589] | 0.074 [0.043, 0.108] | 11492 | 72 | 4 | 0.134 |
+| myoshift | 0.333 [0.153, 0.597] | 0.073 [0.031, 0.137] | 0.000 [0.000, 0.000] | 0.239 [0.008, 0.589] | 0.074 [0.043, 0.108] | 11492 | 72 | 4 | 0.139 |
 
 Measured eligible rest exposure: 106.505859 seconds. 96 independent test records.
 
@@ -72,10 +72,10 @@ Measured eligible rest exposure: 106.505859 seconds. 96 independent test records
 
 | Decoder | Trial-event recall [95% interval] | Window recall [95% interval] | False events/rest hour [95% interval] | Risk [95% interval] | Coverage [95% interval] | Test windows | Gesture events | Participants | p95 predict ms |
 |---|---|---|---|---|---|---:|---:|---:|---:|
-| static_lda | 0.958 [0.875, 1.000] | 0.724 [0.463, 0.944] | 0.000 [0.000, 0.000] | 0.210 [0.043, 0.403] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.123 |
-| hysteresis | 0.750 [0.456, 1.000] | 0.695 [0.431, 0.913] | 0.000 [0.000, 0.000] | 0.232 [0.067, 0.426] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.138 |
+| static_lda | 0.958 [0.875, 1.000] | 0.724 [0.463, 0.944] | 0.000 [0.000, 0.000] | 0.210 [0.043, 0.403] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.137 |
+| hysteresis | 0.750 [0.456, 1.000] | 0.695 [0.431, 0.913] | 0.000 [0.000, 0.000] | 0.232 [0.067, 0.426] | 1.000 [1.000, 1.000] | 3849 | 24 | 4 | 0.143 |
 | few_shot | unavailable: few_shot baseline unavailable: calibration lacks two classes | | | | | | | | |
-| myoshift | 0.458 [0.250, 0.708] | 0.217 [0.084, 0.287] | 0.000 [0.000, 0.000] | 0.003 [0.000, 0.009] | 0.166 [0.064, 0.220] | 3849 | 24 | 4 | 0.131 |
+| myoshift | 0.458 [0.250, 0.708] | 0.217 [0.084, 0.287] | 0.000 [0.000, 0.000] | 0.003 [0.000, 0.009] | 0.166 [0.064, 0.220] | 3849 | 24 | 4 | 0.134 |
 
 Measured eligible rest exposure: 36.227051 seconds. 32 independent test records.
 
@@ -83,10 +83,10 @@ Measured eligible rest exposure: 36.227051 seconds. 32 independent test records.
 
 | Decoder | Trial-event recall [95% interval] | Window recall [95% interval] | False events/rest hour [95% interval] | Risk [95% interval] | Coverage [95% interval] | Test windows | Gesture events | Participants | p95 predict ms |
 |---|---|---|---|---|---|---:|---:|---:|---:|
-| static_lda | 0.472 [0.375, 0.528] | 0.227 [0.134, 0.314] | 878.825 [0.000, 2636.475] | 0.611 [0.524, 0.685] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.129 |
-| hysteresis | 0.444 [0.326, 0.528] | 0.201 [0.111, 0.282] | 676.019 [0.000, 2028.057] | 0.625 [0.549, 0.699] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.123 |
+| static_lda | 0.472 [0.375, 0.528] | 0.227 [0.134, 0.314] | 878.825 [0.000, 2636.475] | 0.611 [0.524, 0.685] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.138 |
+| hysteresis | 0.444 [0.326, 0.528] | 0.201 [0.111, 0.282] | 676.019 [0.000, 2028.057] | 0.625 [0.549, 0.699] | 1.000 [1.000, 1.000] | 11492 | 72 | 4 | 0.138 |
 | few_shot | unavailable: few_shot baseline unavailable: calibration lacks two classes | | | | | | | | |
-| myoshift | 0.111 [0.069, 0.139] | 0.017 [0.005, 0.036] | 33.801 [0.000, 101.403] | 0.581 [0.052, 0.901] | 0.031 [0.011, 0.053] | 11492 | 72 | 4 | 0.141 |
+| myoshift | 0.111 [0.069, 0.139] | 0.017 [0.005, 0.036] | 33.801 [0.000, 101.403] | 0.581 [0.052, 0.901] | 0.031 [0.011, 0.053] | 11492 | 72 | 4 | 0.135 |
 
 Measured eligible rest exposure: 106.505859 seconds. 96 independent test records.
 
@@ -128,7 +128,7 @@ The generator supports `--check` for byte-for-byte mismatch detection. Measureme
 
 For a fresh data acquisition, follow [the data manifest](DATA.md) and run `bash scripts/download_pilot.sh`. The bounded downloader retrieves the upstream checksum manifest and verifies each selected waveform and header before replacing its destination. The upstream manifest remains the retrieval trust source. The preserved results contain per-file data digests for comparison with the evaluated inputs. After installing the documented development dependencies, `python scripts/run_benchmark.py` reproduces evaluation, traces, figures and generated current documents, including this report. Runtime and result provenance will then describe that new execution.
 
-The preserved evaluation reports 24.514 s for benchmark runtime and 234.375 MiB for cumulative process peak RSS, using Python 3.11.13 and software versions `{"myoshift": "0.1.1", "numpy": "2.4.6", "scikit-learn": "1.9.1", "wfdb": "4.3.1"}`. Runtime excludes installation, downloading and document or figure generation. RSS is a process high-water mark, not isolated evaluation memory or the required compressed and swapped macOS footprint. The footprint measurement was blocked, so that resource gate remains unverified. Small RSS does not certify the governing memory cap.
+The preserved evaluation reports 24.656 s for benchmark runtime and 235.641 MiB for cumulative process peak RSS, using Python 3.11.13 and software versions `{"myoshift": "0.1.1", "numpy": "2.4.6", "scikit-learn": "1.9.1", "wfdb": "4.3.1"}`. Runtime excludes installation, downloading and document or figure generation. RSS is a process high-water mark, not isolated evaluation memory or the required compressed and swapped macOS footprint. The footprint measurement was blocked, so that resource gate remains unverified. Small RSS does not certify the governing memory cap.
 
 ## Licences and citation
 

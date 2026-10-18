@@ -1,13 +1,20 @@
 name: CI
 
+# Push and pull request runs restore the verified pilot from the Actions cache and
+# download it from PhysioNet only on a cache miss. The weekly and manual runs perform
+# the fresh clean-download acceptance test and save the result as the newest cache entry.
 on:
   push:
   pull_request:
+  schedule:
+    - cron: "23 10 * * 1"
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: macos-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.11", "3.12"]
     steps:
@@ -26,13 +33,109 @@ jobs:
           .venv/bin/ruff check .
           .venv/bin/mypy src
           .venv/bin/pyright src
-      - name: Download acceptance and complete suite
-        timeout-minutes: 30
+      - name: Pilot cache key
+        id: pilot-key
+        run: |
+          .venv/bin/python - <<'EOF'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          # The downloader fixes the upstream release and the record selection.
+          # results/results.json holds the committed SHA-256 of every pilot file.
+          digest = hashlib.sha256()
+          for name in ("scripts/download_pilot.sh", "scripts/download_pilot.py"):
+              digest.update(name.encode() + b"\0" + Path(name).read_bytes() + b"\0")
+          results = json.loads(Path("results/results.json").read_text())
+          digest.update(json.dumps(results["provenance"]["data_sha256"], sort_keys=True).encode())
+          prefix = f"grabmyo-flow-pilot-{os.environ['RUNNER_OS']}-{digest.hexdigest()}-"
+          key = f"{prefix}{os.environ['GITHUB_RUN_ID']}-{os.environ['GITHUB_RUN_ATTEMPT']}"
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"prefix={prefix}\nkey={key}\n")
+          print(f"Pilot cache prefix: {prefix}")
+          EOF
+      - name: Restore pilot data from cache
+        id: pilot-cache
+        if: github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
+        uses: actions/cache/restore@v6
+        with:
+          path: data/raw/grabmyo-flow
+          key: ${{ steps.pilot-key.outputs.key }}
+          restore-keys: ${{ steps.pilot-key.outputs.prefix }}
+      - name: Download pilot on a cache miss
+        if: >-
+          github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
+          && steps.pilot-cache.outputs.cache-matched-key == ''
+        timeout-minutes: 45
         env:
           MYOSHIFT_PILOT_DESTINATION: data/raw/grabmyo-flow
         run: |
-          .venv/bin/python -m pytest -o addopts= -m network -q
-          .venv/bin/python -m pytest -o addopts= -m "not network" --cov=myoshift --cov-fail-under=90 -q
+          for attempt in 1 2 3; do
+            if bash scripts/download_pilot.sh --destination "$MYOSHIFT_PILOT_DESTINATION"; then
+              exit 0
+            fi
+            echo "::warning::Pilot download attempt $attempt of 3 failed"
+            if [ "$attempt" -lt 3 ]; then
+              sleep 60
+            fi
+          done
+          echo "::error::Pilot download failed after 3 attempts"
+          exit 1
+      - name: Fresh download acceptance
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        timeout-minutes: 30
+        env:
+          MYOSHIFT_PILOT_DESTINATION: data/raw/grabmyo-flow
+        run: .venv/bin/python -m pytest -o addopts= -m network -q
+      - name: Verify pilot checksums
+        env:
+          MYOSHIFT_PILOT_DESTINATION: data/raw/grabmyo-flow
+        run: |
+          .venv/bin/python - <<'EOF'
+          import hashlib
+          import json
+          import os
+          import sys
+          from pathlib import Path
+
+          root = Path(os.environ["MYOSHIFT_PILOT_DESTINATION"])
+          listed = {}
+          for line in (root / "SHA256SUMS.txt").read_text().splitlines():
+              digest, name = line.split(maxsplit=1)
+              listed[name.lstrip("*").removeprefix("./")] = digest
+          results = json.loads(Path("results/results.json").read_text())
+          committed = results["provenance"]["data_sha256"]
+          base = root / "static_extension_WFDB"
+          found = {
+              path.relative_to(base).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+              for path in sorted(base.rglob("*"))
+              if path.suffix in (".dat", ".hea")
+          }
+          errors = ["partial download left behind: " + str(path) for path in root.rglob("*.part")]
+          if len(found) != 2 * results["config"]["n_records"] or set(found) != set(committed):
+              errors.append(f"pilot inventory mismatch: {len(found)} waveform and header files")
+          for name, value in found.items():
+              if listed.get("static_extension_WFDB/" + name) != value:
+                  errors.append("SHA256SUMS.txt mismatch: " + name)
+              if committed.get(name) != value:
+                  errors.append("results/results.json mismatch: " + name)
+          if errors:
+              print("\n".join(errors[:20]))
+              sys.exit(1)
+          print(f"Verified {len(found)} pilot files against SHA256SUMS.txt and results/results.json")
+          EOF
+      - name: Save pilot data to cache
+        if: steps.pilot-cache.outputs.cache-matched-key == ''
+        uses: actions/cache/save@v6
+        with:
+          path: data/raw/grabmyo-flow
+          key: ${{ steps.pilot-key.outputs.key }}
+      - name: Complete suite
+        timeout-minutes: 30
+        env:
+          MYOSHIFT_PILOT_DESTINATION: data/raw/grabmyo-flow
+        run: .venv/bin/python -m pytest -o addopts= -m "not network" --cov=myoshift --cov-fail-under=90 -q
       - name: Generated document consistency
         run: .venv/bin/python scripts/generate_documents.py --check
       - name: Publication history and input-byte audit
